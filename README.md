@@ -1,1 +1,2 @@
-# hustpc-project
+## Problem Description
+Computers and IT equipment website The HUST-PC brand is a shop specializing in selling assembled computers and IT equipment. Currently, this brand has 3 different stores. When users order computers and IT equipment, they can customize the machine's configuration and choose a store to pick up. HUST-PC will import components from one of its stores and assemble. When the computer/equipment is assembled, the system will notify the customer.
