@@ -5,7 +5,8 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 *:focus {
@@ -45,6 +46,7 @@ html {
     justify-content: space-between;
     padding: 0 20px;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .nav li a {
@@ -58,7 +60,7 @@ html {
     text-decoration: none;
 }
 
-.nav li i {
+.all-categories i {
     /* font-weight: 600; */
     margin-right: 12px;
     font-size: 18px;
@@ -85,8 +87,10 @@ html {
     border-radius: 14px 0 0 14px;
     border: none;
     font-size: 17px;
+    line-height: 20px;
     padding-left: 24px;
     padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header-search form div input {
@@ -110,10 +114,10 @@ html {
     border-radius: 0 14px 14px 0;
     border: none;
     background: #ffc107;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
     margin-left: 0px;
-    font-size: 14px;
+    font-size: 16px;
     justify-content: center;
 }
 
