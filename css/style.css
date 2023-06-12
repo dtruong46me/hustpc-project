@@ -28,10 +28,9 @@ html {
     height: 54px;
     text-transform: uppercase;
     align-items: center;
+    /* padding: 0 20px; */
     justify-content: space-between;
-    padding: 0 20px;
     white-space: nowrap;
-    cursor: pointer;
 }
 
 .nav li a {
@@ -39,6 +38,9 @@ html {
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
+    padding: 19px 20px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .nav li a:hover {
@@ -57,6 +59,8 @@ html {
     text-decoration: none;
     font-size: 16px;
     font-weight: 700;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 /* header-search */
