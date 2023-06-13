@@ -13,16 +13,6 @@ html {
     outline: none;
 }
 
-.nav {
-    display: flex;
-    list-style-type: none;
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .nav li {
     display: flex;
     height: 54px;
@@ -78,7 +68,7 @@ html {
 
 .header-search form div input {
     flex: 1;
-    width: 482px;
+    width: 472px;
     height: 54px;
     border: none;
     margin-right: 0px;
@@ -159,13 +149,6 @@ html {
     align-items: center;
 }
 
-.header-cart a div i {
-    font-size: 30px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
 .header-cart a div .notifi-nums {
     width: 20px;
     height: 20px;
@@ -182,32 +165,15 @@ html {
     font-weight: 600;
 }
 
-.header-cart a .cart-notification {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 42px;
-    height: 36px;
-}
-
-.header-cart a h2 {
-    margin-left: 15px;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
 .header-function {
     display:flex; 
-    position: absolute;
-    top: 40px;
+    /* position: absolute; */
+    width: 1244px;
+    /* top: 40px; */
     right: 124px;
-    padding: 10px;
+    padding: 5px 10px 40px 10px;
     align-items: center;
-}
-
-.header-support, .header-cart {
-    margin-left: 42px;
+    justify-content: space-between;
 }
 
 /* style footer */
@@ -280,7 +246,7 @@ html {
 
 /* style body 2 */
 #body2 div .body__product {
-    position: absolute; 
+    /* position: absolute;  */
     /* top: 40px; 
     left: 80px;  */
     width: 344px; 
