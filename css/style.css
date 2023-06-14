@@ -244,6 +244,19 @@ html {
     border: 2px solid white;
 }
 
+/* style body 1 */
+#body1 .best-seller-container>div .brand1 {
+    width: 140px; height: 140px; background-color: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;
+} 
+
+#body1 .best-seller-container>div .brand1 img {
+    object-fit: cover; min-width: 100%; max-width: 100%;
+}
+
+#body1 .slide__level1 .slide__left .slide-navi .navi-container input {
+    width: 15px; height: 15px;
+}
+
 /* style body 2 */
 #body2 div .body__product {
     /* position: absolute;  */
@@ -263,7 +276,8 @@ html {
     width: 292px; 
     height: 310px; 
     background-color: #2c3e50; 
-    border-radius: 7px;display: flex; 
+    border-radius: 7px;
+    display: flex; 
     align-items: center; 
     justify-content: center; 
     overflow: hidden;
