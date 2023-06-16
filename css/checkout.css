@@ -92,7 +92,7 @@ html {
 }
 
 #body .checkout__navi .feature p {
-    text-align: center; padding: 20px; font-size: 16px; font-weight: 400; text-transform: uppercase; color: #ffc107;
+    text-align: center; padding: 20px 0 20px 0; font-size: 16px; font-weight: 400; text-transform: uppercase; color: #ffc107;
 }
 
 #body .checkout__navi .line {
@@ -155,4 +155,8 @@ textarea {
 
 .place__order .product__subtotal {
     width: 92px; justify-content: center;
+}
+
+.place-order-btn button {
+    background-color: #ffc107; width: 176px; height: 40px; border-radius: 7px; font-size: 16px; font-weight: 600; color: #2c2c2c; text-transform: uppercase; margin: 10px 8px 20px 8px; cursor: pointer; border: none;
 }
