@@ -97,13 +97,17 @@ html {
 
 /* style main products */
 
-#body .items-list .checkbox {
+#body .items-list .checkboxx {
     width: 76px; display: flex; align-items: center; justify-content: center;
 }
-#body .items-list .checkbox .input {
-    
-    border: 1.7px solid #2c3e50;
-    background-color: #ffc107;
+
+#body .items-list .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1.8px solid #2c3e50;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
 }
 
 #body .items-list .products {
