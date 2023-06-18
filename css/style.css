@@ -244,6 +244,99 @@ html {
     border: 2px solid white;
 }
 
+/* style body 1 */
+#body1 .best-seller-container>div .brand1 {
+    width: 140px; height: 140px; background-color: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;
+} 
+
+#body1 .best-seller-container>div .brand1 img {
+    object-fit: cover; min-width: 100%; max-width: 100%;
+}
+
+#body1 .slide__level1 .slide__left .slide-navi .navi-container input {
+    width: 15px; height: 15px;
+}
+
+/* style slider */
+.slide__left {
+    position: relative;
+    width: 710px;
+    height: 563px;
+    background-color: white;
+    border-radius: 14px;
+    filter: drop-shadow(0px 0px 7.03333px rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+    text-align: center;
+}
+
+.slide__left .menu {
+    position: absolute;
+    z-index: 900;
+    width: 192px;
+    bottom: 15px;
+    background-color: white;
+    height: 50px;
+    filter: drop-shadow(0px 0px 7.03333px rgba(0, 0, 0, 0.25));
+    border-radius: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slide__left input {
+    display: none;
+}
+
+.menu label {
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #2c3e50;
+    background: #fff;
+    border-radius: 50px;
+    margin: 13px 2px 2px;
+    /* margin: .2em .2em .1em; */
+    &:hover {
+    background: #2c3e50;
+    }
+}
+
+.slide__left .slide {
+    width: 710px;
+    height: 563px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: left 0s .75s;
+}
+
+.slide img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+[id^="slide"]:checked + .slide {
+    left: 0;
+    z-index: 100;
+    transition: left .65s ease-out;
+}
+
+.slide__left .sliders>div {
+    width: 710px;
+    height: 563px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
+}
+
 /* style body 2 */
 #body2 div .body__product {
     /* position: absolute;  */
@@ -263,7 +356,8 @@ html {
     width: 292px; 
     height: 310px; 
     background-color: #2c3e50; 
-    border-radius: 7px;display: flex; 
+    border-radius: 7px;
+    display: flex; 
     align-items: center; 
     justify-content: center; 
     overflow: hidden;
