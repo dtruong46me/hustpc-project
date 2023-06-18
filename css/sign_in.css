@@ -1,0 +1,110 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+
+html {
+	font-family: 'Roboto', sans-serif;
+	background-color: #2c3e50;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+.main-sign-in {
+/*	display: flex;*/
+	margin: auto;
+	position: relative;
+	text-align: center;
+	width: 463px;
+	height: 135px;
+
+
+}
+
+.sign-in-1 {
+	position: relative;
+	font-size: 64px;
+	padding-bottom: 98px;
+/*	text-align: center;*/
+	font-weight: 700;
+	width: 298px;
+	height: 75px;
+	line-height: 75px;
+	margin: auto;
+
+}
+
+.sign-in-and {
+	position: relative;
+	font-size: 24px;
+	width: 463px;
+	height: 28px;
+	line-height: 28px;
+}
+#Sign {
+	color: white;
+}
+#in {
+	color: #FFC107 ;
+}
+
+.username, .password {
+	width: 500px; height: 114px; position:relative; margin: auto;
+
+}
+
+.Enter_Username, .Enter_Password {
+	width:500px; 
+	height:80px; 
+	background-color: rgba(255, 255, 255, 0.6); 
+	border-radius: 12px;
+
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
+	transform: translate(50%, 27%);
+}
+
+.icon-visible {
+	display: block;
+	margin-left: auto;
+	transform: translate(-27px,-33px);
+}
+
+#user_slash, #pwd_slash {
+	border: 1px; 
+	width: 1px; 
+	height: 43px; 
+	background-color: #2C3E50;
+	position: absolute;
+	transform: translate(45px, 17px);
+
+}
+
+
+#user-inp, #pwd-inp{
+	position: absolute;
+	display: flex;
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px ;
+	transform: translate(120px, -52px);
+	background-color: rgba(255, 255, 255, 0.6) ;
+	color: #2C3E50;
+	border: 0;
+	outline: 0;
+	width: 380px;
+	height: 77px;
+	font-size: 28px;
+	font-style: italic;
+	line-height: 50px;
+	background: transparent;
+}
+
+
