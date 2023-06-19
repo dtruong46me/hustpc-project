@@ -192,7 +192,7 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: #059FFF;
+    color: #2c2c2c;
 }
 
 .Header_page a {
@@ -200,7 +200,7 @@ html {
 }
 
 .Header_page a:visited {
-    color: #059FFF;
+    color: #2c2c2c;
 }
 
 .item {
@@ -263,7 +263,7 @@ html {
 }
 
 .select-button {
-    background-color: #7ade90;
+    background-color: white;
     width: 220px;
     height: 50px;
     border-radius: 10px;
@@ -276,11 +276,14 @@ html {
 }
 
 .select-button:hover {
-    background-color: white;
+    background-color: #2C3E50;
+    color: white;
+    cursor: pointer;
 }
 
 .select-button:active {
-    background-color: #2C3E50;
+    background-color: white;
+    color: black;
 }
 
 
