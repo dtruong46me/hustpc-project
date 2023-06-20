@@ -207,6 +207,10 @@ html {
 }
 
 /* style footer */
+#footer {
+    transform: translateY(750%);
+}
+
 #footer div h1 {
     font-size: 21px;
     line-height: 25px;
@@ -337,28 +341,95 @@ html {
     text-align: center;
 }
 
-.qty_ordered {
-    width: auto;
+/*.qty_ordered {
+    width: 1516px;
     height: 53px;
     transform: translateY(70px);
 
+}*/
+.qty-button {
+    width: 141px;
+    height: 53px;
+    display: flex;
+}
+.click-button {
+    transform: translate(65%, 70px);
+    width: 567px; 
+    height: 53px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
 }
 .qty-button {
     width: 141px;
     height: 53px;
+    display: flex;
 }
-
 .qty-button button{
-    display: flex; align-items: center; justify-content: center;background-color: #fff; width: 32px; height: 32px; border: 1px solid #838383;  cursor: pointer;
-    float: left;
+    display: flex; align-items: center; justify-content: center;background-color: #fff; width: 38px; height: 53px; border: 1px solid #838383;  cursor: pointer;
+    
 }
 
 .qty-button input {
-    width: 42px; height: 32px; border: 1px solid #838383; border-left: 0; border-right: 0; text-align: center; font-size: 18px; font-weight: 500; color: #2c2c2c;
-    float: left;
+    width: 65px; height: 53px; border: 1px solid #838383; border-left: 0; border-right: 0; text-align: center; font-size: 24px; font-weight: 500; color: #2c2c2c;
+
 }
 
-.buy-button {
+.buy-button{
     width: 178px; height:53px; background-color:#2C3E50; color: white; cursor: pointer;
-    text-align: center; font-size: 18px; float: left;
+    text-align: center; font-size: 18px; 
+}
+
+.add-to-cart {
+    width: 178px; height:53px; border: 0.5px solid black; color: black; cursor: pointer;
+    text-align: center; font-size: 18px; 
+}
+
+.product_description {
+    transform: translateY(50%);
+    width: 957px;
+    height: 361px;
+    margin: auto;
+    align-items: center;
+}
+.des_nav_bar {
+/*    transform: translateY(p);*/
+    display:flex; margin:auto; justify-content: space-between; width: 500px; height: 40px;
+}
+
+.des_nav_bar div {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.des_content {
+    transform: translateY(70px);
+    width: 957px;
+    height: 241px;
+}
+
+.first-paragraph p, .second-paragraph p {
+    padding-top: 10px;
+}
+
+.related {
+    width: 1492px;
+    height: 782px;
+    background-color: gray;
+    margin: auto;
+    align-items: center;
+    transform: translateY(30%);
+}
+
+
+
+
+
+.review {
+    width: 1547px;
+    height: 522px;
+    background-color: #2C3E50;
+    margin: auto;
+    align-items: center;
+    transform: translateY(60%);
 }

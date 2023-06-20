@@ -16,7 +16,7 @@
         <!-- BEGIN: Header -->
         <div id="header" style="width: 100%; height: 211px;position: relative; background-color: #2c3e50;">
             <div class="head-header">
-                <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto; position: absolute; top: 22px; left: 124px;"></a>
+                <a href="../html/index.html" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto; position: absolute; top: 22px; left: 124px;"></a>
 
                 <div class="header-function">
                     <!-- header-search -->
@@ -165,9 +165,9 @@
             </div>
 
             <!-- ----Quantity Order and Buy now----- -->
-            <div class="qty_ordered">
-                <div class="click-button" style="width:567px; height:53px; float: right;">
-                    <span class="qty-button">
+            <!-- <div class="qty_ordered"> -->
+                <div class="click-button">
+                    <div class="qty-button">
                         <button style="border-radius: 7px 0 0 7px;">
                             <i class="fa-solid fa-minus"></i>
                         </button>
@@ -175,36 +175,59 @@
                         <button style="border-radius: 0 7px 7px 0;">
                             <i class="fa-solid fa-plus"></i>
                         </button>
-                    </span>
+                    </div>
 
-                    <span class="buy-button">
-                        Buy now
-                    </span>
+                    <div class="buy-button">
+                        <p style="transform: translateY(15px);">Buy now</p>
+                    </div>
 
+                    <div class="add-to-cart">
+                        <p style="transform: translateY(15px);">Add to cart</p>
+                    </div>
                 </div>
-            </div>
+            <!-- </div> -->
 
             <!-- ----Product Description---- -->
             <div class="product_description">
                 <div class="des_nav_bar">
-                    
+                    <div style="cursor: pointer; border-bottom: 1px solid black;">Description</div>
+                    <div style="cursor: pointer;"> Specification</div>
+                    <div style="cursor: pointer;">Reviews</div>
                 </div>
-                <div class="des-content">
-                    
+                <div class="des_content">
+                    <div class="first-paragraph">
+                        <p>The LG C2 42 (106cm) 4K Smart OLED evo TV is the best all-around OLED TV we've tested. Although all OLEDs deliver similar fantastic </p> 
+                        <p> picture quality, this one stands out for its value because it has many gaming-oriented features that are great for gamers.</p>
+                    </div>
+                    <div class="second-paragraph" style="padding-top: 30px;">
+                        <p>
+                        *Only 65G2 is shown in the image for example purposes. All 2022 LG OLED models feature eco-friendly packaging.
+                        </p>
+                        <p>
+                        **65C2 Stand model is at a minimum 39% lighter than the C1 series.
+                        </p>
+                        <p>
+                        ***The 'Reducing CO2' footprint label applies to 65C2 only. All other C2 models feature a 'CO2 Measured' label.
+                        </p>
+                        <p>
+                        ****UL ECV certification based on TV frame and back cover. Percentage of recycled content varies by model and size.
+                        </p>
+                    </div>
+
+                    <div style="cursor: pointer; padding-top: 10px; font-weight: 600;">Show more</div>
                 </div>
+            </div>
 
             <!-- ----Related Products---- -->
             <div class="related">
-                <p id="related_title">
-                    
+                <p id="related_title" style="text-align: center; font-size:35px; font-weight:500;">
+                    Related Products
                 </p>
 
                 <!-- ----The slider----- -->
                 <div class="related_products">
                     
                 </div>
-
- 
             </div>
 
             <!-- ----Reviews---- -->
@@ -218,7 +241,7 @@
 
 
         <!-- BEGIN: Footer -->
- <!--        <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; position: relative; display: flex;">
+        <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; position: relative; display: flex;">
             <div class="column1">
                 <img src="../assets/imgs/hust-pc-logo.png" alt="" class="footer-logo" style="width: 118px; position: absolute; top: 32px; left: 172px;">
                 <form class="subcribe__area" style="position: absolute; top: 189px; left: 175px;">
@@ -294,7 +317,7 @@
                     <h3 style="font-size: 13px; font-weight: 400; margin-left: 9px;">Copyright | 2023 | All Right Reserved</h3>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- END: Footer -->
 
     </div>
