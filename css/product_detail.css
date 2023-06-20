@@ -211,6 +211,9 @@ html {
     transform: translateY(750%);
 }
 
+.column1, .column2, .column3, .column4 {
+    padding-right: 50px;
+}
 #footer div h1 {
     font-size: 21px;
     line-height: 25px;
@@ -278,8 +281,13 @@ html {
     border: 2px solid white;
 }
 .checked {
-  color: #FFC107;
-  margin-right: 10px;
+    color: #FFC107;
+}
+.unchecked {
+    color: white;
+}
+.fa-star{
+    margin-right: 15px;
 }
 
 .product_info {
@@ -421,8 +429,21 @@ html {
     transform: translateY(30%);
 }
 
+.related_products {
+    width: 1492px;
+    height: 598px;
+    background-color: blue;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(25px);
+}
 
-
+.prod {
+    width: 344px;
+    height: 598px;
+    background-color: maroon;
+}
 
 
 .review {
@@ -432,4 +453,34 @@ html {
     margin: auto;
     align-items: center;
     transform: translateY(60%);
+}
+
+.rate-line {
+    padding-left: 70px; 
+    padding-bottom: 45px;
+    display:flex; 
+    justify-content: space-between; 
+    width:600px; 
+    height:29px;
+}
+
+.comment {
+    width: 818px;
+    height: 417px;
+/*    display: flex;*/
+    margin: auto;
+    transform: translate(350px, -270px);
+}
+
+.comment p{
+    font-size: 21px;
+    color: white;
+    padding-top: 40px;
+}
+
+.horizontal-line {
+    width: 760px;
+    height: 1px;
+    background-color: white;
+    margin-top: 30px;
 }
