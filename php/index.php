@@ -27,7 +27,26 @@
                                     <option value="">Build PC</option>
                                     <option value="395">CPU</option>                            
                                     <option value="394">RAM</option>
-                                    <option value="394">Lorem ipsum</option>
+ 
+                                    <?php
+                                    // Kết nối đến CSDL
+                                    include "config.php";
+
+                                    // Truy vấn danh sách danh mục
+                                    $sql = "SELECT * FROM products";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option>" . $row['pname'] . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=''>No categories found</option>";
+                                    }
+
+                                    $conn->close();
+                                    ?>
+
                                 </select>
                             </div>
                             <div class="search-form-container">
