@@ -1,3 +1,8 @@
+DROP DATABASE hustpc_db;
+
+CREATE DATABASE hustpc_db;
+USE hustpc_db;
+
 CREATE TABLE IF NOT EXISTS Categories (
     category_id CHAR(20) PRIMARY KEY,
     category_name CHAR(100),
@@ -11,7 +16,7 @@ CREATE TABLE IF NOT EXISTS Products (
     price FLOAT,
     category_id CHAR(20),
     FOREIGN KEY (category_id) REFERENCES Categories(category_id),
-    qty_in_store INT;
+    qty_in_store INT
 );
 
 CREATE TABLE IF NOT EXISTS Configuration (
@@ -63,8 +68,6 @@ CREATE TABLE IF NOT EXISTS OrderItems (
 
 CREATE TABLE IF NOT EXISTS Cart (
     cart_id CHAR(20) PRIMARY KEY,
-    customer_id CHAR(20),
-    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     total_money FLOAT
 );
 
