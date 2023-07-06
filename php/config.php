@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "dtruong46me";
 $password = "Truong31122002";
-$database = "db_example";
+$database = "hustpc_db";
 
 // Tạo kết nối đến CSDL
 // $conn = mysqli_connect($servername, $username, $password, $database);

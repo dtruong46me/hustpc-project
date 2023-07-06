@@ -23,22 +23,18 @@
                         <form class="search-form" style="display: flex; height: 54px; align-items: center;">
                             <div class="select-wrapper">
                                 <select name="scat_id">
-                                    <option value="">Select Categories</option>
-                                    <option value="">Build PC</option>
-                                    <option value="395">CPU</option>                            
-                                    <option value="394">RAM</option>
- 
+                                    <option value="">Select Categories</option> 
                                     <?php
                                     // Kết nối đến CSDL
                                     include "config.php";
 
                                     // Truy vấn danh sách danh mục
-                                    $sql = "SELECT * FROM products";
+                                    $sql = "SELECT * FROM categories";
                                     $result = $conn->query($sql);
 
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
-                                            echo "<option>" . $row['pname'] . "</option>";
+                                            echo "<option>" . $row['category_name'] . "</option>";
                                         }
                                     } else {
                                         echo "<option value=''>No categories found</option>";
@@ -194,209 +190,65 @@
 
 
         <div id="body2" style="position: relative; width: 100%; background-color: #f6f6f6;">
-            <div class="row1" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 40px;">
-                <a href="" class="body__product">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/cpu-intel-lake-core-i9-10900k.jpg" alt="">
-                    </div>
-                    <div class="product__tags">CPU</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Lenovo IdeaPad 110-1515K Laptop - 15.6' Intel Core i3 - 1TB HDD - 4GB RAM...</span>
-                    </div>
-                    <h2 class="product__price">$ 212.30</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+        <?php
+include "config.php";
 
-                <a href="" class="body__product">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/13-144-303-V03.jpg" alt="">
-                    </div>
-                    <div class="product__tags">Cpu</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">MSI MAG Z490 TOMAHAWK LGA 1200 Intel Z490 SATA 6Gb/s ATX Intel Mot...</span>
-                    </div>
-                    <h2 class="product__price">$ 212.30</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+// Truy vấn để lấy thông tin sản phẩm
+$query = "SELECT p.product_id, p.pname, min(config_price) as config_price, p.qty_in_store, c.category_name
+        FROM categories c JOIN products p ON p.category_id = c.category_id
+        JOIN configurations cfg ON cfg.product_id = p.product_id
+        GROUP BY p.product_id
+        ORDER BY qty_in_store DESC
+        LIMIT 4";
 
-                <a href="" class="body__product"">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/AT5SS210225BHlYA.jpg" alt="">
-                    </div>
-                    <div class="product__tags">Case fan</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Iceberg Thermal IceGALE Xtra 120mm PWM High Performance Case Fan...</span>
-                    </div>
-                    <h2 class="product__price">$ 34.99</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+    // Hiển thị sản phẩm
+    echo '<div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">';
 
-                <a href="" class="body__product"">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/AZUES211009qrp8O.jpg" alt="">
-                    </div>
-                    <div class="product__tags">GPU</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Yeston Radeon R7 350-4G 6HDMI 4GB 128bit GDDR5 800MHz 512processors...</span>
-                    </div>
-                    <h2 class="product__price">$ 179.00</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+    while ($row = $result->fetch_assoc()) {
+        $product_id = $row["product_id"];
+        $product_name = $row["pname"];
+        $product_price = $row["config_price"];
+        $product_category = $row["category_name"];
+
+        // Giới hạn độ dài của tên sản phẩm
+        $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
+
+        echo '<a href="" class="body__product">';
+        echo '<div class="image-product">';
+        echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">'; // Đường dẫn ảnh từ cơ sở dữ liệu
+        echo '</div>';
+        echo '<div class="product__tags">' . $product_category . '</div>';
+        echo '<div class="product__breakline"></div>';
+        echo '<div class="product__name">';
+        echo '<span class="text-limit">' . $product_name . '</span>'; // Tên sản phẩm từ cơ sở dữ liệu
+        echo '</div>';
+        echo '<h2 class="product__price">$ ' . $product_price . '</h2>'; // Giá từ cơ sở dữ liệu
+        
+        echo '<div class="product__rate">
+            <div class="star__rate">
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
+                <i class="fa-sharp fa-solid fa-star"></i>
             </div>
+            <div class="rate__num">(49)</div>
+        </div>';
+        echo '</a>';
+    }
 
-            <div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">
-                <a href="" class="body__product">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/cpu-intel-lake-core-i9-10900k.jpg" alt="">
-                    </div>
-                    <div class="product__tags">CPU</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Lenovo IdeaPad 110-1515K Laptop - 15.6' Intel Core i3 - 1TB HDD - 4GB RAM...</span>
-                    </div>
-                    <h2 class="product__price">$ 212.30</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+    echo '</div>';
+} else {
+    echo "Cannot find product!";
+}
 
-                <a href="" class="body__product">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/13-144-303-V03.jpg" alt="">
-                    </div>
-                    <div class="product__tags">Cpu</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">MSI MAG Z490 TOMAHAWK LGA 1200 Intel Z490 SATA 6Gb/s ATX Intel Mot...</span>
-                    </div>
-                    <h2 class="product__price">$ 212.30</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
+$conn->close();
+?>
 
-                <a href="" class="body__product"">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/AT5SS210225BHlYA.jpg" alt="">
-                    </div>
-                    <div class="product__tags">Case fan</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Iceberg Thermal IceGALE Xtra 120mm PWM High Performance Case Fan...</span>
-                    </div>
-                    <h2 class="product__price">$ 34.99</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
 
-                <a href="" class="body__product"">
-                    <div class="image-product">
-                        <div class="sale__value">
-                            - 30%
-                        </div>
-                        <img src="../assets/imgs/AZUES211009qrp8O.jpg" alt="">
-                    </div>
-                    <div class="product__tags">GPU</div>
-                    <div class="product__breakline"></div>
-                    <div class="product__name">
-                        <span class="text-limit">Yeston Radeon R7 350-4G 6HDMI 4GB 128bit GDDR5 800MHz 512processors...</span>
-                    </div>
-                    <h2 class="product__price">$ 179.00</h2>
-                    <div class="product__rate">
-                        <div class="star__rate">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-                        <div class="rate__num">(49)</div>
-                    </div>
-                </a>
-            </div>
+
 
             <a href="" class="showmore-btn" style="background-color: #2c3e50; border-radius: 7px; display: flex; justify-content: center; width: 178px; height: 43px; margin: auto; margin-top: 40px;">
                 <button type="submit" class="showmore__btn" style="background-color: #2c3e50; border-radius: 7px; font-size: 17px; color: #ffc107; text-transform: uppercase; font-weight: 600; border: none; cursor: pointer;">
