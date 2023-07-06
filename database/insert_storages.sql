@@ -177,68 +177,146 @@ SATA 6Gb/s interface optimizes burst performance; 256MB Cache',
 	166),
 
 	('STG-018',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Synology HAT3300 8TB Plus Series SATA HDD 3.5',
+	'Reliable Always-On Operation
+Backed by 1 million hours MTBF and 180 TB/year
+workload rating
+Tested for Maximum Reliability
+Stringent validation and up to 300,000 hours of testing
+ensure reliability in Synology systems
+Seamless Firmware Updates
+Firmware updates can be performed directly in
+Synology DSM
+Reliable Recording Technology
+Conventional magnetic recording (CMR) technology
+offers consistent performance',
 	'category8',
 	167),
+
 	('STG-019',
-	'Synology HAT3300 8TB Plus Series SATA HDD 3.5',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Red Plus 6TB NAS Hard Disk Drive - 5400 RPM Class SATA 6Gb/s, CMR, 256MB Cache, 3.5 Inch - WD60EFPX',
+	'Available in capacities ranging from 1-14TB1 with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware™ firmware for compatibility
+Built for small or medium business NAS systems in a 24/7 environment
+3-year limited warranty',
 	'category8',
 	168),
+
 	('STG-020',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Seagate IronWolf 12TB NAS Hard Drive 7200 RPM 256MB Cache SATA 6.0Gb/s CMR 3.5" Internal HDD for RAID Network Attached Storage NE-ST12000VN0008',
+	'Range of capacities up to 16TB.
+Workload rate of 180TB/year.
+Optimized for NAS with AgileArray, enables dual-plane balancing and RAID optimization in multi-bay environments.
+Actively protect your NAS with IronWolf Health Management.
+Rotational Vibration (RV) sensors.
+Always-on, always-accessible 24x7 performance.
+1M hours MTBF.',
 	'category8',
 	169),
+
 	('STG-021',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Seagate BarraCuda NE-ST8000DM004 8TB 5400 RPM 256MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive Bare Drive',
+	'Cost-effective storage upgrade for laptop or desktop computers
+Store all your games, music, movies and more with up to 8TB of storage
+SATA 6Gb/s interface optimizes burst performance; 256MB Cache
+Seagate Secure models for hardware-based data security
+Instant Secure Erase allows safe and easy drive retirement',
 	'category8',
 	170),
+
 	('STG-022',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Blue 2TB Desktop Hard Disk Drive - 7200 RPM SATA 6Gb/s 256MB Cache 3.5 Inch - WD20EZBX',
+	'Reliable everyday computing
+Western Digital quality and reliability
+Free Acronis True Image WD Edition cloning software
+Massive capacity up to 8TB
+2-year limited warranty',
 	'category8',
 	171),
+
 	('STG-023',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Synology HAT3300 4TB Plus Series SATA HDD 3.5',
+	'Reliable Always-On Operation
+Backed by 1 million hours MTBF and 180 TB/year
+workload rating
+ Tested for Maximum Reliability
+Stringent validation and up to 300,000 hours of testing
+ensure reliability in Synology systems
+ Seamless Firmware Updates
+Firmware updates can be performed directly in
+Synology DSM
+ Reliable Recording Technology
+Conventional magnetic recording (CMR) technology
+offers consistent performance',
 	'category8',
 	172),
+
 	('STG-024',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Seagate IronWolf Pro 18TB NAS Hard Drive 7200 RPM 256MB Cache CMR SATA 6.0Gb/s 3.5" Internal HDD ST18000NE000',
+	'High Performance: All-CMR (conventional magnetic recording) portfolio enables consistent, industry-leading 24×7 performance allowing users to access data anytime, anywhere
+Class-Leading Dependability: Up to 300TB/year workload rating, 2.5M hours MTBF, and 5-year limited warranty for unparalleled total cost of ownership (TCO)
+Peace of Mind with Data Recovery: Complimentary 3 year Rescue Data Recovery Services for a hassle-free, zero-cost data recovery experience
+IronWolf Health Management: Helps protect data with prevention, intervention, and recovery recommendations to ensure peak system health
+Optimized for NAS: AgileArray with dual-plane balancing, time-limited error recovery (TLER), and rotational vibration (RV) sensors to deliver top RAID performance in multi-bay environments',
 	'category8',
 	173),
+
 	('STG-025',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Red Plus 10TB NAS Hard Disk Drive - 7200 RPM Class SATA 6Gb/s, CMR, 256MB Cache, 3.5 Inch - WD101EFBX',
+	'Available in capacities ranging from 1-14TB with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware firmware for compatibility
+Small or medium business NAS systems in a 24x7 environment
+3-year limited warranty',
 	'category8',
 	174),
+
 	('STG-026',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Seagate IronWolf Pro 8TB NAS Hard Drive 7200 RPM 256MB Cache CMR SATA 6.0Gb/s 3.5" Internal HDD ST8000NE001',
+	'High Performance: All-CMR (conventional magnetic recording) portfolio enables consistent, industry-leading 24×7 performance allowing users to access data anytime, anywhere
+Class-Leading Dependability: Up to 300TB/year workload rating, 2.5M hours MTBF, and 5-year limited warranty for unparalleled total cost of ownership (TCO)
+Peace of Mind with Data Recovery: Complimentary 3 year Rescue Data Recovery Services for a hassle-free, zero-cost data recovery experience
+IronWolf Health Management: Helps protect data with prevention, intervention, and recovery recommendations to ensure peak system health
+Optimized for NAS: AgileArray with dual-plane balancing, time-limited error recovery (TLER), and rotational vibration (RV) sensors to deliver top RAID performance in multi-bay environments',
 	'category8',
 	175),
+
 	('STG-027',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'Seagate IronWolf 8TB NAS Hard Drive 7200 RPM 256MB Cache SATA 6.0Gb/s CMR 3.5" Internal HDD for RAID Network Attached Storage ST8000VN004-NE',
+	'7200 RPM 256MB Cache
+SATA 6.0Gb/s
+For NAS systems',
 	'category8',
 	176),
+
 	('STG-028',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Red Plus 8TB CMR NAS Hard Drive HDD - 5640 RPM, SATA 6 Gb/s, 128MB Cache, 3.5" - WD80EFZZ',
+	'Available in capacities ranging from 1-14TB with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware firmware for compatibility
+Small or medium business NAS systems in a 24x7 environment
+3-year limited warranty',
 	'category8',
 	177),
+
 	('STG-029',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Red Pro WD201KFGX 20TB 7200 RPM 512MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive',
+	'Available in capacities ranging from 2 to 22TB with support for NAS systems with up to 24 bays
+Supports up to 300TB/year workload rate
+Enhanced reliability with 3D Active Balance™ Plus technology and error recovery controls with NASware™ 3.0 technology
+Extended drive testing to ensure each drive is tested for extended reliable operation
+5-year limited warranty',
 	'category8',
 	178),
+
 	('STG-030',
-	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
-	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'WD Red Pro WD181KFGX 18TB 7200 RPM 512MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive',
+	'Available in capacities ranging from 2 to 22TB with support for NAS systems with up to 24 bays
+Supports up to 300TB/year workload rate
+Enhanced reliability with 3D Active Balance™ Plus technology and error recovery controls with NASware™ 3.0 technology
+Extended drive testing to ensure each drive is tested for extended reliable operation
+5-year limited warranty',
 	'category8',
 	179),
 
