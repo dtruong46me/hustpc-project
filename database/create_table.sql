@@ -13,17 +13,16 @@ CREATE TABLE IF NOT EXISTS Products (
     product_id CHAR(20) PRIMARY KEY,
     pname CHAR(200),
     description LONGTEXT,
-    price FLOAT,
     category_id CHAR(20),
-    FOREIGN KEY (category_id) REFERENCES Categories(category_id),
-    qty_in_store INT
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id)    
 );
 
-CREATE TABLE IF NOT EXISTS Configuration (
+CREATE TABLE IF NOT EXISTS Configurations (
     product_id CHAR(20),
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     config_name CHAR(200),
-    config_price FLOAT
+    config_price FLOAT,
+    qty_in_store INT
 );
 
 CREATE TABLE IF NOT EXISTS Users (
