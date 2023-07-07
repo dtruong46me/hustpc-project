@@ -434,3 +434,857 @@ INSERT INTO configurations(product_id, config_name, config_price) VALUES
     ('GPU-030', 'VENTUS 3X 12G OC', 609.99), 
     ('GPU-030', 'VENTUS 2X 12G OC', 599.99), 
     ('GPU-030', 'VENTUS 3X 12G', 728.80);
+
+
+-- insert cases
+INSERT INTO products (product_id, pname, description, category_id, qty_in_store) VALUES
+    ("CASE-001", "Corsair 4000D Airflow CC-9011200-WW Black Steel / Plastic / Tempered Glass ATX Mid Tower Computer Case", "A Fitting Choice High-Airflow Front Panel. CORSAIR RapidRoute Cable Management System. Two Included 120mm Fans. Extreme Cooling Potential. Modern Front Panel I/O: Including a USB 3.1 Type-C Port, USB 3.0 port, and a combination audio/microphone jack.All the Storage You Need: Fits up to 2x SSDs and 2x HDDs. Tool-Free Tempered Glass Side Panel: Show off your high-profile components and RGB lighting.", "CATEG-06",423 ),
+    ("CASE-002", "Corsair iCUE 4000X RGB CC-9011204-WW Black Steel / Plastic / Tempered Glass ATX Mid Tower Computer Case. ", "Combining stylish tempered glass, customizable RGB lighting. Tempered Glass Side and Front Panels. CORSAIR RapidRoute Cable Management System. Three Included 120mm RGB Fans. Smart RGB Lighting out of the Box. A spacious interior fits up to 6x 120mm or 4x 140mm cooling fans. USB 3.1 Type-C Port, USB 3.0 port, and a combination audio/microphone jack. All the Storage You Need: Fits up to 2x SSDs and 2x HDDs.", "CATEG-06",123 ),
+    ("CASE-003", "Segotep Phoenix T1 E-ATX Full-Tower PC Gaming Case, GPU Vertical Mounting, Support Dual 360mm Water Cooling Radiators, Supports up to 7 Fans, Tempered Glass Side Panel, Front I/O USB 3.0 Type-C Port", "Spacious Open interior: Supports up to E-ATX motherboard, and up to 360mm water cooling radiator in front or 360mm in rear, with vertical GPU 345mm support which no need to worry about deformation. Tempered Glass Side Panel: Gaming PC Case with 0.7mmSPCC transparent tool-free glass side panel allows for a great view of your RGB components and internal hardware. Optimal Cooling Performance: Superior airflow with space for up to 7 case fans. The detachable fan bracket of the case can install 120mm or 140mm fans*3, and one 120mm on the top of the case, rear-mounted support optional 120mm fan*3 or 140mm fan*2. DUST-PROOF Design: The upper and lower parts are equipped with Pull-out dustproof filters, including the magnetic dust proof net on the front panel, which can effectively prevent dust from entering the case and easy to keep clean. Professional Cable Management: With an I/O port storage box on the top, which can easily accommodate external wiring such as DVI/HDMIM/USB.","CATEG-06", 314),
+    ('CASE-004', "Corsair 4000D Airflow CC-9011201-WW White Steel / Plastic / Tempered Glass ATX Mid Tower Computer Case","A Fitting Choice.High-Airflow Front Panel.CORSAIR RapidRoute Cable Management System.Two Included 120mm Fans.Extreme Cooling Potential.Modern Front Panel I/O: Including a USB 3.1 Type-C Port, USB 3.0 port, and a combination audio/microphone jack. All the Storage You Need: Fits up to 2x SSDs and 2x HDDs. Tool-Free Tempered Glass Side Panel: Show off your high-profile components and RGB lighting", "CATEG-06",451),
+    ('CASE-005', "Vetroo AL-MESH-7C Compact ATX PC Case, Front Power Supply, Top 360mm Radiator Support, Type-C & USB 3.0 I/O Panel, High-Airflow Mesh Gaming Case w/ Rear 120mm ARGB & PWM Fan","Front Power Supply: Saving the space of bottom and larger the application area of the case, improve the internal heat dissipation of the case.Top 360mm Radiator Support: Max 360mm radiator can be installed on the top, provide the better airflow for the case and save the life of radiator.Type-C & USB 3.0 Ready: Comes with Type-C and 2x USB 3.0 ports on the I/O panel, maintain faster transfer speeds without additional upgrades in the future.Pre-Installed ARGB & PWM Fan: Comes with 120mm ARGB & PWM fan in the rear, provides the case better airflow cooling and colorful.High-Airflow Mesh Panel: The mesh front and top panel with dust-tight hole design delivers massive airflow to your system for max cooling.Free-Tool Disassembly: Using the structure of tenon-and-mortise, just need to unscrew the top hand screw to disassemble the case.", "CATEG-06",452),
+    ('CASE-006', "Fractal Design North ATX mATX Mid Tower PC Case - North Charcoal Black with Walnut Front and Dark Tinted TG Side Panel","Sophisticated design accented with real walnut front. Designed for ATX / mATX / ITX motherboards. Supports GPUs up to 355 mm (with front fan). Supports GPUs up to 300 mm (with 360 mm front radiator). Comes with two dedicated 2.5 inches mounts and two 3.5 inches/2.5 inches mounts. Two Aspect 140 mm PWM fans included. Holds 6x 120 mm / 4x 140 mm fans. Comes with two combined 3.5 inches/2.5 inches mounts. Designated cable management area behind motherboard wall. Easy to build in", "CATEG-06",412),
+    ('CASE-007', "JONSBO D41 MESH SC BLACK ATX Computer Case with Sub HD-LCD Display, Support MB: ATX/M-ATX,Support GPU RTX 4090(335-400mm), AIO360/280/240, Power ATX/SFX: 100mm-220mm Multiple Tool-free Design, Black", "D41 'Pine cone' series-Mesh Screen Version:All-metal Compact ATX chassis with tempered glass-1 Side.Enter a new era of sub screen chassis:The 16:10/1280x800 resolution HD LCD display is combined with the chassis,One screen, dual purpose,new visual experience brings to you.Note : If the screen has compatibility problems during installation, please contact the customer service for solutions. (AIDA64 software needs to be purchased by users). Air cooler:168mm high-order.Support AIO:360/280 /240(Top).Drive Bay:2.5SSD*3+3.5HDD*2.Expansion Solt:7.GPU:335-400mm.MB Support: M-ATX/ATX(30.5x24.5cm).PSU: ATX/SFX:100-220mm L max.The 4-level height adjustment of the power supply position is added,Whether it is to set up a personal small workstation or a feverish E-sports PC, D41 can easily select the hardware.The power supply bit supports two-way installation.Multiple tool-free disassembly and installation design.Color : Black. Size :H407*W205*D452mm", "CATEG-06",321),
+    ('CASE-008', "CORSAIR iCUE 4000D RGB AIRFLOW Mid-Tower Case, Black - 3x AF120 RGB ELITE Fans - iCUE Lighting Node PRO Controller - High-airflow Design", "The award-winning 4000D RGB AIRFLOW case provides amazing out-of-the-box cooling and RGB lighting for your next build, with three AF120 RGB ELITE PWM fans and an iCUE Lighting Node PRO RGB lighting controller included. A spacious interior fits up to 8x 120mm or 4x 140mm cooling fans, along with multiple radiators including a 360mm in front and 280mm in the roof (dependent on RAM height)Support the latest graphics cards with room for up to a 360mm long GPU and two additional 120mm fan mounts on the PSU shroud for installing fans for direct airflow to the GPU. The AF120 RGB ELITE fans deliver powerful airflow at speeds up to 2,100 RPM and 65.57 CFM and feature CORSAIR AirGuide technology.Puts your connections within easy reach, including a USB 3.2 Gen 2 Type-C port, USB 3.2 Gen 1 Type A port, and a combination audio/mic jack.Fits up to 2x SSDs and 2x HDDs. Show off your high-profile components and RGB lighting behind a beautiful tool-free tempered glass side panel", "CATEG-06",124),
+    ('CASE-009', "Fractal Design Meshify C White - White Steel / Tempered Glass ATX Mid Tower High-Airflow Compact Clear Tempered Glass Computer Case",
+    "Dark tinted tempered glass side panel
+Streamlined high-airflow design
+Distinctive new styling with sharp, stealthy aesthetic
+Newly designed angular mesh front panel maximizes air intake
+Performance and capacity of a full tower in a compact mid-tower size
+Power supply shroud conceals drive cage and excess cabling
+3 radiator positions with up to triple fan in front and dual fan up top
+Fully adjustable and removable drive cage holds 2 x 3.5 inches /2.5 inches HDD/SSD
+SSD plate behind motherboard tray supports up to 3 x 2.5inches drives
+Easy-to-clean front-access removable filters on front, top and base", "CATEG-06", 315),
+    ('CASE-010', "CORSAIR iCUE 4000D RGB AIRFLOW Mid-Tower Case, True White - 3x AF120 RGB ELITE White Fans - iCUE Lighting Node PRO Controller - High-airflow Design",
+    "The award-winning 4000D RGB AIRFLOW - True White case provides amazing out-of-the-box cooling and RGB lighting for your next build, with three AF120 RGB ELITE PWM - White fans and an iCUE Lighting Node PRO RGB lighting controller included
+A spacious interior fits up to 8x 120mm or 4x 140mm cooling fans, along with multiple radiators including a 360mm in front and 280mm in the roof (dependent on RAM height)
+Support the latest graphics cards with room for up to a 360mm long GPU and two additional 120mm fan mounts on the PSU shroud for installing fans for direct airflow to the GPU
+The AF120 RGB ELITE - White fans deliver powerful airflow at speeds up to 2,100 RPM and 65.57 CFM and feature CORSAIR AirGuide technology
+Puts your connections within easy reach, including a USB 3.2 Gen 2 Type-C port, USB 3.2 Gen 1 Type A port, and a combination audio/mic jack
+Fits up to 2x SSDs and 2x HDDs
+Show off your high-profile components and RGB lighting behind a tool-free tempered glass side panel", "CATEG-06",654),
+('CASE-011', "be quiet! Pure Base 500DX Black, ATX Computer Case, ARGB, Mid Tower, Tempered Glass Window",
+    "German Engineering - German Design - German Quality - German Performance
+High airflow intake front panel and top cover for maximum performance
+Three Pure Wings 2 140mm fans guarantee high cooling performance and silent operation
+ARGB LED at the front and inside the case
+USB 3.1 Type C Gen. 2 for latest hardware
+Water cooling ready for radiators of up to 360mm
+Up to two SSDs can be installed prominently behind the window panel
+Generous space for high-end graphics cards and large coolers
+Side panel made of tempered glass", "CATEG-06",153),
+('CASE-012', "LIAN LI O11 Dynamic EVO O11DEX Black Aluminum / Steel / Tempered Glass ATX Mid Tower Computer Case",
+    "Support 9 x SSDs or 6 HDDs + 3 SSDs
+Changeable I/O port keeps front panel a clean look
+Top and side mesh panels provide optimized airflow
+Reversable layout with quick assembly, allowing users display the main chamber at left or right side", "CATEG-06",123),
+('CASE-013', "Rosewill PRISM S500 ATX Mid Tower Gaming PC Computer Case, Aura Sync Compatible Dual Ring RGB LED Fans, Top Mount PSU & HDD/SSD, Tempered Glass & Steel",
+    "SOFTWARE CONTROLLABLE: Supports up to 6 x 120mm fans controlled by 5V addressable RGB headers only. The 4 pre-installed RGB dual ring fans are ASUS Aura Sync and MSI Mystic Light compatible for a personalized display of synchronized LEDs and harmonious color schemes.
+UNIQUE LAYOUT: The mid tower ATX case features bottom intake fans, side panel/vertical mount water cooling support up to 240mm radiator, top mount PSU shroud and optimized airflow to keep your computer case and components well-ventilated.
+SLEEK SIMPLICITY: Less is more with sharp edges, solid front and top panels, clean RGB LED strips down both sides, discreet tempered glass mounting points combined with incredible vibrant colors and subtle textures.
+EXCELLENT CABLE MANAGEMENT: Show off your PC case without any distractions by tucking away HDD/SSD and power supply cables within the top PSU shroud for clean cable management and increased air circulation.", "CATEG-06",421),
+('CASE-014', "Phanteks Eclipse G360A PH-EC360ATG_DBK02 Black Steel / Tempered Glass ATX Mid Tower Computer Case",
+    "Steel / Tempered Glass ATX Mid Tower
+2 x USB 3.0 / Audio Front Ports
+2 (2x included) Internal 3.5'' Drive Bays", "CATEG-06",124),
+("CASE-015","Fractal Design Focus G Black ATX Mid Tower Computer Case",
+"Steel ATX Mid Tower
+Sleek mesh front panel design
+Silent Series LL White LED fans
+Full length graphics card support
+USB 3.0 | USB 2.0 | Audio I/O Front Ports
+Filtered front, top and base fan vents
+Vibration dampened universal drive bays
+Reusable ventilated expansion slot covers
+Kensington anti-theft padlock bracket
+Large side window for full interior visibility","CATEG-06",314),
+("CASE-016","LIAN LI LANCOOL 216RX Black Steel / Tempered Glass ATX Mid Tower Computer Case ,2x 16 cm ARGB Fans Included ----LANCOOL 216RX",
+"CONTINUOUS FRONT TOP MESH - To ensure adequate airflow is provided to the system, the LANCOOL 216 features mesh at the front, top, and on the PSU shroud's side. The front mesh extends to the top for a continuous mesh panel.
+2x160MM FRONT FANS AND 1x140MM REAR FAN INCLUDED
+LANCOOL 216 RGB FANS - The included 160mm ARGB fans feature two channels of LEDs that can be controlled separately via an optional accessory, or via the motherboard lighting software by connecting them directly to a motherboard 5V 3pin header.
+FRONT I/O CAN BE RELOCATED - Including a power button, reset button, audio port, 2x USB3.0 ports, and a USB type C port, the front I/O module can be relocated to the lower left side of the front panel.
+LATEST GEN, GPU READY - With enough room for graphics cards up to 392mm in length, and 180mm in height (for air cooling mode), the LANCOOL 216 is compatible with even the largest NVIDIA 4000 series cards.","CATEG-06",124),
+("CASE-017","Montech X3 Mesh 6pcs, 3 x 140mm& 3 x 120mm Fixed RGB Lighting Fans ATX Mid-Tower PC Gaming Case, USB3.0, Door Open Tempered Glass Side Panel, High Airflow, Black",
+"Unmatched Price per Performance - The Montech X3 is not just any PC Gaming case, it's an upgrade in every aspect compared to past X series cases. The X3 delivers the best Price per Performance ratio Montech has to offer!
+High Airflow - The Montech X3's triple front 140mm fans provides massive air intake, and with pre-mounted top and rear ventilation, optimizing the airflow system.
+RGB Lighting Show - All six pre-installed fans are fixed RGB lighting capable, you can turn the fan lighting on or off by simply pressing the LED button. Note: The lighting is fixed, not addressable, but can be turned turn off.
+Full Panoramic View - The Montech X3 features a full Panoramic Tempered Glass front and side panels, so you can easily showoff your battle system and RGB lighting.
+More Convenient, More Safe - The unique Side Swivel Tempered Glass Side Panel design is not only easier for users to unmount, the zero drill-hole design drastically improves the panel's strength integrity and safety.","CATEG-06",143),
+("CASE-018","Fractal Design Define R5 Black Silent ATX Midtower Computer Case",
+"Steel ATX Mid Tower
+Optimally designed for silent computing with high density noise-reducing material throughout
+Patent pending ModuVent design, allowing the user to either have optimal silence or optimal airflow
+Supports up to 4 radiators (1 X 420/360/280/240mm, 1 X 360/280/240mm, 1 X 240/120mm & 1 X 140/120mm)
+Newly configured front door with dual side mounting
+Fully removable 5.25'' drive cage
+Integrated 3 Speed Fan Controller
+Removable Dust Filters","CATEG-06",124),
+("CASE-019","Fractal Design Focus 2 RGB Black ATX mATX Mini ITX Clear Tinted Tempered Glass Mid Tower Computer Case",
+"Accommodates ATX / mATX / Mini ITX Motherboards
+Built-in ARGB controller with RGB power LED
+Easily mounted TG panel to showcase your system
+Includes with two 140 mm Aspect RGB fans
+Fits radiators up to 360/280 mm (front), 240 mm (top) and 120 mm (rear)
+Innovative shroud system for optimal GPU airflow and easy build
+Front I/O with two 3.0 USB 5 Gb/s ports, Mic and headphone jacks
+Optional USB-C kit (sold separately) adds full speed front port","CATEG-06",359),
+("CASE-020","HYTE Y60 Modern Aesthetic Dual Chamber Panoramic Tempered Glass Mid-Tower ATX Computer Gaming Case with PCIe 4.0 Riser Cable Included, Black",
+"ABS / Steel / Tempered Glass ATX Mid Tower
+2 x USB 3.0 / 1 x USB 3.2 Type-C / Audio Front Ports
+2 x 3.5'' HDD or 4 x 2.5'' SSD Internal 3.5 '' Drive Bays","CATEG-06",124)
+
+;
+INSERT INTO configurations(product_id, config_name, config_price) VALUES
+    ("CASE-001", "4000D Airflow", 129.99),
+    ("CASE-001", "5000D Airflow", 174.99),
+    ("CASE-001", "5000D RGB Airflow", 219.99),
+    ("CASE-001", "4000D Airflow", 149.99),
+
+    ("CASE-002", "4000X RGB ", 149.99),
+    ("CASE-002", "5000D TG ", 109.99),
+    ("CASE-002", "5000X RGB ", 189.99),
+    ("CASE-002", "5000X RGB QL Edition ", 329.99),
+
+    ('CASE-003', "GPU Vertical Mounting", 159.99),
+    ('CASE-004', "Tempered Glass ATX", 104.99),
+    ('CASE-005', "High-Airflow Mesh Gaming", 119.99),
+
+    ('CASE-006', "Chalk White", 139.99),
+    ('CASE-006', "Charcoal Black", 139.99),
+
+    ('CASE-007', "Mesh Front Panel", 106.00),
+    ('CASE-007', "Mesh screen", 163.00),
+
+    ('CASE-008', "4000D Airflow", 94.99),
+    ('CASE-008', "5000D Airflow", 174.99),
+    ('CASE-008', "5000D RGB Airflow", 219.99),
+    ('CASE-008', "4000D RGB Airflow", 149.99),
+
+    ('CASE-009', "Meshify C White - TG", 99.99),
+    ('CASE-009', "Meshify C - Dark TG", 99.99),
+    ('CASE-009', "Meshify C Mini - Dark TG", 99.99),
+
+    ('CASE-010', "4000D Airflow", 94.99),
+    ('CASE-010', "5000D Airflow", 174.99),
+    ('CASE-010', "5000D RGB Airflow", 219.99),
+    ('CASE-010', "4000D RGB  Airflow", 149.99),
+
+    ('CASE-011', "500DX Black", 109.90),
+    ('CASE-012', "O11DEX", 154.99),
+    ('CASE-013', "S500 ATX", 59.97),
+
+    ('CASE-014', "Up to 360 (120mm radiator)", 89.99),
+    ('CASE-014', "Up to 240 (120mm radiator)", 118.98),
+
+    ('CASE-015', "ATX Mid Tower", 54.99),
+    ('CASE-015', "ATX Mini Tower", 54.99),
+
+    ('CASE-016', "ARGB Fans", 104.979),
+    ('CASE-016', "PWM Fans", 96.99),
+
+    ('CASE-017', "RGB Lighting Fans", 69.99),
+
+    ('CASE-018', "Black", 124.99),
+    ('CASE-018', "White", 469.99),
+
+    ('CASE-019', "RGB Black", 39.99),
+    ('CASE-019', "White Clear", 69.99),
+    ('CASE-019', "RGB White", 39.99),
+
+    ('CASE-020', "Black", 199.99),
+    ('CASE-020', "Red", 199.99),
+    ('CASE-020', "Snow White", 199.00),
+    ('CASE-020', "White", 199.99);
+
+
+-- insert power-Supply
+INSERT INTO products (product_id, pname, description, category_id, qty_in_store) VALUES
+('PS-001', 'CORSAIR RM850e Fully Modular Low-Noise ATX Power Supply - ATX 3.0 & PCIe 5.0 Compliant - 105°C-Rated Capacitors - 80 PLUS Gold Efficiency - Modern Standby Support', 
+    'ATX
+Full Modular
+80 PLUS GOLD Certified
+100 - 240 V 47 - 63 Hz
++3.3V@20A, +5V@20A, +12V@70.8A, +5VSB@3A', 'CATEG-07', 421),
+
+("PS-002", 'CORSAIR RMx Series (2021) RM750x CP-9020199-NA 750 W ATX12V / EPS12V 80 PLUS GOLD Certified Full Modular Power Supply',
+'Fully modular, so you only connect the cables that your system needs.
+A 135mm ML fan utilizes a magnetic levitation bearing and custom engineered rotors for high performance, low noise, and superior reliability.
+EPS12V connector for compatibility with modern graphics cards and motherboards.
+100% Industrial-grade, 105°C rated Japanese capacitors ensure unwavering power and reliability.
+Supports Modern Standby sleep mode for extremely fast wake-from-sleep times and better low-load efficiency.
+Zero RPM fan mode for near-silent operation at low to medium loads.
+Resonant LLC topology with DC-to-DC conversion provides clean, consistent power, reduces coil whine for quieter operation, and enables use of more energy efficient sleep states.
+Ten-year warranty for complete peace of mind.','CATEG-07',124),
+("PS-003", 'Segotep 750W Power Supply Full Modular 80 Plus Gold PSU, 600W 12VHPWR Cable Included, 12+4PIN port and Dual 6+2Pin ports for Different Graphics cards, Silent Fan mode, ATX 3.0 Gaming Power Supply',
+'[ATX 3.0 Ready] Segotep power supply comes with 12+4PIN PCIe 5.0 port and dual Regular 6+2PIN PCIe ports for different Nvidia 10 series, 20 series, 30 series GPUs and AMD GPUs. More Stable and Safe than normal ATX power supply.
+[PCIe 5.0 Ready] The PSU can hold up to 200% total power excursion & 300% GPU power excursion.
+[80 Plus Gold Certified] The 80 PLUS Gold certification promises higher efficiency & lower energy consumption.
+[Fully Modular] Full module with flat black cables, improve airflow & strengthen cable management.
+[Stable +12V Output] DC-DC structure, Full Bridge LLC resonance assist, 12V synchronous rectification provide stable & safe output.','CATEG-07',421),
+   
+("PS-004", 'CORSAIR HX850 Fully Modular Ultra-Low Noise ATX Power Supply - Triple EPS12V Connectors - Fluid Dynamic Bearing Fan - Zero RPM Fan Mode - 105°C Japanese Capacitors - 80 PLUS Platinum Efficiency',
+'Fully modular cabling, so you only have to connect the cables that your system needs.
+Triple EPS12V connectors for full compatibility with modern graphics cards and motherboards.
+A 140mm fluid dynamic bearing fan with a specially calculated fan curve ensures minimum fan noise and efficient, effective cooling, even at full load.
+Zero RPM fan mode for near-silent operation at low to medium loads.
+100% Industrial-grade, 105°C rated Japanese capacitors ensure unwavering power and reliability.
+80 PLUS Platinum certified for up to 92% efficiency, for exceptionally low power consumption, less noise, and cooler temperatures.
+Supports Modern Standby sleep mode for extremely fast wake-from-sleep times and better low-load efficiency.
+Fully digital platform resonant LLC topology with DC-to-DC conversion provides clean, consistent power, reduces coil whine for quieter operation, and enables
+use of more energy efficient sleep states.','CATEG-07',412),
+   
+("PS-005", 'CORSAIR RMx Series (2021) RM1000x CP-9020201-NA 1000 W ATX12V / EPS12V SLI Ready CrossFire Ready 80 PLUS GOLD Certified Full Modular Active PFC Power Supply',
+'Fully modular, so you only connect the cables that your system needs.
+A 135mm ML fan utilizes a magnetic levitation bearing and custom engineered rotors for high performance, low noise, and superior reliability.
+EPS12V connector for compatibility with modern graphics cards and motherboards.
+100% Industrial-grade, 105°C rated Japanese capacitors ensure unwavering power and reliability.
+Supports Modern Standby sleep mode for extremely fast wake-from-sleep times and better low-load efficiency.
+Zero RPM fan mode for near-silent operation at low to medium loads.
+Resonant LLC topology with DC-to-DC conversion provides clean, consistent power, reduces coil whine for quieter operation, and enables use of more energy efficient sleep states.
+Ten-year warranty for complete peace of mind.','CATEG-07',124),
+   
+("PS-006", 'Segotep 850W ATX 3.0 Power Supply, Full Modular 80 Plus Gold, PCIe 5.0 12+4PIN port and Dual 6+2Pin ports, Suitable for ALL Graphics Cards, Native 600W 12VHPWR Cable, Silent Fan mode',
+'[ATX 3.0 & PCIe 5.0 Ready] The PSU can hold up to 200% total power excursion & 300% GPU power excursion. This power supply comes with 12+4PIN PCIe 5.0 port and dual Regular 6+2PIN PCIe ports for ALL Graphics cards.
+[80 Plus Gold Certified] The 80 PLUS Gold certification promises higher efficiency & lower energy consumption.
+[Fully Modular] Full module with flat black cables, improve airflow & strengthen cable management.
+[Native 12VHPWR Cable] It can generate up to 600W of power to PCIe 5.0 graphics cards.
+[Stable +12V Output] DC-DC structure, Full Bridge LLC resonance assist, 12V synchronous rectification provide stable & safe output.','CATEG-07',124),
+   
+("PS-007", 'Rosewill CMG1000G5 PCIE 5.0, 80 GOLD Full Modular Gaming Power Supply, 12VHPWR Cable, 4080 4090 ATX 3.0 Compatible, 1000W PSU',
+'PCIe 5.0 and ATX 3.0 Compatible
+Full Modular
+80 PLUS GOLD Certified
++3.3V@25A, +5V@25A, +12V@83.3A, -12V@0.3A, +5VSB@3A','CATEG-07',345),
+   
+("PS-008", 'Thermaltake Smart Series 500W SLI/CrossFire Ready Continuous Power ATX 12V V2.3 / EPS 12V 80 PLUS Certified Active PFC Power Supply Haswell Ready PS-SPD-0500NPCWUS-W',
+'Intel ATX 12V 2.31 & EPS 12V 2.92
+Hardlined
+80 PLUS Certified
+100 - 240 V 50/60 Hz
++3.3V@20A, +5V@15A, +12V@35A, -12V@0.5A, +5VSB@2.5A','CATEG-07',124),
+   
+("PS-009", 'Segotep 850W White PCIe 5.0 Full Modular 80 Plus Gold PSU ATX 3.0 Gaming Power Supply, 12VHPWR Cable, 12+4PIN port and Dual 6+2Pin ports for Different Graphics Cards, Silent Fan mode',
+'[ATX 3.0 & PCIe 5.0 Ready] The PSU can hold up to 200% total power excursion & 300% GPU power excursion. This power supply comes with 12+4PIN PCIe 5.0 port and dual Regular 6+2PIN PCIe ports for different Graphics cards.
+[80 Plus Gold Certified] The 80 PLUS Gold certification promises higher efficiency & lower energy consumption.
+[Fully Modular] Full module with flat white cables, improve airflow & strengthen cable management.
+[Native 12VHPWR Cable] It can generate up to 600W of power to PCIe 5.0 graphics cards.
+[Stable +12V Output] DC-DC structure, Full Bridge LLC resonance assist, 12V synchronous rectification provide stable & safe output.','CATEG-07',341),
+   
+("PS-010", 'Super Flower Leadex V Platinum PRO 1000W ATX 80 PLUS PLATINUM Certified Power Supply, Smallest 130mm 1000W ATX PSU, 10 Years Warranty, Patent Super Connectors, Full Modular, SF-1000F14TP',
+'Smallest ATX 1000W Platinum Power Supply (Length 130mm)
+Full modular design with all ribbon cables to maximize flexibility
+80 PLUS Platinum Certified,90% 92% 89% Efficiency At 20% 50% 100% Rated Load.
+Dual overpower protection
+120mm Ultra Silent Fluid Dynamic Bearing Fan','CATEG-07',124),
+   
+("PS-011", 'CORSAIR RM1000e Fully Modular Low-Noise ATX Power Supply - ATX 3.0 & PCIe 5.0 Compliant - 105°C-Rated Capacitors - 80 PLUS Gold Efficiency - Modern Standby Support',
+'ATX
+Full Modular
+80 PLUS GOLD Certified
+100 - 240 V 47 - 63 Hz
++3.3V@20A, +5V@20A, +12V@83.3A, +5VSB@3A','CATEG-07',312),
+   
+("PS-012", 'ASUS TUF Gaming 850W Gold (850 Watt, ATX 3.0 Compatible, Fully Modular Power Supply, 80+ Gold, Military-grade Components, Dual Ball Bearing, Axial-tech Fan, PCB Coating)',
+'Capacitors and chokes pass demanding tests to achieve Military-grade Certification.
+Dual ball fan bearings can last up to twice as long as sleeve bearing designs.
+A protective PCB coating protects against moisture, dust, and extreme temperatures.
+An 80 Plus Gold Certification is the result of Japanese capacitors and other premium components.
+ATX 3.0 Compatible: TUF Gaming Gold is compliant with ATX 3.0 guidelines and bundled with a 16-pin PCIe cable that can pipe up to 600W of power to PCIe Gen 5.0 graphics cards.
+Axial-tech fan design features a smaller fan hub that facilitates longer blades and a barrier ring that increases downward air pressure.
+Fully modular etched cables keep your rig neat and tidy.','CATEG-07',124),
+   
+("PS-013", 'CORSAIR RMx Shift Series RM1200x Shift Fully Modular 80PLUS Gold ATX Power Supply',
+'Innovative Easy-Access Connection Position.
+Fully Modular Micro-Fit PSU Connectors.
+140mm Fluid Dynamic Bearing Fan.
+Intel® ATX 3.0 Certified: Compliant with the ATX 3.0 power standard, supporting the PCIe Gen 5 platform and resisting transient power spikes.
+100% 105°C-Rated Japanese Electrolytic Capacitors.
+Modern Standby Compatible.
+80 PLUS Gold Certified.
+Zero RPM Fan Mode Support.
+Resonant LLC Topology with DC-to-DC Conversion.','CATEG-07',213),
+   
+("PS-014", 'CORSAIR RM Series RM750 750 W ATX 80 PLUS GOLD Certified Full Modular Power Supply',
+'ATX
+Full Modular
+80 PLUS GOLD Certified','CATEG-07',321),
+   
+("PS-015", 'GPNE 1600W ATX Power Supply, Fully Modular PSU for Gaming PC Case, 6 x 6+2 Pin PCIE ports, Lower Noise 140mm Double Ball Bearing Fan',
+'','CATEG-07',213),
+   
+("PS-016", 'EVGA 700 BR 100-BR-0700-K1 700 W ATX12V / EPS12V SLI CrossFire 80 PLUS BRONZE Certified Non-Modular Power Supply',
+'80 PLUS Bronze certified, with 85% efficiency or higher under typical loads
+Single 12V. Rail
+Active Power Factor Correction (PFC)
+Heavy-duty protections, including OVP (Over Voltage Protection), UVP (Under Voltage Protection), OCP (Over Current Protection), OPP (Over Power Protection), SCP (Short Circuit Protection), and OTP (Over Temperature Protection)
+3 Year Warranty','CATEG-07',423),
+   
+("PS-017", 'Rosewill HIVE Series, HIVE-850S, 850W Fully Modular Power Supply, 80 PLUS BRONZE Certified, Single +12V Rail, SLI & CrossFire Ready, Black',
+'850 Watt Power Supply
+ATX 12V v2.31 / EPS 12V v2.92
+100 - 240 V 50 / 60 Hz
+80 PLUS BRONZE Certified
+Full Modular Design PSU
+SLI & CrossFire Ready
+Silent 135mm Fan
+Strong Single +12V Rail','CATEG-07',234),
+   
+("PS-018", 'SILVERSTONE SFX Series 80 Plus Bronze Certificated SST-ST45SF-V3 450W SFX Active PFC Power Supply',
+'80+ Bronze Certificated
+SFX Active PFC
++3.3V@20A, +5V@20A, +12V@37.5A, +5VSB@3A, -12V@0.3A
+Supports standard SFX form factor and ATX via included bracket','CATEG-07',213),
+   
+("PS-019", 'Enermax MarbleBron RGB White 850W 80 PLUS BRONZE Certified, Semi-Modular, ATX12V / EPS12V, 5 Year Warranty, Active PFC Power Supply – EMB850EWT-W-RGB',
+'80 PLUS Bronze certified
+Semi-modular design with black flat cables
+Japanese electrolytic capacitors
+Compact chassis with 140mm chassis in-depth
+120mm high pressure fan with Smart Airflow
+Support RGB motherboard software sync
+Luminous RGB fan and side panel
+RGB Function with built-in 14 smart lighting modes
+Multiple circuitry protection of OVP, UVP, OPP, SCP and OTP','CATEG-07',431),
+   
+("PS-020", 'Super Flower Leadex V Platinum PRO 1000W ATX 80 PLUS PLATINUM Certified Power Supply, Smallest 130mm 1000W ATX PSU, 10 Years Warranty, Patent Super Connectors, Full Modular, SF-1000F14TP',
+'Smallest ATX 1000W Platinum Power Supply (Length 130mm)
+Full modular design with all ribbon cables to maximize flexibility
+80 PLUS Platinum Certified,90% 92% 89% Efficiency At 20% 50% 100% Rated Load.
+Dual overpower protection
+120mm Ultra Silent Fluid Dynamic Bearing Fan','CATEG-07',231);
+   
+INSERT INTO configurations(product_id, config_name, config_price) VALUES
+    ('PS-001','850 W', 119.99),
+    ('PS-001','1000 W', 159.99),
+    ('PS-001','750 W', 99.99),
+
+    ('PS-002','1200 W', 269.99),
+    ('PS-002','1000 W', 209.99),
+    ('PS-002','850 W', 159.99),
+    ('PS-002','750 W', 119.99),
+
+    ('PS-003','750 W', 89.99),
+    ('PS-003','850 W', 109.99),
+
+    ('PS-004','850 W', 134.99),
+
+    ('PS-005','1200 W', 269.99),
+    ('PS-005','1000 W', 189.99),
+    ('PS-005','850 W', 159.99),
+
+    ('PS-006','850 W', 109.99),
+    ('PS-006','750 W', 89.99),
+
+    ('PS-007','1200 W', 169.99),
+    ('PS-007','1000 W', 159.99),
+
+    ('PS-008','750 W', 69.99),
+    ('PS-008','600 W', 67.99),
+    ('PS-008','550 W', 117.99),
+
+    ('PS-009','850 W', 139.99),
+    ('PS-009','750 W', 89.99),
+
+    ('PS-010','1000 W', 299.99),
+    ('PS-010','850 W', 249.99),
+
+    ('PS-011','1000 W', 159.99),
+    ('PS-011','850 W', 119.99),
+    ('PS-011','750 W', 99.99),
+
+    ('PS-012','1000 W', 169.99),
+    ('PS-012','850 W', 129.99),
+    ('PS-012','750 W', 123.99),
+
+    ('PS-013','1200 W', 269.99),
+    ('PS-013','1000 W', 209.99),
+    ('PS-013','850 W', 159.99),
+
+
+    ('PS-014','750 W', 116.79),
+
+    ('PS-015','1600 W', 139.99),
+
+    ('PS-016','700 W', 79.99),
+    ('PS-016','600 W', 96.48),
+    ('PS-016','500 W', 68.44),
+
+    ('PS-017','850 W', 99.99),
+    ('PS-017','650 W', 69.99),
+
+    ('PS-018','450 W', 81.99),
+
+    ('PS-019','850 W', 99.99),
+
+    ('PS-020','1000 W', 299.99),
+    ('PS-020','850 W', 249.99);
+
+
+-- insert operating system
+INSERT INTO products (product_id, pname, description, category_id, qty_in_store) VALUES
+    ('OS-001', 'Microsoft Windows 11 Home (Digital Download)','Less chaos, more calm. The refreshed design of Windows 11 enables you to do what you want effortlessly.
+Biometric logins. Encrypted authentication. And, of course, advanced antivirus defenses. Everything you need, plus more, to protect you against the latest cyberthreats.
+Make the most of your screen space with snap layouts, desktops, and seamless redocking.
+Widgets makes staying up-to-date with the content you love and the news you care about, simple.
+Stay in touch with friends and family with Microsoft Teams, which can be seamlessly integrated into your taskbar. 
+Play the latest games with graphics that rival reality. DirectX 12 Ultimate comes ready to maximize your hardware.','CATEG-09',205),
+
+     ('OS-002', 'Microsoft Windows 10 Enterprise LTSC 2021 Upgrade | Modern Software in CSP | Perpetual | Tenant ID Required | Commercial Business End User', 'Email us at licensing@neweggbusiness.com for a quote
+Requires a tenant ID - not sure? We can help!
+Commercial Business End User', 'CATEG-09', 169),
+
+     ('OS-003', 'Microsoft Windows 11 Home 64-bit (Product Key Code Email Delivery) - OEM', 'Windows 11 has easy-to-use tools that can help you optimize your screen space and maximize your productivity
+With Chat from Microsoft Teams you can reach anyone (for free) however you prefer right from your desktop
+The apps you need work seamlessly with new multi-tasking tools like Snap layouts, Desktops, and a new more intuitive redocking experience
+Play the latest games with graphics that rival reality. Play with players on console. Play with the peripherals that you love. When it comes to playing your way, Windows 11 makes it happen
+Windows OEM is intended for pre-installation on a new PC and cannot be transferred to another computer once installed.
+Installation is only possible when using a clean (blank) machine with no other prior version of Windows already installed.', 'CATEG-09', 138),  	
+
+     ('OS-004', 'Microsoft Windows 10 Home, 64-bit, DVD - OEM', 'The Start menu is back and better than ever so you can expand and customize it.
+Fast and responsive. Technologies like InstantGo lets you boot up and resume quickly; Video Game Platform: PC
+Windows 10 comes with apps that work across your devices - Photos, Maps, Music Video and more.
+Windows 10 OEM is a full version of the operating system not an upgrade.
+The OEM operating system is not supported by Microsoft. To acquire Windows software with support provided by Microsoft please see our full package "Retail" product.
+Windows 10 OEM is intended for pre-installation on a new PC and cannot be transferred to another computer once installed. Product ships in a white envelope.
+The Windows 11 upgrade will be delivered to qualifying devices. Timing varies by device. Certain features require additional hardware', 'CATEG-09', 150),
+
+     ('OS-005', 'Microsoft Windows 11 Pro Upgrade [from Home to Pro] [Digital Download]', 'Upgrade Windows 11 Home Device to Windows 11 Pro (Check System Requirements)
+Upgrade Windows 10 Home Device to Windows 10 Pro (Check System Requirements)
+Microsoft Windows 11 Pro Upgrade
+Check ABS/Helix computers with Windows 11
+Simpler, more intuitive UI and effortless navigation. New features like snap layouts help you manage multiple tasks with ease.
+Have effective online meetings. Share content and mute/unmute right from the taskbar.Stay focused with intelligent noise cancelling and background blur.
+Have confidence that your applications will work. Familiar deployment and update tools. Accelerate adoption with expanded deployment policies.
+Safeguard data and access anywhere with hardware-based isolation, encryption, and malware protection built in.', 'CATEG-09', 124),  
+
+     ('OS-006', 'Microsoft Windows 11 Pro 64-bit, DVD - OEM', 'A simple, powerful UX helps improve productivity and focus.
+New features enable you to make the most of available desktop space.
+App compatibility and cloud management make adoption easy.
+A Zero Trust-ready OS helps protect data and access, wherever business takes you.
+Windows OEM is to be installed on a new PC with no prior version of Windows installed and cannot be transferred to another machine.
+OEM does not provide support | To acquire product with Microsoft support, obtain the full packaged �Retail� version.
+Product ships in a plain envelope | Activation key is located under scratch-off area on label.', 'CATEG-09', 350),
+
+     ('OS-007', 'Microsoft Windows 11 Home (USB)', 'Less chaos, more calm. The refreshed design of Windows 11 enables you to do what you want effortlessly.
+Biometric logins. Encrypted authentication. And, of course, advanced antivirus defenses. Everything you need, plus more, to protect you against the latest cyberthreats.
+Make the most of your screen space with snap layouts, desktops, and seamless redocking.
+Widgets makes staying up-to-date with the content you love and the news you care about, simple.
+Stay in touch with friends and family with Microsoft Teams, which can be seamlessly integrated into your taskbar.
+Play the latest games with graphics that rival reality. DirectX 12 Ultimate comes ready to maximize your hardware.', 'CATEG-09', 363),
+
+     ('OS-008', 'Microsoft Windows 11 Pro (USB)', 'Instantly productive. Simpler, more intuitive UI and effortless navigation. New features like snap layouts help you manage multiple tasks with ease.
+Smarter collaboration. Have effective online meetings. Share content and mute/unmute right from the taskbar. Stay focused with intelligent noise cancelling and background blur.
+Reassuringly consistent. Have confidence that your applications will work. Familiar deployment and update tools. Accelerate adoption with expanded deployment policies.
+Powerful security. Safeguard data and access anywhere with hardware-based isolation, encryption, and malware protection built in.', 'CATEG-09', 420),
+
+     ('OS-009', 'Microsoft Windows 11 Home 64-bit, DVD - OEM', 'Less chaos, more calm. The refreshed design of Windows 11 enables you to do what you want effortlessly.
+Biometric logins.**. Encrypted authentication. And, of course, advanced antivirus defenses. Everything you need, plus more, to protect you against the latest cyberthreats.
+Make the most of your screen space with snap layouts, desktops, and seamless redocking.
+Widgets makes staying up-to-date with the content you love and the news you care about, simple.
+Play the latest games with graphics that rival reality. DirectX 12 Ultimate comes ready to maximize your hardware.**
+Windows OEM is to be installed on a new PC with no prior version of Windows installed and cannot be transferred to another machine.
+OEM does not provide support | To acquire product with Microsoft support, obtain the full packaged Retail version.
+Product ships in a plain envelope | Activation key is located under scratch-off area on label.', 'CATEG-09', 69),
+
+     ('OS-010', 'Microsoft Windows 11 Pro (Digital Download)', 'Instantly productive. Simpler, more intuitive UI and effortless navigation. New features like snap layouts help you manage multiple tasks with ease.
+Smarter collaboration. Have effective online meetings. Share content and mute/unmute right from the taskbar. Stay focused with intelligent noise cancelling and background blur.
+Reassuringly consistent. Have confidence that your applications will work. Familiar deployment and update tools. Accelerate adoption with expanded deployment policies.
+Powerful security. Safeguard data and access anywhere with hardware-based isolation, encryption, and malware protection built in.', 'CATEG-09', 289);
+
+INSERT INTO configurations (product_id, config_name, config_price) VALUES
+     ('OS-001','Home', 129.99),
+     ('OS-001','Pro', 189.99),
+
+     ('OS-002','Home', 295.00),
+
+     ('OS-003','Home', 129.99),
+     ('OS-003','Pro', 199.99),
+
+     ('OS-004','Home', 129.99),
+
+     ('OS-005','Pro Upgrade', 99.00),
+     ('OS-005','Pro', 189.99),
+
+     ('OS-006','Home', 119.98),
+     ('OS-006','Pro', 152.41),
+
+     ('OS-007','Home', 138.98),
+     ('OS-007','Pro', 198.99),
+
+     ('OS-008','Pro', 198.99),
+     ('OS-009','Home', 119.98),
+     
+     ('OS-010','Home', 129.99),
+     ('OS-010','Pro Upgrade', 99.00),
+     ('OS-010','Pro', 189.99);
+ 
+
+ INSERT INTO products (product_id, pname, description, category_id, qty_in_store) VALUES
+    ('STG-001', 'Western Digital WD Green SN350 NVMe M.2 2280 1TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS100T3G0C', 'Fast NVMe performance for daily computing needs - up to 3,200MB/s. SSDs offer shock-resistance against accidental bumps and drop. The slim M.2 2280 form factor is ideal for computers with an NVMe slot. Downloadable Western Digital SSD Dashboard monitors the health and usage of your drive', 'CATEG-08', 150),
+	('STG-002',
+	'Western Digital WD Green SN350 NVMe M.2 2280 2TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS200T3G0C',
+	'A Quick Upgrade, Monitor Your Drive s Health, More Room For What Is Important, Be Confident In Your Choice',
+	'CATEG-08',
+	151),
+	('STG-003',
+	'WD_BLACK SN850X NVMe M.2 2280 2TB PCI-Express 4.0 x4 Internal Solid State Drive (SSD) WDS200T2X0E',
+	'Get the ultimate gaming edge over your competition with insane speeds up to 7,300 MB/s for top-level performance and ridiculously short load times.
+Soup up your gaming experience with extremely low latency that loads graphics fast with minimal stutter and lagging for smooth, satisfying action.
+A range of capacities from 1TB to 4TB means you get to keep more of today�s games that can take up 200GB or more of storage.
+The 1TB and 2TB drives have an optional version with RGB lighting plus heatsink to help maintain peak performance through the most intense gaming sessions.
+Game Mode 2.0 serves up even more PC performance-boosting features like load prediction to ready game assets for fast in-game loading.
+Output approaching the limits of the PCIe Gen4 interface helps you get ultra-fast performance out of your storage and system components.',
+	'CATEG-08',
+	152),
+	('STG-004',
+	'MSI SPATIUM M450 M.2 2280 1TB PCI-Express 4.0 x4, NVMe 1.4 3D NAND Internal Solid State Drive (SSD)',
+	'PCIe Gen4x4 interface and complies with the NVMe 1.4 standard
+Sequential Read speeds up to 3600MB/s and Write speeds up to 3000MB/s
+Up to 600 TBW
+Built-in data security and error-correction capabilities
+250GB to 1TB capacities in M.2 2280 form factor
+Suitable for both desktop and notebook',
+	'CATEG-08',
+	153),
+
+	('STG-005',
+	'Colorful SSD 1TB M.2 2280 NVMe Gen3 x 4 PCIe 3D NAND, Internal Solid State Drive Read Up to 2100 MB/s, Model CN600 1TB',
+	'[High Performance] Colorful CN600 1TB Internal Solid State Drive delivers undeniable performance, reliability and compatibility.
+[More Efficient] Sequential read speeds up to 2100MB/s and sequential write speeds up to 1700MB/s. Ultra-fast read speeds, zero wait for gaming & office loading.
+[More Durable] More durable than traditional hard drives, shock and vibration resistant, rugged and drop resistant, protects against data loss.
+[Longer Lasting] SSDs have an MTBF (Mean Time Between Failure) of 1 million hours. Low power consumption and noiseless operation effectively extend battery life.
+[High Quality] High quality GOOD DIE original chip for peace of mind that they will last.',
+	'CATEG-08',
+	154),
+		
+	('STG-006',
+	'CORN Professional M.2 SSD 512GB 1TB 2TB PCIe 4.0X4 solid state drive TLC For Desktop PC Laptop PS5 2TB',
+	'Interface type: M.2
+Capacity:512GB/1TB/2TB
+Sequential Read:5000MB/s/5000MB/s/5000MB/s
+Sequential Write:2500MB/s/4500MB/s/4500MB/s
+TBW:300TB/600TB/1200TB
+MTBF:1.5 million hours',
+	'CATEG-08',
+	155),
+
+	('STG-007',
+	'Colorful SSD 2TB M.2 2280 NVMe Gen3 x 4 PCIe 3D NAND, Internal Solid State Drive Read Up to 2500 MB/s, Model CN600 2TB',
+	'[High Performance] Colorful CN600 2TB Internal Solid State Drive delivers undeniable performance, reliability and compatibility.
+[More Efficient] Sequential read speeds up to 2500MB/s and sequential write speeds up to 1700MB/s. Ultra-fast read speeds, zero wait for gaming & office loading.
+[More Durable] More durable than traditional hard drives, shock and vibration resistant, rugged and drop resistant, protects against data loss.
+[Longer Lasting] SSDs have an MTBF (Mean Time Between Failure) of 2 million hours. Low power consumption and noiseless operation effectively extend battery life.
+[High Quality] High quality GOOD DIE original chip for peace of mind that they will last.',
+	'CATEG-08',
+	156),
+
+	('STG-008',
+	'Nextorage Japan 2TB NVMe M.2 2280 PCIe Gen.4 Internal SSD Read Speed up to 7300MB/s Write Speed Up to 6900 MB/s (New G-Series). Read Speed up to 7300MB/s Write Speed Up to 6900 MB/s ( New G series)',
+	'High-end PCIe 4.0 NVMe SSD designed for the highest level of gaming performance and stability
+Stable high speed performance read/write speeds up to 7300(Read)/6900(Write)MB/s (2TB model) powerd by Nextorage and Phison technologies.
+Tested by proffesional esports player to provide the best gaming environment
+5-year limited warranty of peace of mind
+Downloadable data cloning software ( ACRONIS True Image OEM)',
+	'CATEG-08',
+	157),
+
+	('STG-009',
+	'Nextorage Japan Internal SSD 4TB for PS5 and PC Storage Expansion M.2 2280 with Heatsink PCIe Gen4.0*4 NVMe 3D TLC NAND NEM-PA4TB/N SYM 3000TBW with Maximum Transfer Rate Read 7300MB/s Write6900MB/s',
+	'Expand your PS5 storage for more game contents storage.
+Ultra-fast PCIe Gen.4.0x4 realized max read 7300MB/s* max write 6900MB/s* . *Tested in Nextorage PC environment.
+Optimized cooling structure for stable game play. An aluminum heatsink, coated with a highly thermally radioactive black alumite.
+Include easy installation instructions for PS5.
+5-Year Limited Warranty for peace of mind',
+	'CATEG-08',
+	158),
+
+	('STG-010',
+	'Nextorage Japan Internal SSD 2TB for PS5 and PC Storage Expansion M.2 2280 with Heatsink PCIe Gen4.0 NVMe 3D TLC NAND NEM-PA2TB/N SYM 1400TBW with Maximum Transfer Rate Read: 7300MB/s, Write: 6900MB/s',
+	'Expand your PS5 storage for more game contents storage.
+Ultra-fast PCIe Gen.4.0x4 realized max read 7300MB/s* max write 6900MB/s* . *Tested in Nextorage PC environment.
+Optimized cooling structure for stable game play. An aluminum heatsink, coated with a highly thermally radioactive black alumite.
+Include easy installation instructions for PS5.
+5-Year Limited Warranty for peace of mind',
+	'CATEG-08',
+	159),
+
+	('STG-011',
+	'SAMSUNG 990 PRO M.2 2280 2TB PCI-Express Gen 4.0 x4, NVMe 2.0 V7 V-NAND 3bit MLC Internal Solid State Drive (SSD) MZ-V9P2T0B/AM',
+	'The flagship 990 PRO and 990 PRO with heatsink is a premium NVMe Gen 4 internal SSD providing the best gaming experience with ultimate power efficiency and thermal control solutions.
+Optimized for real-world and gaming workloads with up to 65% improvement in random performance to the 980 PRO (1,400k/1,550k for Random Read/Write)
+Reaching the PCIe Gen4 performance limits showing up to 7,450/6,900MB/s for Sequential Read/Write
+Power efficiency improved up to 50% than the 980 PRO thanks to the new 8nm controller with low power architecture
+Heatsink model maximizes the cooling effect and prevents performance degradation due to overheating
+Optimized to support DirectStorage API technology showing faster game loading and playing times
+Slim and futuristic designed heatsink with RGB lights.',
+	'CATEG-08',
+	160),
+
+	('STG-012',
+	'ADATA PREMIUM SSD FOR PS5 M.2 2280 2TB PCI-Express 4.0 x4, NVMe 1.4 3D NAND Internal Solid State Drive (SSD) APSFG-2T-CSUS',
+	'M.2 2280
+	2TB
+	PCI-Express 4.0 x4, NVMe 1.4',
+	'CATEG-08',
+	161),
+
+	('STG-013',
+	'WD_BLACK SN850X NVMe M.2 2280 1TB PCI-Express 4.0 x4 Internal Solid State Drive (SSD) WDS100T2X0E',
+	'Get the ultimate gaming edge over your competition with insane speeds up to 7,300 MB/s for top-level performance and ridiculously short load times.
+Soup up your gaming experience with extremely low latency that loads graphics fast with minimal stutter and lagging for smooth, satisfying action.
+A range of capacities from 1TB to 4TB means you get to keep more of today�s games that can take up 200GB or more of storage.
+The 1TB and 2TB drives have an optional version with RGB lighting plus heatsink to help maintain peak performance through the most intense gaming sessions.
+Game Mode 2.0 serves up even more PC performance-boosting features like load prediction to ready game assets for fast in-game loading.
+Output approaching the limits of the PCIe� Gen4 interface helps you get ultra-fast performance out of your storage and system components.',
+	'CATEG-08',
+	162),
+
+	('STG-014',
+	'Solidigm P41 Plus 2TB M.2 2280 PCIe 4.0 NVMe Gen4 Internal Solid State Drive (SSD) SSDPFKNU020TZX1',
+	'The Solidigm P41 Plus Solid-State Drive (SSD) delivers excellent PCIe Generation 4 storage performance and value for your personal computer (PC)
+With up to 4,125 MB/s sequential read speeds the P41 Plus delivers storage performance that enables your everyday productivity and innovation
+M.2 form factor, NVMe version 1.4 SSD available in 512GB, 1TB and 2TB capacities.
+Excellent Performance for Everyday Work and Play the P41 Plus is durable and reliable with outstanding power savings and heat efficiency
+Pair the P41 Plus SSD with free and downloadable Solidigm Synergy software for added performance and faster access to your files and programs
+Solidigm was founded in 2021 after Intel sold its SSD and NAND business to SK hynix. Backed by decades of SSD innovation and market leadership, Solidigm SSDs deliver world-class performance and reliability you can trust.',
+	'CATEG-08',
+	163),
+
+	('STG-015',
+	'SAMSUNG 990 PRO M.2 2280 1TB PCIe Gen 4.0 x4, NVMe 2.0 V7 V-NAND 3bit MLC Internal Solid State Drive (SSD) MZ-V9P1T0B/AM',
+	'The flagship 990 PRO and 990 PRO with heatsink is a premium NVMe Gen 4 internal SSD providing the best gaming experience with ultimate power efficiency and thermal control solutions.
+Optimized for real-world and gaming workloads with up to 65% improvement in random performance to the 980 PRO (1,400k/1,550k for Random Read/Write)
+Reaching the PCIe Gen4 performance limits showing up to 7,450/6,900MB/s for Sequential Read/Write
+Power efficiency improved up to 50% than the 980 PRO thanks to the new 8nm controller with low power architecture
+Heatsink model maximizes the cooling effect and prevents performance degradation due to overheating
+Optimized to support DirectStorage API technology showing faster game loading and playing times
+Slim and futuristic designed heatsink with RGB lights.',
+	'CATEG-08',
+	164),
+
+	('STG-016',
+	'Seagate IronWolf Pro 20TB NAS Hard Drive 7200 RPM 256MB Cache CMR SATA 6.0Gb/s 3.5" Internal HDD NE-ST20000NE000',
+	'7200 RPM 256MB Cache
+SATA 6.0Gb/s
+Enterprise NAS Hard Drives',
+	'CATEG-08',
+	165),
+
+	('STG-017',
+	'Seagate BarraCuda ST4000DM004 4TB 5400 RPM 256MB Cache SATA 6.0Gb/s 3.5" Hard Drives Bare Drive - OEM',
+	'Cost-effective storage upgrade for laptop or desktop computers
+Store all your games, music, movies and more with up to 4TB of storage
+SATA 6Gb/s interface optimizes burst performance; 256MB Cache',
+	'CATEG-08',
+	166),
+
+	('STG-018',
+	'Synology HAT3300 8TB Plus Series SATA HDD 3.5',
+	'Reliable Always-On Operation
+Backed by 1 million hours MTBF and 180 TB/year
+workload rating
+Tested for Maximum Reliability
+Stringent validation and up to 300,000 hours of testing
+ensure reliability in Synology systems
+Seamless Firmware Updates
+Firmware updates can be performed directly in
+Synology DSM
+Reliable Recording Technology
+Conventional magnetic recording (CMR) technology
+offers consistent performance',
+	'CATEG-08',
+	167),
+
+	('STG-019',
+	'WD Red Plus 6TB NAS Hard Disk Drive - 5400 RPM Class SATA 6Gb/s, CMR, 256MB Cache, 3.5 Inch - WD60EFPX',
+	'Available in capacities ranging from 1-14TB1 with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware� firmware for compatibility
+Built for small or medium business NAS systems in a 24/7 environment
+3-year limited warranty',
+	'CATEG-08',
+	168),
+
+	('STG-020',
+	'Seagate IronWolf 12TB NAS Hard Drive 7200 RPM 256MB Cache SATA 6.0Gb/s CMR 3.5" Internal HDD for RAID Network Attached Storage NE-ST12000VN0008',
+	'Range of capacities up to 16TB.
+Workload rate of 180TB/year.
+Optimized for NAS with AgileArray, enables dual-plane balancing and RAID optimization in multi-bay environments.
+Actively protect your NAS with IronWolf Health Management.
+Rotational Vibration (RV) sensors.
+Always-on, always-accessible 24x7 performance.
+1M hours MTBF.',
+	'CATEG-08',
+	169),
+
+	('STG-021',
+	'Seagate BarraCuda NE-ST8000DM004 8TB 5400 RPM 256MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive Bare Drive',
+	'Cost-effective storage upgrade for laptop or desktop computers
+Store all your games, music, movies and more with up to 8TB of storage
+SATA 6Gb/s interface optimizes burst performance; 256MB Cache
+Seagate Secure models for hardware-based data security
+Instant Secure Erase allows safe and easy drive retirement',
+	'CATEG-08',
+	170),
+
+	('STG-022',
+	'WD Blue 2TB Desktop Hard Disk Drive - 7200 RPM SATA 6Gb/s 256MB Cache 3.5 Inch - WD20EZBX',
+	'Reliable everyday computing
+Western Digital quality and reliability
+Free Acronis True Image WD Edition cloning software
+Massive capacity up to 8TB
+2-year limited warranty',
+	'CATEG-08',
+	171),
+
+	('STG-023',
+	'Synology HAT3300 4TB Plus Series SATA HDD 3.5',
+	'Reliable Always-On Operation
+Backed by 1 million hours MTBF and 180 TB/year
+workload rating
+ Tested for Maximum Reliability
+Stringent validation and up to 300,000 hours of testing
+ensure reliability in Synology systems
+ Seamless Firmware Updates
+Firmware updates can be performed directly in
+Synology DSM
+ Reliable Recording Technology
+Conventional magnetic recording (CMR) technology
+offers consistent performance',
+	'CATEG-08',
+	172),
+
+	('STG-024',
+	'Seagate IronWolf Pro 18TB NAS Hard Drive 7200 RPM 256MB Cache CMR SATA 6.0Gb/s 3.5" Internal HDD ST18000NE000',
+	'High Performance: All-CMR (conventional magnetic recording) portfolio enables consistent, industry-leading 24�7 performance allowing users to access data anytime, anywhere
+Class-Leading Dependability: Up to 300TB/year workload rating, 2.5M hours MTBF, and 5-year limited warranty for unparalleled total cost of ownership (TCO)
+Peace of Mind with Data Recovery: Complimentary 3 year Rescue Data Recovery Services for a hassle-free, zero-cost data recovery experience
+IronWolf Health Management: Helps protect data with prevention, intervention, and recovery recommendations to ensure peak system health
+Optimized for NAS: AgileArray with dual-plane balancing, time-limited error recovery (TLER), and rotational vibration (RV) sensors to deliver top RAID performance in multi-bay environments',
+	'CATEG-08',
+	173),
+
+	('STG-025',
+	'WD Red Plus 10TB NAS Hard Disk Drive - 7200 RPM Class SATA 6Gb/s, CMR, 256MB Cache, 3.5 Inch - WD101EFBX',
+	'Available in capacities ranging from 1-14TB with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware firmware for compatibility
+Small or medium business NAS systems in a 24x7 environment
+3-year limited warranty',
+	'CATEG-08',
+	174),
+
+	('STG-026',
+	'Seagate IronWolf Pro 8TB NAS Hard Drive 7200 RPM 256MB Cache CMR SATA 6.0Gb/s 3.5" Internal HDD ST8000NE001',
+	'High Performance: All-CMR (conventional magnetic recording) portfolio enables consistent, industry-leading 24�7 performance allowing users to access data anytime, anywhere
+Class-Leading Dependability: Up to 300TB/year workload rating, 2.5M hours MTBF, and 5-year limited warranty for unparalleled total cost of ownership (TCO)
+Peace of Mind with Data Recovery: Complimentary 3 year Rescue Data Recovery Services for a hassle-free, zero-cost data recovery experience
+IronWolf Health Management: Helps protect data with prevention, intervention, and recovery recommendations to ensure peak system health
+Optimized for NAS: AgileArray with dual-plane balancing, time-limited error recovery (TLER), and rotational vibration (RV) sensors to deliver top RAID performance in multi-bay environments',
+	'CATEG-08',
+	175),
+
+	('STG-027',
+	'Seagate IronWolf 8TB NAS Hard Drive 7200 RPM 256MB Cache SATA 6.0Gb/s CMR 3.5" Internal HDD for RAID Network Attached Storage ST8000VN004-NE',
+	'7200 RPM 256MB Cache
+SATA 6.0Gb/s
+For NAS systems',
+	'CATEG-08',
+	176),
+
+	('STG-028',
+	'WD Red Plus 8TB CMR NAS Hard Drive HDD - 5640 RPM, SATA 6 Gb/s, 128MB Cache, 3.5" - WD80EFZZ',
+	'Available in capacities ranging from 1-14TB with support for up to 8 bays
+Supports up to 180 TB/yr workload rate
+NASware firmware for compatibility
+Small or medium business NAS systems in a 24x7 environment
+3-year limited warranty',
+	'CATEG-08',
+	177),
+
+	('STG-029',
+	'WD Red Pro WD201KFGX 20TB 7200 RPM 512MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive',
+	'Available in capacities ranging from 2 to 22TB with support for NAS systems with up to 24 bays
+Supports up to 300TB/year workload rate
+Enhanced reliability with 3D Active Balance� Plus technology and error recovery controls with NASware� 3.0 technology
+Extended drive testing to ensure each drive is tested for extended reliable operation
+5-year limited warranty',
+	'CATEG-08',
+	178),
+
+	('STG-030',
+	'WD Red Pro WD181KFGX 18TB 7200 RPM 512MB Cache SATA 6.0Gb/s 3.5" Internal Hard Drive',
+	'Available in capacities ranging from 2 to 22TB with support for NAS systems with up to 24 bays
+Supports up to 300TB/year workload rate
+Enhanced reliability with 3D Active Balance� Plus technology and error recovery controls with NASware� 3.0 technology
+Extended drive testing to ensure each drive is tested for extended reliable operation
+5-year limited warranty',
+	'CATEG-08',
+	179);
+
+INSERT INTO configurations(product_id, config_name, config_price) VALUES
+	('STG-001','1TB',45.99),
+	('STG-002','2TB',85.00),
+	('STG-002','960GB',38.99),
+	('STG-002','480GB',26.99),
+	('STG-002','240GB',24.27),
+	('STG-003','1TB',59.99),
+	('STG-003','4TB',299.99),
+	('STG-004','M450 1TB',37.99),
+	('STG-004','M450 500GB',24.99),
+	('STG-004','M461 1TB',44.99),
+	('STG-004','M461 500GB',29.99),
+	('STG-005','Colorful SSD 2TB',45.99),
+	('STG-006','1TB',94.99),
+	('STG-006','512GB',35.99),
+	('STG-007','1TB',94.99),
+	('STG-007','512GB',35.99),
+	('STG-008','1TB',94.99),
+	('STG-008','512GB',35.99),
+	('STG-009','1TB',94.99),
+	('STG-009','512GB',35.99),
+	('STG-010','1TB',94.99),
+	('STG-010','512GB',35.99),
+	('STG-011','1TB',94.99),
+	('STG-011','512GB',35.99),
+	('STG-012','1TB',94.99),
+	('STG-012','512GB',35.99),
+	('STG-013','1TB',94.99),
+	('STG-013','512GB',35.99),
+	('STG-014','1TB',94.99),
+	('STG-014','512GB',35.99),
+	('STG-015','1TB',94.99),
+	('STG-015','512GB',35.99),
+	('STG-016','1TB',94.99),
+	('STG-016','512GB',35.99),
+	('STG-017','1TB',94.99),
+	('STG-017','512GB',35.99),
+	('STG-018','1TB',94.99),
+	('STG-018','512GB',35.99),
+	('STG-019','1TB',94.99),
+	('STG-019','512GB',35.99),
+	('STG-020','1TB',94.99),
+	('STG-020','512GB',35.99),
+	('STG-021','1TB',94.99),
+	('STG-021','512GB',35.99),
+	('STG-022','1TB',94.99),
+	('STG-022','512GB',35.99),
+	('STG-023','1TB',94.99),
+	('STG-023','512GB',35.99),
+	('STG-024','1TB',94.99),
+	('STG-024','512GB',35.99),
+	('STG-025','1TB',94.99),
+	('STG-025','512GB',35.99),
+	('STG-026','1TB',94.99),
+	('STG-026','512GB',35.99),
+	('STG-027','1TB',94.99),
+	('STG-027','512GB',35.99),
+	('STG-028','1TB',94.99),
+	('STG-028','512GB',35.99),
+	('STG-029','1TB',94.99),
+	('STG-029','512GB',35.99),
+	('STG-030','1TB',94.99),
+	('STG-030','512GB',35.99);
+	

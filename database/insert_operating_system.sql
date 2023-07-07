@@ -60,7 +60,7 @@ Make the most of your screen space with snap layouts, desktops, and seamless red
 Widgets makes staying up-to-date with the content you love and the news you care about, simple.
 Play the latest games with graphics that rival reality. DirectX 12 Ultimate comes ready to maximize your hardware.**
 Windows OEM is to be installed on a new PC with no prior version of Windows installed and cannot be transferred to another machine.
-OEM does not provide support | To acquire product with Microsoft support, obtain the full packaged �Retail� version.
+OEM does not provide support | To acquire product with Microsoft support, obtain the full packaged Retail version.
 Product ships in a plain envelope | Activation key is located under scratch-off area on label.', 'CATEG-09', 69),
 
      ('OS-010', 'Microsoft Windows 11 Pro (Digital Download)', 'Instantly productive. Simpler, more intuitive UI and effortless navigation. New features like snap layouts help you manage multiple tasks with ease.
