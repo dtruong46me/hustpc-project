@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS hustpc_db;
+--DROP DATABASE IF EXISTS hustpc_db;
 
-CREATE DATABASE hustpc_db;
-USE hustpc_db;
+--CREATE DATABASE hustpc_db;
+--USE hustpc_db;
 
 CREATE TABLE IF NOT EXISTS Categories (
     category_id CHAR(20) PRIMARY KEY,
