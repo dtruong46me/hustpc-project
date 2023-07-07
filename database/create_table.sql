@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Categories (
 
 CREATE TABLE IF NOT EXISTS Products (
     product_id CHAR(20) PRIMARY KEY,
-    pname CHAR(200),
+    pname CHAR(255),
     description LONGTEXT,
     category_id CHAR(20),
     FOREIGN KEY (category_id) REFERENCES Categories(category_id),
