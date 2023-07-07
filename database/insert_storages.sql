@@ -1,5 +1,3 @@
-USE hustpc_db;
-
 INSERT INTO products (product_id, pname, description, category_id, qty_in_store) VALUES
     ('STG-001', 'Western Digital WD Green SN350 NVMe M.2 2280 1TB PCI-Express 3.0 x4 Internal Solid State Drive (SSD) WDS100T3G0C', 'Fast NVMe performance for daily computing needs - up to 3,200MB/s. SSDs offer shock-resistance against accidental bumps and drop. The slim M.2 2280 form factor is ideal for computers with an NVMe slot. Downloadable Western Digital SSD Dashboard monitors the health and usage of your drive', 'CATEG-08', 150),
 	('STG-002',
