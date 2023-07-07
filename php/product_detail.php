@@ -23,11 +23,26 @@
                         <form class="search-form" style="display: flex; height: 54px; align-items: center;">
                             <div class="select-wrapper">
                                 <select name="scat_id">
-                                    <option value="">Select Categories</option>
-                                    <option value="">Build PC</option>
-                                    <option value="395">CPU</option>                            
-                                    <option value="394">RAM</option>
-                                    <option value="394">Lorem ipsum</option>
+                                    <option value="">Select Categories</option> 
+                                    <?php
+                                    // Kết nối đến CSDL
+                                    include "config.php";
+
+                                    // Truy vấn danh sách danh mục
+                                    $sql = "SELECT * FROM categories";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option>" . $row['category_name'] . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=''>No categories found</option>";
+                                    }
+
+                                    $conn->close();
+                                    ?>
+
                                 </select>
                             </div>
                             <div class="search-form-container">
@@ -52,15 +67,33 @@
                     </div>
 
                     <!-- header-cart -->
-                    <div class="header-cart" >
-                        <a href="">
-                            <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
-                                <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
-                                <div class="notifi-nums">12</div>
-                            </div>
-                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ 120.53</h2>
-                        </a>
-                    </div>
+                    <?php
+                    include "config.php";
+
+                    // Truy vấn để lấy thông tin giỏ hàng
+                    $cart_query = "SELECT COUNT(*) AS num_items, SUM(price) AS total_price FROM CartItems";
+                    $cart_result = $conn->query($cart_query);
+                    $cart_data = $cart_result->fetch_assoc();
+                    $num_items = $cart_data["num_items"];
+                    $total_price = $cart_data["total_price"];
+
+                    // Hiển thị giỏ hàng
+                    echo '<div class="header-cart">';
+                    echo '<a href="">';
+                    echo '<div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">';
+                    echo '<i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>';
+
+                    if ($num_items > 0) {
+                        echo '<div class="notifi-nums">' . $num_items . '</div>';
+                    }
+
+                    echo '</div>';
+                    echo '<h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ ' . number_format($total_price, 2) . '</h2>';
+                    echo '</a>';
+                    echo '</div>';
+
+                    $conn->close();
+                    ?>
                 </div>
             </div>
 
@@ -141,7 +174,7 @@
                             <p>Constantly evolving and progressing.</p>
                             <p>Bring diversity and convenience to users</p>
                             <p>Make connecting and communicating easy.</p>
-                            <p>Yelp you improve everyday life.</p>
+                            <p>Help you improve everyday life.</p>
                             <p>Reliable, confidential and security.</p>
                         </div>
     
