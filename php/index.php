@@ -67,15 +67,33 @@
                     </div>
 
                     <!-- header-cart -->
-                    <div class="header-cart" >
-                        <a href="">
-                            <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
-                                <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
-                                <div class="notifi-nums">12</div>
-                            </div>
-                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ 120.53</h2>
-                        </a>
-                    </div>
+                    <?php
+                    include "config.php";
+
+                    // Truy vấn để lấy thông tin giỏ hàng
+                    $cart_query = "SELECT COUNT(*) AS num_items, SUM(price) AS total_price FROM CartItems";
+                    $cart_result = $conn->query($cart_query);
+                    $cart_data = $cart_result->fetch_assoc();
+                    $num_items = $cart_data["num_items"];
+                    $total_price = $cart_data["total_price"];
+
+                    // Hiển thị giỏ hàng
+                    echo '<div class="header-cart">';
+                    echo '<a href="">';
+                    echo '<div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">';
+                    echo '<i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>';
+
+                    if ($num_items > 0) {
+                        echo '<div class="notifi-nums">' . $num_items . '</div>';
+                    }
+
+                    echo '</div>';
+                    echo '<h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ ' . number_format($total_price, 2) . '</h2>';
+                    echo '</a>';
+                    echo '</div>';
+
+                    $conn->close();
+                    ?>
                 </div>
             </div>
 
@@ -191,64 +209,61 @@
 
         <div id="body2" style="position: relative; width: 100%; background-color: #f6f6f6;">
         <?php
-include "config.php";
+            include "config.php";
 
-// Truy vấn để lấy thông tin sản phẩm
-$query = "SELECT p.product_id, p.pname, min(config_price) as config_price, p.qty_in_store, c.category_name
-        FROM categories c JOIN products p ON p.category_id = c.category_id
-        JOIN configurations cfg ON cfg.product_id = p.product_id
-        GROUP BY p.product_id
-        ORDER BY qty_in_store DESC
-        LIMIT 4";
+            // Truy vấn để lấy thông tin sản phẩm
+            $query = "SELECT p.product_id, p.pname, min(config_price) as config_price, p.qty_in_store, c.category_name
+                    FROM categories c JOIN products p ON p.category_id = c.category_id
+                    JOIN configurations cfg ON cfg.product_id = p.product_id
+                    GROUP BY p.product_id
+                    ORDER BY qty_in_store DESC
+                    LIMIT 4";
 
-$result = $conn->query($query);
-if ($result->num_rows > 0) {
-    // Hiển thị sản phẩm
-    echo '<div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">';
+            $result = $conn->query($query);
+            if ($result->num_rows > 0) {
+                // Hiển thị sản phẩm
+                echo '<div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">';
 
-    while ($row = $result->fetch_assoc()) {
-        $product_id = $row["product_id"];
-        $product_name = $row["pname"];
-        $product_price = $row["config_price"];
-        $product_category = $row["category_name"];
+                while ($row = $result->fetch_assoc()) {
+                    $product_id = $row["product_id"];
+                    $product_name = $row["pname"];
+                    $product_price = $row["config_price"];
+                    $product_category = $row["category_name"];
 
-        // Giới hạn độ dài của tên sản phẩm
-        $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
+                    // Giới hạn độ dài của tên sản phẩm
+                    $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
 
-        echo '<a href="" class="body__product">';
-        echo '<div class="image-product">';
-        echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">'; // Đường dẫn ảnh từ cơ sở dữ liệu
-        echo '</div>';
-        echo '<div class="product__tags">' . $product_category . '</div>';
-        echo '<div class="product__breakline"></div>';
-        echo '<div class="product__name">';
-        echo '<span class="text-limit">' . $product_name . '</span>'; // Tên sản phẩm từ cơ sở dữ liệu
-        echo '</div>';
-        echo '<h2 class="product__price">$ ' . $product_price . '</h2>'; // Giá từ cơ sở dữ liệu
-        
-        echo '<div class="product__rate">
-            <div class="star__rate">
-                <i class="fa-sharp fa-solid fa-star"></i>
-                <i class="fa-sharp fa-solid fa-star"></i>
-                <i class="fa-sharp fa-solid fa-star"></i>
-                <i class="fa-sharp fa-solid fa-star"></i>
-                <i class="fa-sharp fa-solid fa-star"></i>
-            </div>
-            <div class="rate__num">(49)</div>
-        </div>';
-        echo '</a>';
-    }
+                    echo '<a href="" class="body__product">';
+                    echo '<div class="image-product">';
+                    echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">'; // Đường dẫn ảnh từ cơ sở dữ liệu
+                    echo '</div>';
+                    echo '<div class="product__tags">' . $product_category . '</div>';
+                    echo '<div class="product__breakline"></div>';
+                    echo '<div class="product__name">';
+                    echo '<span class="text-limit">' . $product_name . '</span>'; // Tên sản phẩm từ cơ sở dữ liệu
+                    echo '</div>';
+                    echo '<h2 class="product__price">$ ' . $product_price . '</h2>'; // Giá từ cơ sở dữ liệu
+                    
+                    echo '<div class="product__rate">
+                        <div class="star__rate">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
+                        <div class="rate__num">(49)</div>
+                    </div>';
+                    echo '</a>';
+                }
 
-    echo '</div>';
-} else {
-    echo "Cannot find product!";
-}
+                echo '</div>';
+            } else {
+                echo "Cannot find product!";
+            }
 
-$conn->close();
-?>
-
-
-
+            $conn->close();
+            ?>
 
             <a href="" class="showmore-btn" style="background-color: #2c3e50; border-radius: 7px; display: flex; justify-content: center; width: 178px; height: 43px; margin: auto; margin-top: 40px;">
                 <button type="submit" class="showmore__btn" style="background-color: #2c3e50; border-radius: 7px; font-size: 17px; color: #ffc107; text-transform: uppercase; font-weight: 600; border: none; cursor: pointer;">
