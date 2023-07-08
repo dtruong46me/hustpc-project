@@ -72,8 +72,10 @@ CREATE TABLE IF NOT EXISTS Cart (
 CREATE TABLE IF NOT EXISTS CartItems (
     cart_id CHAR(20),
     product_id CHAR(20),
-    price FLOAT,
+    pname CHAR(255),
+    config_price FLOAT,
     quantity INT,
+    config_name CHAR(200),
     PRIMARY KEY (cart_id, product_id),
     FOREIGN KEY (cart_id) REFERENCES Cart(cart_id),
     FOREIGN KEY (product_id) REFERENCES Products(product_id)

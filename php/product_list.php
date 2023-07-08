@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUSTPC | Computers and IT Equipment</title>
-    <link rel="stylesheet" href="../css/contact_us.css">
+    <link rel="stylesheet" href="../css/product_list.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/imgs/hust-pc.png">
@@ -15,23 +15,39 @@
         <!-- BEGIN: Header -->
         <div id="header" style="width: 100%; height: 211px; position: relative; background-color: #2c3e50;">
             <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
-                <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
+                <a href="index.php" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
 
+                <!-- header function -->
                 <div class="header-function">
                     <!-- header-search -->
                     <div class="header-search">
-                        <form class="search-form" style="display: flex; height: 54px; align-items: center;">
+                        <form class="search-form" action="product_list.php" method="GET" style="display: flex; height: 54px; align-items: center;">
                             <div class="select-wrapper">
                                 <select name="scat_id">
-                                    <option value="">Select Categories</option>
-                                    <option value="">Build PC</option>
-                                    <option value="395">CPU</option>                            
-                                    <option value="394">RAM</option>
-                                    <option value="394">Lorem ipsum</option>
+                                    <option value="">Select Categories</option> 
+                                    <?php
+                                    // Kết nối đến CSDL
+                                    include "config.php";
+
+                                    // Truy vấn danh sách danh mục
+                                    $sql = "SELECT * FROM categories";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option>" . $row['category_name'] . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=''>No categories found</option>";
+                                    }
+
+                                    $conn->close();
+                                    ?>
+
                                 </select>
                             </div>
                             <div class="search-form-container">
-                                <input class="text_search" placeholder="Enter your search...">
+                                <input class="text_search" name="search" placeholder="Enter your search...">
                                 <button type="submit" class="search-btn" style="display: flex; align-items: center;">
                                     <!-- <i class="ti-search"></i>  -->
                                     Search
@@ -52,77 +68,146 @@
                     </div>
 
                     <!-- header-cart -->
-                    <div class="header-cart" >
-                        <a href="">
+                    <?php
+                        session_start();
+
+                        // Tính tổng số lượng sản phẩm trong giỏ hàng
+                        $total_quantity = 0;
+                        foreach ($_SESSION['cart'] as $product) {
+                            $total_quantity += $product['quantity'];
+                        }
+
+                        // Tính tổng tiền trong giỏ hàng
+                        $total_money = 0;
+                        foreach ($_SESSION['cart'] as $product) {
+                            $total_money += ($product['config_price'] * $product['quantity']);
+                        }
+                    ?>
+
+                    <!-- header-cart -->
+                    <div class="header-cart">
+                        <a href="cart.php">
                             <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
                                 <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
-                                <div class="notifi-nums">12</div>
+                                <?php if ($total_quantity > 0): ?>
+                                    <div class="notifi-nums"><?php echo $total_quantity; ?></div>
+                                <?php endif; ?>
                             </div>
-                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ 120.53</h2>
+                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">
+                                $ <?php echo number_format($total_money, 2); ?>
+                            </h2>
                         </a>
                     </div>
                 </div>
             </div>
 
             <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-                <li><a href="" class="all-categories" style="display: flex; justify-content: center; align-items: center;">
+                <li><a href="index.php" class="all-categories" style="display: flex; justify-content: center; align-items: center;">
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     All Categories
                 </a></li>
                 <!-- <li><a href="">Home</a></li> -->
                 <li><a href="">Build PC</a></li>
-                <li><a href="">Products</a></li>
+                <li style="background-color: #ffc107; border-radius: 14px 14px 0 0;"><a href="" style="font-size: 16px; font-weight: 700; color: black;">Products</a></li>
                 <li><a href="">Best Seller</a></li>
                 <li><a href="">Blogs</a></li>
                 <li><a href="">About us</a></li>
-                <li style="background-color: #ffc107; border-radius: 14px 14px 0 0;"><a href="" style="font-size: 16px; font-weight: 700; color: black;">Contact us</a></li>
+                <li><a href="contact_us.php">Contact us</a></li>
             </ul>
         </div>
         <!-- END: Header -->
 
 
         <!-- BEGIN: Body -->
-        <div id="body" style="background-color: #fff;">
-            <div class="body__header" style="height: 320px; background-color: #2c3e50;">
-                <h3 style="font-size: 54px; font-weight: 500; color: white; text-transform: uppercase; text-align: center; padding-top: 90px; padding-bottom: 20px;">Contact us</h3>
-                <p style="font-size: 28px; text-align: center; color: white;">Let's make something awesome together!</p>
-            </div>
-            <div class="main__body">
-                <p style="font-size: 17px; font-weight: 400; line-height: 21px; text-align: center; letter-spacing: -0.03em; padding-top: 62px; padding-bottom: 68px;">If you have any questions, or comments, or need assistance, please fill out the form below. We<br>will contact you as soon as possible</p>
-                <div class="wrapper__form" style="width: 978px; margin: auto;">
-                    <div class="level level1">
-                        <div class="firtname">
-                            <p>First name *</p>
-                            <input type="text" placeholder="e.g. Phan Dinh" style="width: 394px;">
-                        </div>
-                        <div class="lastname">
-                            <p>Last name *</p>
-                            <input type="text" placeholder="e.g. Truong" style="width: 478px;">
-                        </div>
-                    </div>
-                    <div class="level level2">
-                        <div class="phone-num">
-                            <p>Phone number *</p>
-                            <input type="text" placeholder="e.g. 0979870156" style="width: 294px;">
-                        </div>
-                        <div class="email">
-                            <p>Email address *</p>
-                            <input type="text" placeholder="e.g. dtruong46.me@gmail.com" style="width: 539px;">
-                        </div>
-                    </div>
-                    <div class="level level3">
-                        <div>
-                            <p>Your message *</p>
-                            <textarea name="description" placeholder="Enter your message..." style="width: 978px; height: 228px; resize: none; font-size: 22px; border-radius: 7px; font-family: 'Roboto', sans-serif; padding: 20px; border: 2px solid #2c3e50;"></textarea>
-                        </div>
-                    </div>
-                    <a href="">
-                        <div class="submit-button" style="display: flex; justify-content: right; margin-bottom: 106px;">
-                            <div style="width: 239px; height: 63px; background-color: #2c3e50; border-radius: 14px; font-size: 24px; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 0.07em; display: flex; align-items: center; justify-content: center;">Submit</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+        <div id="body">
+            <?php
+                // Kết nối đến CSDL
+                include "config.php";
+
+                // Truy vấn các tham số tìm kiếm từ URL
+                $searchValue = $_GET['search'] ?? '';
+                $category = $_GET['category'] ?? '';
+
+                // Tạo truy vấn SQL dựa trên giá trị tìm kiếm và danh mục
+                $sql = "SELECT p.*, c.category_name, conf.config_price
+                        FROM Products p
+                        LEFT JOIN Categories c ON p.category_id = c.category_id
+                        LEFT JOIN Configurations conf ON p.product_id = conf.product_id
+                        WHERE 1=1";
+
+                // Thêm điều kiện tìm kiếm theo tên sản phẩm
+                if (!empty($searchValue)) {
+                    $searchValue = $conn->real_escape_string($searchValue);
+                    $sql .= " AND (p.pname LIKE '%$searchValue%' OR c.category_name LIKE '%$searchValue%')";
+                    // $sql .= " AND pname LIKE '%$searchValue%'";
+                }
+
+                // Thêm điều kiện tìm kiếm theo danh mục
+                if (!empty($category)) {
+                    $category = $conn->real_escape_string($category);
+                    $sql .= " AND category_id = '$category'";
+                }
+
+                // Thực hiện truy vấn và lấy kết quả
+                $result = $conn->query($sql);
+
+                // Kiểm tra số lượng kết quả
+                if ($result->num_rows > 0) {
+                    echo '<div class="wrapper" style="width: 1440px; display: flex; margin: auto; margin-top: 40px; margin-bottom: 60px;">';
+                    echo '<div>';
+
+                    // Hiển thị giá trị tìm kiếm
+                    echo '<div class="search_value" style="padding-left: 50px; margin-top: 20px; margin-bottom: 50px;">';
+                    echo '<span style="font-size: 28px; font-weight: 300;">Search for: </span>';
+                    echo '<span style="font-size: 28px; font-weight: 600;">' . $searchValue . '</span>';
+                    echo '<span style="font-size: 28px; font-weight: 600;">...</span>';
+                    echo '</div>';
+
+                    // Hiển thị kết quả sản phẩm
+                    echo '<div class="row1" style="display: flex; margin-top: 20px; margin-bottom: 40px; width: 1440px;">';
+
+                    $count = 0; // Đếm số lượng sản phẩm hiển thị
+                    while ($row = $result->fetch_assoc()) {
+                        $product_id = $row['product_id'];
+                        $product_name = $row['pname'];
+                        $product_name = strlen($product_name) > 50 ? substr($product_name, 0, 50) . "..." : $product_name;
+
+                        if ($count % 6 === 0) {
+                            echo '</div>';
+                            echo '<div class="row1" style="display: flex; margin-top: 20px; margin-bottom: 40px; width: 1440px;">';
+                        }
+
+                        // Hiển thị thông tin sản phẩm
+                        // echo '<div class="product" style="' . ($count % 6 === $total % 6 ? 'margin-right: 48px' : '') . '">';
+                        echo '<div class="product" style="' . ($count % 6 !== 0 ? 'margin-left: 48px;' : '') . '">';
+                        echo '<div class="product-wrapper">';
+                        echo '<a href="product_detail.php?product_id=' . $product_id . '">';
+                        echo '<div class="product-img">';
+                        echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="" class="image">';
+                        echo '</div>';
+                        echo '</a>';
+                        echo '<div class="product-tag">' . $row['category_name'] . '</div>';
+                        echo '<div class="product_breakline"></div>';
+                        echo '<a href="product_detail.php?product_id=' . $product_id . '" style="text-decoration: none;">';
+                        echo '<p class="product_name">' . $product_name . '</p>';
+                        echo '</a>';
+                        echo '<div class="product_price">$ ' . $row['config_price'] . '</div>';
+                        echo '</div>';
+                        echo '</div>';
+
+                        $count++;
+                    }
+
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    // Hiển thị thông báo không tìm thấy kết quả
+                    echo '<h3>No results found.</h3>';
+                }
+
+                $conn->close();
+            ?>
         </div>
         <!-- END: Body -->
 

@@ -14,10 +14,12 @@
     <div id="main">
         <!-- BEGIN: Header -->
         <div id="header" style="background-color: #2c3e50;">
-            <div class="logo" style="width: 1512px; display: flex; align-items: center; margin: auto; padding-top: 30px;">
-                <img src="../assets/imgs/logo-horizon.png" alt="" style="height: 120px; padding-left: 70px;">
-            </div>
-
+            <a href="index.php">
+                <div class="logo" style="width: 1512px; display: flex; align-items: center; margin: auto; padding-top: 30px;">
+                    <img src="../assets/imgs/logo-horizon.png" alt="" style="height: 120px; padding-left: 70px;">
+                </div>
+            </a>
+            
             <div class="checkout__header">
                 <p style="font-size: 56px; font-weight: 100px; text-align: center; color: #ffc107; text-transform: uppercase; padding: 4px;">Your cart</p>
                 <p style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">Home / Your cart</p>
@@ -49,173 +51,142 @@
             </div>
         </div>
         <!-- END: Header -->
+
+
         <!-- BEGIN: Body -->
-        <div id="body" style="background-color: white;">
-            <div class="wrapper" style="padding-top: 70px; padding-bottom: 100px; display: flex; width: 1456px; justify-content: space-between; margin: auto;">
-                <!-- item-list -->
-                <div class="items-list">
-                    <!-- product-header -->
-                    <div class="items__header" style="height: 65px; background-color: #2c3e50; display: flex;">
-                        <div class="checkboxx"><input type="checkbox" class="checkbox"></div>
-                        <div class="products" style="color: white;">Product (5 items)</div>
-                        <div class="classification" style="color: white;">Classification</div>
-                        <div class="price" style="color: white;">Price</div>
-                        <div class="quantity" style="color: white;">Quantity</div>
-                        <div class="money" style="color: white;">Amount of Money</div>
-                        <div class="delete" style="color: white;">Delete</div>
-                    </div>
-                    <!-- products -->
-                    <div class="product-detail">
-                        <div class="checkboxx checkbox-item">
-                            <input type="checkbox" class="checkbox">
-                        </div>
-                        <div class="products products-item" style="justify-content: space-between;">
-                            <div class="image-product">
-                                <img src="../assets/imgs/cart-products/1.png" alt="">
-                            </div>
-                            <div class="prod-content" style="width: 212px;">
-                                <p>Headphone WH-1000XM4</p>
-                            </div>
-                        </div>
-                        <div class="classification cls-item">64GB</div>
-                        <div class="price price-item">$ 350.25</div>
-                        <div class="quantity qty-item">
-                            <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" value="2">
-                            <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="money money-item">$ 700.50</div>
-                        <div class="delete delete-item">
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-detail">
-                        <div class="checkboxx checkbox-item"><input type="checkbox" class="checkbox"></div>
-                        <div class="products products-item" style="justify-content: space-between;">
-                            <div class="image-product">
-                                <img src="../assets/imgs/cart-products/2.jpg" alt="">
-                            </div>
-                            <div class="prod-content" style="width: 212px;">
-                                <p>SSD Samsung 1TB</p>
-                            </div>
-                        </div>
-                        <div class="classification cls-item">1TB</div>
-                        <div class="price price-item">$ 150.15</div>
-                        <div class="quantity qty-item">
-                            <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" value="1">
-                            <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="money money-item">$ 150.15</div>
-                        <div class="delete delete-item">
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-detail">
-                        <div class="checkboxx checkbox-item"><input type="checkbox" class="checkbox"></div>
-                        <div class="products products-item" style="justify-content: space-between;">
-                            <div class="image-product">
-                                <img src="../assets/imgs/cart-products/3.png" alt="">
-                            </div>
-                            <div class="prod-content" style="width: 212px;">
-                                <p>CPU Cooler Master Hyper 212 RGB</p>
-                            </div>
-                        </div>
-                        <div class="classification cls-item">Standard</div>
-                        <div class="price price-item">$ 80.14</div>
-                        <div class="quantity qty-item">
-                            <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" value="3">
-                            <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="money money-item">$ 240.42</div>
-                        <div class="delete delete-item">
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-detail">
-                        <div class="checkboxx checkbox-item"><input type="checkbox" class="checkbox"></div>
-                        <div class="products products-item" style="justify-content: space-between;">
-                            <div class="image-product">
-                                <img src="../assets/imgs/cart-products/4.jpg" alt="">
-                            </div>
-                            <div class="prod-content" style="width: 212px;">
-                                <p>NVIDIA GeForce RTX 3080</p>
-                            </div>
-                        </div>
-                        <div class="classification cls-item">10GB</div>
-                        <div class="price price-item">$ 900.00</div>
-                        <div class="quantity qty-item">
-                            <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" value="1">
-                            <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="money money-item">$ 900.00</div>
-                        <div class="delete delete-item">
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-detail">
-                        <div class="checkboxx checkbox-item"><input type="checkbox" class="checkbox"></div>
-                        <div class="products products-item" style="justify-content: space-between;">
-                            <div class="image-product">
-                                <img src="../assets/imgs/cart-products/5.jpg" alt="">
-                            </div>
-                            <div class="prod-content" style="width: 212px;">
-                                <p>Corsair K95 RGB Platinum Keyboard</p>
-                            </div>
-                        </div>
-                        <div class="classification cls-item">Standard</div>
-                        <div class="price price-item">$ 203.48</div>
-                        <div class="quantity qty-item">
-                            <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" value="2">
-                            <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div class="money money-item">$ 406.96</div>
-                        <div class="delete delete-item">
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- go-to-checkout -->
-                <div class="go-to-checkout">
+        <?php
+        session_start();
+        
+        echo '<div id="body" style="background-color: white;">';
+        echo '<div class="wrapper" style="padding-top: 70px; padding-bottom: 100px; display: flex; width: 1456px; justify-content: space-between; margin: auto;">';
+        echo '<div class="items-list">';
+        
+        echo '<div class="items__header" style="height: 65px; background-color: #2c3e50; display: flex;">
+                <div class="checkboxx"><input type="checkbox" class="checkbox"></div>
+                <div class="products" style="color: white;">Product (5 items)</div>
+                <div class="classification" style="color: white;">Classification</div>
+                <div class="price" style="color: white;">Price</div>
+                <div class="quantity" style="color: white;">Quantity</div>
+                <div class="money" style="color: white;">Amount of Money</div>
+                <div class="delete" style="color: white;">Delete</div>
+            </div>';
+
+        // Kiểm tra xem giỏ hàng có tồn tại hay không
+        if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
+            echo '<h3 style = "font-size: 28px; color: #2c3e50;">Your Cart is Empty!</h3>';
+            echo '</div>';
+            echo '<div class="go-to-checkout">
                     <div class="checkout__header" style="width: 360px; height: 65px; background-color: #2c3e50; display: flex; align-items: center; justify-content: center; color: white;">Subtotal</div>
                     <div class="checkout-body" style="width: 360px; background-color: #e4ebec; display: flex; justify-content: center;">
                         <div class="cart-total-wrapper" style="width: 332px; margin-top: 21px; margin-bottom: 23px;">
                             <div class="subtotal">
                                 <div>
                                     <p>Subtotal</p>
-                                    <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ 2,398.03</h3>
+                                    <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ 0.00</h3>
                                 </div>
                             </div>
-
+                
                             <div class="total-money">
                                 <div>
                                     <p style="display: flex; align-items: center; padding-bottom: 8px;">Total money</p>
                                     <div>
-                                        <h3 style="text-align: right; font-size: 24px; font-weight: 800; color: #2c2c2c; padding-top: 8px;">$ 2,398.03</h3>
+                                        <h3 style="text-align: right; font-size: 24px; font-weight: 800; color: #2c2c2c; padding-top: 8px;">$ 0.00</h3>
                                         <p style="font-size: 12px; font-weight: 300; color: #2c2c2c;">(All taxes are included)</p>
                                     </div>
                                 </div>
                             </div>
-
+                
                             <button>Proceed to checkout</button>
                         </div>
                     </div>
+                </div>';
+            exit();
+        }
+
+        if (isset($_GET['delete_item'])) {
+            $product_id = $_GET['delete_item'];
+            $key = array_search($product_id, array_column($_SESSION['cart'], 'product_id'));
+        
+            if ($key !== false) {
+                // Xóa sản phẩm khỏi giỏ hàng
+                unset($_SESSION['cart'][$key]);
+                // Cập nhật lại giỏ hàng
+                $_SESSION['cart'] = array_values($_SESSION['cart']);
+            }
+        
+            // Chuyển hướng người dùng về trang cart.php để cập nhật giao diện
+            header("Location: cart.php");
+            exit();
+        }
+
+        $total_money = 0;
+        // Lặp qua từng sản phẩm trong giỏ hàng
+        foreach ($_SESSION['cart'] as $product) {
+            $product_id = $product['product_id'];
+            $config_price = $product['config_price'];
+            $product_name = $product['product_name'];
+            $config_name = $product['config_name'];
+            $quantity = $product['quantity'];
+
+            // Hiển thị thông tin sản phẩm trong giỏ hàng
+            echo '<div class="product-detail" data-product-id="' . $product_id . '" data-product-name="' . $product_name . '">';
+            // echo '<div class="product-detail">';
+            echo '<div class="checkboxx checkbox-item">';
+            echo '<input type="checkbox" class="checkbox">';
+            echo '</div>';
+            echo '<div class="products products-item" style="justify-content: space-between;">';
+            echo '<div class="image-product">';
+            echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">';
+            echo '</div>';
+            echo '<div class="prod-content" style="width: 212px;">';
+            echo '<p>' . $product_name . '</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '<div class="classification cls-item">' . $config_name . '</div>';
+            echo '<div class="price price-item">$ ' . $config_price . '</div>';
+            echo '<div class="quantity qty-item">';
+            echo '<button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>';
+            echo '<input type="text" value="' . $quantity . '">';
+            echo '<button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>';
+            echo '</div>';
+            echo '<div class="money money-item">$ ' . ($config_price * $quantity) . '</div>';
+            echo '<div class="delete delete-item">';
+            echo '<a href="cart.php?delete_item=' . $product_id . '"><i class="fa-solid fa-trash"></i></a>';
+            echo '</div>';
+            echo '</div>';
+
+            $total_money += ($config_price * $quantity);
+        }
+        echo '</div>';
+        echo '<div class="go-to-checkout">
+                <div class="checkout__header" style="width: 360px; height: 65px; background-color: #2c3e50; display: flex; align-items: center; justify-content: center; color: white;">Subtotal</div>
+                <div class="checkout-body" style="width: 360px; background-color: #e4ebec; display: flex; justify-content: center;">
+                    <div class="cart-total-wrapper" style="width: 332px; margin-top: 21px; margin-bottom: 23px;">
+                        <div class="subtotal">
+                            <div>
+                                <p>Subtotal</p>
+                                <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ ' . $total_money . '</h3>
+                            </div>
+                        </div>
+            
+                        <div class="total-money">
+                            <div>
+                                <p style="display: flex; align-items: center; padding-bottom: 8px;">Total money</p>
+                                <div>
+                                    <h3 style="text-align: right; font-size: 24px; font-weight: 800; color: #2c2c2c; padding-top: 8px;">$ ' . ($total_money + 5.99) . '</h3>
+                                    <p style="font-size: 12px; font-weight: 300; color: #2c2c2c;">(All taxes are included)</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <button>Proceed to checkout</button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div>';
+        echo '</div>';
+        echo '</div>';
+        ?>
+
         <!-- END: Body -->
         <!-- BEGIN: Footer -->
         <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; position: relative;">
