@@ -68,37 +68,40 @@
 
                     <!-- header-cart -->
                     <?php
-                    include "config.php";
+                    session_start();
 
-                    // Truy vấn để lấy thông tin giỏ hàng
-                    $cart_query = "SELECT COUNT(*) AS num_items, SUM(price) AS total_price FROM CartItems";
-                    $cart_result = $conn->query($cart_query);
-                    $cart_data = $cart_result->fetch_assoc();
-                    $num_items = $cart_data["num_items"];
-                    $total_price = $cart_data["total_price"];
-
-                    // Hiển thị giỏ hàng
-                    echo '<div class="header-cart">';
-                    echo '<a href="">';
-                    echo '<div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">';
-                    echo '<i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>';
-
-                    if ($num_items > 0) {
-                        echo '<div class="notifi-nums">' . $num_items . '</div>';
+                    // Tính tổng số lượng sản phẩm trong giỏ hàng
+                    $total_quantity = 0;
+                    foreach ($_SESSION['cart'] as $product) {
+                        $total_quantity += $product['quantity'];
                     }
 
-                    echo '</div>';
-                    echo '<h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ ' . number_format($total_price, 2) . '</h2>';
-                    echo '</a>';
-                    echo '</div>';
-
-                    $conn->close();
+                    // Tính tổng tiền trong giỏ hàng
+                    $total_money = 0;
+                    foreach ($_SESSION['cart'] as $product) {
+                        $total_money += ($product['config_price'] * $product['quantity']);
+                    }
                     ?>
+
+                    <!-- header-cart -->
+                    <div class="header-cart">
+                        <a href="cart.php">
+                            <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
+                                <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
+                                <?php if ($total_quantity > 0): ?>
+                                    <div class="notifi-nums"><?php echo $total_quantity; ?></div>
+                                <?php endif; ?>
+                            </div>
+                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">
+                                $ <?php echo number_format($total_money, 2); ?>
+                            </h2>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-                <li><a href="" class="all-categories">
+                <li><a href="index.php" class="all-categories">
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     <h3>All Categories</h3>
                 </a></li>
@@ -114,134 +117,173 @@
 
         <!-- BEGIN: Body -->
         <div id="body"></div>
-            <div class="navi_product">
-                <p style="color: #2c2c2c; font-size: 44px; font-weight: 500; letter-spacing: 0.12em; margin-top: 96px; margin-bottom: 22px;">Video Card</p>
-                <p style="color: #2c2c2c; font-size: 16px; font-weight: 300; letter-spacing: 0.2em; margin-bottom: 80px;">Home / Products / Video Card</p>
-            </div>
+        <?php
+            include "config.php";
 
-            <div class="wrapper__body">
-                <div class="product_body" style="display: flex; margin: auto; width: 1554px; justify-content: space-between;">
-                    <div class="images" style="display: flex; ">
-                        <!-- sub-images -->
-                        <div class="sub_images" style="height: 600px;">
-                            <a href="">
-                                <div><img src="../assets/imgs/product-imgs/GPU-001/1.jpg" alt=""></div>
-                            </a>
-                            <a href="">
-                                <div><img src="../assets/imgs/product-imgs/GPU-001/2.jpg" alt=""></div>
-                            </a>
-                            <a href="">
-                                <div><img src="../assets/imgs/product-imgs/GPU-001/3.jpg" alt=""></div>
-                            </a>
-                            <a href="">
-                                <div><img src="../assets/imgs/product-imgs/GPU-001/4.jpg" alt=""></div>
-                            </a>
-                        </div>
-    
-                        <!-- main-image -->
-                        <div class="main_img" style="margin-left: 20px;">
+            // Kiểm tra nếu product_id được truyền qua URL
+            if (isset($_GET["product_id"])) {
+                $product_id = $_GET["product_id"];
+
+                // Truy vấn để lấy thông tin sản phẩm dựa trên product_id
+                $query = "SELECT * FROM products p 
+                    JOIN categories c ON p.category_id = c.category_id 
+                    JOIN configurations cfg ON p.product_id = cfg.product_id 
+                    WHERE p.product_id = '$product_id'
+                    ORDER BY config_price ASC LIMIT 1";
+
+                $result = $conn->query($query);
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $product_name = $row["pname"];
+                    $product_description = $row["description"];
+                    $category_id = $row["category_id"];
+                    $qty_in_store = $row["qty_in_store"];
+                    $category_name = $row["category_name"];
+                    $config_price = $row["config_price"];
+
+                    echo '<div class="wrapper__body">';
+                    echo '<div class="navi_product">';
+                    echo '<p style="color: #2c2c2c; font-size: 44px; font-weight: 500; letter-spacing: 0.12em; margin-top: 96px; margin-bottom: 22px;">' . $category_name . '</p>';
+                    echo '<p style="color: #2c2c2c; font-size: 16px; font-weight: 300; letter-spacing: 0.2em; margin-bottom: 80px;">Home / Products / ' . $category_name . '</p>';
+                    echo '</div>';
+
+                    echo '<div class="wrapper__body">';
+                    echo '<div class="product_body" data-product-id="' . $product_id . '" data-product-name="' . $product_name . '" style="display: flex; margin: auto; width: 1554px; justify-content: space-between;">';
+                    echo '<div class="images" style="display: flex; ">';
+
+                    echo '<div class="sub_images" style="height: 600px;">';
+                    echo '<a href="#" onclick="changeMainImage(\'../assets/imgs/product-imgs/' . $product_id . '/1.jpg\')">
+                            <div><img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">
+                        </div></a>';
+                    echo '<a href="#" onclick="changeMainImage(\'../assets/imgs/product-imgs/' . $product_id . '/2.jpg\')">
+                            <div><img src="../assets/imgs/product-imgs/' . $product_id . '/2.jpg" alt="">
+                        </div></a>';
+                    echo '<a href="#" onclick="changeMainImage(\'../assets/imgs/product-imgs/' . $product_id . '/3.jpg\')">
+                            <div><img src="../assets/imgs/product-imgs/' . $product_id . '/3.jpg" alt="">
+                        </div></a>';
+                    echo '<a href="#" onclick="changeMainImage(\'../assets/imgs/product-imgs/' . $product_id . '/4.jpg\')">
+                            <div><img src="../assets/imgs/product-imgs/' . $product_id . '/4.jpg" alt="">
+                        </div></a>';
+                    echo '</div>';
+                    echo '<div class="main_img" style="margin-left: 20px;">
                             <div>
-                                <img src="../assets/imgs/product-imgs/GPU-001/1.jpg" alt="">
+                                <img id="mainImage" src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">
                             </div>
-                        </div>
-                    </div>
-    
-                    <div class="product_options" style="width: 640px;">
-                        <div class="brief_description">
+                        </div>';
+                    echo '</div>';
+
+                    echo '<div class="product_options" style="width: 640px;">';
+                    echo '<div class="brief_description">
                             <div style="margin: 20px 0 4px 0;">
                                 <span style="font-weight: 600;">Category: </span>
-                                <span>GPU</span>
+                                <span>' . $category_name . '</span>
                             </div>
                             <div style="margin: 4px 0 4px 0;">
                                 <span style="font-weight: 600;">Availability: </span>
                                 <span>On Stock</span>
                             </div>
-                        </div>
-                        
-                        <div class="product__name" style="font-size: 28px; font-weight: 500; text-transform: uppercase; margin: 20px 0 20px 0;">
-                            ASUS ROG Strix LC NVIDIA GeForce RTX 4090 OC Edition Gaming Graphics Card
-                        </div>
-    
-                        <div class="star_vote" style="display: flex; width: 132px; justify-content: space-between; margin-bottom: 12px;">
+                        </div>';
+                    echo '<div class="product__name" style="font-size: 28px; font-weight: 500; text-transform: uppercase; margin: 20px 0 20px 0;">
+                            ' . $product_name . '
+                        </div>';
+                    echo '<div class="star_vote" style="display: flex; width: 132px; justify-content: space-between; margin-bottom: 12px;">
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <i class="fa-sharp fa-solid fa-star"></i>
                             <i class="fa-sharp fa-solid fa-star"></i>
-                        </div>
-
-                        <div class="product__short">
+                        </div>';
+                    echo '<div class="product__short">
                             <p>Constantly evolving and progressing.</p>
                             <p>Bring diversity and convenience to users</p>
                             <p>Make connecting and communicating easy.</p>
                             <p>Help you improve everyday life.</p>
                             <p>Reliable, confidential and security.</p>
-                        </div>
-    
-                        <div class="configurations" style="display: flex; max-width: 600px; margin: 20px 0 20px 12px;">
-                            <a href=""><div class="config first_config" style="border: 2px solid #2c3e50; font-weight: 600;">
-                                RTX 3060 Ti
-                            </div></a>
-                            <a href=""><div class="config">RTX 3060 Ti</div></a>
-                            <a href=""><div class="config">RTX 3060 Ti</div></a>
-                        </div>
-    
-                        <div class="breakline" style="width: 586px; height: 2px; background-color: #2c2c2c; margin: 12px 0 20px 0;"></div>
-    
-                        <div class="product__price" style="margin: 20px 0 20px 0;">
+                        </div>';
+
+                    echo '<div class="configurations" style="display: flex; max-width: 600px; margin: 20px 0 20px 12px;">';
+                    $query2 = "SELECT config_name, config_price FROM configurations WHERE product_id = '$product_id'";
+                    $result2 = $conn->query($query2);
+                    if ($result2->num_rows > 0) {
+                        $config_count = 0; // Biến đếm số config đã in ra
+                        while ($row = $result2->fetch_assoc()) {
+                            $config_name = $row["config_name"];
+                            $config_price = $row["config_price"];
+                            // Kiểm tra số config đã in ra để quyết định xuống dòng
+                            if ($config_count % 3 == 0 && $config_count > 0) {
+                                echo '</div><div class="configurations" style="display: flex; max-width: 600px; margin: 12px 0 20px 12px;">';
+                            }
+                            echo '<a href="#"><div class="config';
+                            echo '" data-price="' . $config_price . '">' . $config_name . '</div></a>';
+                            $config_count++;
+                        }
+                    }
+                    echo '</div>';
+                    
+                    echo '<div class="product__price" style="margin: 20px 0 20px 0;">
                             <p>USD (incl. of all taxes)</p>
                             <div style="display: flex; margin-top: 20px;">
-                                <div style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #2c2c2c; font-size: 28px; font-weight: 600;">$ 600.72</div>
-                                <div style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #A2A2A2;; font-size: 24px; font-weight: 400; margin-left: 10px; position: relative;">
-                                    $ 805.72
+                                <div id="original-price" style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #2c2c2c; font-size: 28px; font-weight: 600;">$ ' . $config_price .'</div>
+                                <div id="discounted-price" style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #A2A2A2;; font-size: 24px; font-weight: 400; margin-left: 10px; position: relative;">
+                                    $ ' . ($config_price * 1.2) . '
                                     <div style="background-color: #A2A2A2; height: 1.8px; width: 120px; position: absolute;"></div>
                                 </div>
                             </div>
-                        </div>
-    
-                        <div class="options__edit" style="display: flex;">
+                        </div>';
+                        
+                    echo '<div class="options__edit" style="display: flex;">
                             <div class="edit__qty" style="width: 180px; display: flex; align-items: center; justify-content: center;">
                                 <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
                                 <input type="text" value="1">
                                 <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
                             </div>
-    
+
                             <a href="">
                                 <div class="buy_now" style="background-color: #2c3e50; color: #fff; margin-left: 40px;">
                                     Buy Now
                                 </div>
                             </a>
-    
-                            <a href="">
+
+                            <a href="#">
                                 <div class="add_to_cart" style="background-color: #fff; border: 2px solid #2c3e50; color: #2c3e50; margin-left: 30px;">
                                     Add to Cart
                                 </div>
                             </a>
-                        </div>
-                    </div>
-                </div>
+                        </div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div class="product__descriptionn" style="width: 980px; display: flex; margin: auto; margin-top: 20px;">
+                            <div>
+                                <div style="display: flex; margin: auto; width: 500px; justify-content: space-between; margin-top: 40px;">
+                                    <a href="">
+                                        <div class="descpt">Description</div>
+                                        <div style="background-color: #2c2c2c; height: 1px;"></div>
+                                    </a>
+                                    <a href="">
+                                        <div class="descpt">Specification</div>
+                                    </a>
+                                    <a href="">
+                                        <div class="descpt">Reviews</div>
+                                    </a>
+                                </div>
 
-                <div class="product__descriptionn" style="width: 980px; display: flex; margin: auto; margin-top: 20px;">
-                    <div>
-                        <div style="display: flex; margin: auto; width: 500px; justify-content: space-between; margin-top: 40px;">
-                            <a href="">
-                                <div class="descpt">Description</div>
-                                <div style="background-color: #2c2c2c; height: 1px;"></div>
-                            </a>
-                            <a href="">
-                                <div class="descpt">Specification</div>
-                            </a>
-                            <a href="">
-                                <div class="descpt">Reviews</div>
-                            </a>
-                        </div>
+                                <div style="margin-top: 50px; padding: 0 20px 0 20px; font-size: 22px; text-align: justify; letter-spacing: 0.05em; margin-bottom: 80px; line-height: 32px;">
+                                    ' . $product_description .'
+                                </div>
+                            </div>
+                        </div>';
+                    echo '</div>';
+                } else {
+                    echo "Product not found!";
+                }
+            } else {
+                echo "Invalid product ID!";
+            }
 
-                        <div style="margin-top: 50px; padding: 0 20px 0 20px; font-size: 22px; text-align: justify; letter-spacing: 0.05em; margin-bottom: 80px; line-height: 32px;">
-                            NVIDIA Ampere Streaming Multiprocessors: The building blocks for the world’s fastest, most efficient GPUs, the all-new Ampere SM brings 2X the FP32 throughput and improved power efficiency. 2nd Generation RT Cores: Experience 2X the throughput of 1st gen RT Cores, plus concurrent RT and shading for a whole new level of ray tracing performance. 3rd Generation Tensor Cores: Get up to 2X the throughput with structural sparsity and advanced AI algorithms such as DLSS. These cores deliver a massive boost in game performance and all-new AI capabilities. 0dB technology lets you enjoy light gaming in relative silence. Axial-tech fan design features a smaller fan hub that facilitates longer blades and a barrier ring that increases downward air pressure.
-                        </div>
-                    </div>
-                </div>
-            </div>
+            $conn->close();
+            ?>
         <!-- END: Body -->
 
 
@@ -328,5 +370,6 @@
         </div>
         <!-- END: Footer -->
     </div>
+    <script src="../js/product_detail.js"></script>
 </body>
 </html>

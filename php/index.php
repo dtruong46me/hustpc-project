@@ -15,12 +15,13 @@
         <!-- BEGIN: Header -->
         <div id="header" style="width: 100%; height: 211px; position: relative; background-color: #2c3e50;">
             <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
-                <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
+                <a href="index.php" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
 
+                <!-- header function -->
                 <div class="header-function">
                     <!-- header-search -->
                     <div class="header-search">
-                        <form class="search-form" style="display: flex; height: 54px; align-items: center;">
+                        <form class="search-form" action="product_list.php" method="GET" style="display: flex; height: 54px; align-items: center;">
                             <div class="select-wrapper">
                                 <select name="scat_id">
                                     <option value="">Select Categories</option> 
@@ -46,7 +47,7 @@
                                 </select>
                             </div>
                             <div class="search-form-container">
-                                <input class="text_search" placeholder="Enter your search...">
+                                <input class="text_search" name="search" placeholder="Enter your search...">
                                 <button type="submit" class="search-btn" style="display: flex; align-items: center;">
                                     <!-- <i class="ti-search"></i>  -->
                                     Search
@@ -68,32 +69,35 @@
 
                     <!-- header-cart -->
                     <?php
-                    include "config.php";
+                    session_start();
 
-                    // Truy vấn để lấy thông tin giỏ hàng
-                    $cart_query = "SELECT COUNT(*) AS num_items, SUM(price) AS total_price FROM CartItems";
-                    $cart_result = $conn->query($cart_query);
-                    $cart_data = $cart_result->fetch_assoc();
-                    $num_items = $cart_data["num_items"];
-                    $total_price = $cart_data["total_price"];
-
-                    // Hiển thị giỏ hàng
-                    echo '<div class="header-cart">';
-                    echo '<a href="">';
-                    echo '<div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">';
-                    echo '<i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>';
-
-                    if ($num_items > 0) {
-                        echo '<div class="notifi-nums">' . $num_items . '</div>';
+                    // Tính tổng số lượng sản phẩm trong giỏ hàng
+                    $total_quantity = 0;
+                    foreach ($_SESSION['cart'] as $product) {
+                        $total_quantity += $product['quantity'];
                     }
 
-                    echo '</div>';
-                    echo '<h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ ' . number_format($total_price, 2) . '</h2>';
-                    echo '</a>';
-                    echo '</div>';
-
-                    $conn->close();
+                    // Tính tổng tiền trong giỏ hàng
+                    $total_money = 0;
+                    foreach ($_SESSION['cart'] as $product) {
+                        $total_money += ($product['config_price'] * $product['quantity']);
+                    }
                     ?>
+
+                    <!-- header-cart -->
+                    <div class="header-cart">
+                        <a href="cart.php">
+                            <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
+                                <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
+                                <?php if ($total_quantity > 0): ?>
+                                    <div class="notifi-nums"><?php echo $total_quantity; ?></div>
+                                <?php endif; ?>
+                            </div>
+                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">
+                                $ <?php echo number_format($total_money, 2); ?>
+                            </h2>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -102,12 +106,12 @@
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     <h3>All Categories</h3>
                 </a></li>
-                <li><a href="">Build PC</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">Best Seller</a></li>
-                <li><a href="">Blogs</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a href="#">Build PC</a></li>
+                <li><a href="../php/product_list.php">Products</a></li>
+                <li><a href="#">Best Seller</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="contact_us.php">Contact us</a></li>
             </ul>
         </div>
         <!-- END: Header -->
@@ -186,9 +190,9 @@
                     <img src="../assets/imgs/Untitled-3.png" alt="" style="min-width: 100%; min-height: 100%; object-fit: cover;">
                 </div>
             </div>
-            <div class="banner" style="width: 1440px; height: 264px; background-color: #2c3e90; margin: auto; border-radius: 14px; margin-top: 22px; display: flex; align-items: center; justify-content: center; overflow: hidden; filter: drop-shadow(0px 0px 7.03333px rgba(0, 0, 0, 0.5));">
+            <!-- <div class="banner" style="width: 1440px; height: 264px; background-color: #2c3e90; margin: auto; border-radius: 14px; margin-top: 22px; display: flex; align-items: center; justify-content: center; overflow: hidden; filter: drop-shadow(0px 0px 7.03333px rgba(0, 0, 0, 0.5));">
                 <img src="../assets/imgs/Untitled-4.png" alt="" style="min-width: 100%; min-height: 100%; object-fit: cover;">
-            </div>
+            </div> -->
             <h2 style="padding-left: 12px; text-transform: uppercase; margin: auto; width: 1440px;  padding-top: 30px; padding-bottom: 15px;">Best seller brands</h2>
             <!-- <div class="best-sellers-brands" style="margin: auto; width: 1440px;"><h2 style="padding-left: 12px; text-transform: uppercase; margin: auto; width: 1440px;">Best seller brands</h2></div> -->
             <div class="best-seller-container" style="width: 1440px; height: 170px; margin: auto; align-items: center; display: flex;">
@@ -233,7 +237,7 @@
                     // Giới hạn độ dài của tên sản phẩm
                     $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
 
-                    echo '<a href="" class="body__product">';
+                    echo '<a href="product_detail.php?product_id=' . $product_id . '" class="body__product">';
                     echo '<div class="image-product">';
                     echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">'; // Đường dẫn ảnh từ cơ sở dữ liệu
                     echo '</div>';
@@ -447,5 +451,7 @@
         </div>
         <!-- END: Footer -->
     </div>
+
+    <script src="../js/scripts.js"></script>
 </body>
 </html>
