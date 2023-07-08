@@ -221,8 +221,9 @@
                     JOIN configurations cfg ON cfg.product_id = p.product_id
                     GROUP BY p.product_id
                     ORDER BY qty_in_store DESC
-                    LIMIT 4";
+                    LIMIT 8";
 
+            $count = 0;
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 // Hiển thị sản phẩm
@@ -233,6 +234,11 @@
                     $product_name = $row["pname"];
                     $product_price = $row["config_price"];
                     $product_category = $row["category_name"];
+
+                    if ($count % 4 === 0) {
+                        echo '</div>';
+                        echo '<div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">';
+                    }
 
                     // Giới hạn độ dài của tên sản phẩm
                     $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
@@ -259,6 +265,7 @@
                         <div class="rate__num">(49)</div>
                     </div>';
                     echo '</a>';
+                    $count += 1;
                 }
 
                 echo '</div>';

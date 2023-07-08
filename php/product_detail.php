@@ -106,11 +106,11 @@
                     <h3>All Categories</h3>
                 </a></li>
                 <li><a href="">Build PC</a></li>
-                <li><a href="">Products</a></li>
+                <li><a href="product_list.php">Products</a></li>
                 <li><a href="">Best Seller</a></li>
                 <li><a href="">Blogs</a></li>
                 <li><a href="">About us</a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a href="contact_us.php">Contact us</a></li>
             </ul>
         </div>
         <!-- END: Header -->
