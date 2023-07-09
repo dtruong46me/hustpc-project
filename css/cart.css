@@ -169,7 +169,7 @@ html {
     background-color: #e4ebec; height: 160px; display: flex; margin-bottom: 10px;
 }
 
-.go-to-checkout .cart-total-wrapper>div {
+.go-to-checkout .cart-total-wrapper .item-checkout {
     height: 80px; display: flex; align-items: center; justify-content: center; background-color: #fff; margin-bottom: 14px;
 }
 

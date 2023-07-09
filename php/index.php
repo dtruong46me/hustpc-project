@@ -69,19 +69,23 @@
 
                     <!-- header-cart -->
                     <?php
-                    session_start();
+                        session_start();
 
-                    // Tính tổng số lượng sản phẩm trong giỏ hàng
-                    $total_quantity = 0;
-                    foreach ($_SESSION['cart'] as $product) {
-                        $total_quantity += $product['quantity'];
-                    }
+                        // Tính tổng số lượng sản phẩm trong giỏ hàng
+                        $total_quantity = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_quantity += $product['quantity'];
+                            }
+                        }
 
-                    // Tính tổng tiền trong giỏ hàng
-                    $total_money = 0;
-                    foreach ($_SESSION['cart'] as $product) {
-                        $total_money += ($product['config_price'] * $product['quantity']);
-                    }
+                        // Tính tổng tiền trong giỏ hàng
+                        $total_money = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_money += ($product['config_price'] * $product['quantity']);
+                            }
+                        }
                     ?>
 
                     <!-- header-cart -->
@@ -102,7 +106,7 @@
             </div>
 
             <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-                <li><a href="" class="all-categories">
+                <li><a href="index.php" class="all-categories">
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     <h3>All Categories</h3>
                 </a></li>
@@ -221,8 +225,9 @@
                     JOIN configurations cfg ON cfg.product_id = p.product_id
                     GROUP BY p.product_id
                     ORDER BY qty_in_store DESC
-                    LIMIT 4";
+                    LIMIT 8";
 
+            $count = 0;
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 // Hiển thị sản phẩm
@@ -233,6 +238,11 @@
                     $product_name = $row["pname"];
                     $product_price = $row["config_price"];
                     $product_category = $row["category_name"];
+
+                    if ($count % 4 === 0) {
+                        echo '</div>';
+                        echo '<div class="row2" style="max-width: 1440px; display: flex; margin: auto; justify-content: space-between; padding-top: 30px;">';
+                    }
 
                     // Giới hạn độ dài của tên sản phẩm
                     $product_name = strlen($product_name) > 65 ? substr($product_name, 0, 65) . "..." : $product_name;
@@ -259,6 +269,7 @@
                         <div class="rate__num">(49)</div>
                     </div>';
                     echo '</a>';
+                    $count += 1;
                 }
 
                 echo '</div>';
