@@ -228,9 +228,9 @@
                     echo '<div class="product__price" style="margin: 20px 0 20px 0;">
                             <p>USD (incl. of all taxes)</p>
                             <div style="display: flex; margin-top: 20px;">
-                                <div id="original-price" style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #2c2c2c; font-size: 28px; font-weight: 600;">$ ' . $config_price .'</div>
+                                <div id="original-price" style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #2c2c2c; font-size: 28px; font-weight: 600;">$ ' . number_format($config_price, 2) .'</div>
                                 <div id="discounted-price" style="width: 132px; height: 40px; display: flex; justify-content: center; align-items: center; color: #A2A2A2;; font-size: 24px; font-weight: 400; margin-left: 10px; position: relative;">
-                                    $ ' . ($config_price * 1.2) . '
+                                    $ ' . number_format(($config_price * 1.2),2) . '
                                     <div style="background-color: #A2A2A2; height: 1.8px; width: 120px; position: absolute;"></div>
                                 </div>
                             </div>

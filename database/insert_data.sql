@@ -595,7 +595,6 @@ INSERT INTO configurations(product_id, config_name, config_price) VALUES
     ("CASE-001", "4000D Airflow", 129.99),
     ("CASE-001", "5000D Airflow", 174.99),
     ("CASE-001", "5000D RGB Airflow", 219.99),
-    ("CASE-001", "4000D Airflow", 149.99),
 
     ("CASE-002", "4000X RGB ", 149.99),
     ("CASE-002", "5000D TG ", 109.99),

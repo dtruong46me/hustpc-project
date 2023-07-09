@@ -98,10 +98,11 @@
         foreach ($_SESSION['cart'] as $product) {
             $product_id = $product['product_id'];
             $price = $product['config_price'];
+            $config_name = $product['config_name'];
             $quantity = $product['quantity'];
 
-            $sql = "INSERT INTO OrderItems (order_id, product_id, price, quantity) 
-                    VALUES ('$order_id', '$product_id', $price, $quantity)";
+            $sql = "INSERT INTO OrderItems (order_id, product_id, config_name, price, quantity) 
+                    VALUES ('$order_id', '$product_id', '$config_name', $price, $quantity)";
             if ($conn->query($sql) === FALSE) {
                 echo "Lỗi khi insert dữ liệu vào bảng OrderItems: " . $conn->error;
                 $conn->close();
@@ -222,13 +223,13 @@
                                     <div class="product__qty">Qty</div>
                                     <div class="product__subtotal">Subtotal</div>
                                 </div>';
-
+                            // $total_money = 0;
                             foreach ($_SESSION['cart'] as $product) {
                                 $product_name = $product['product_name'];
                                 $quantity = $product['quantity'];
                                 $config_name = $product['config_name'];
                                 $subtotal = $product['config_price'] * $quantity;
-                                $total_money += $subtotal;
+                                // $total_money += $subtotal;
 
                                 $product_name = strlen($product_name) > 90 ? substr($product_name, 0, 90) . "..." : $product_name;
                         
@@ -236,7 +237,7 @@
                                 echo '<div class="product">';
                                 echo '<div class="product__name">' . $product_name . '</div>';
                                 echo '<div class="product__qty">' . $quantity . '</div>';
-                                echo '<div class="product__subtotal">$ ' . $subtotal . '</div>';
+                                echo '<div class="product__subtotal">$ ' . number_format($subtotal,2) . '</div>';
                                 echo '</div>';
                             }
 
@@ -245,7 +246,7 @@
                                 </div>';
                             echo '<div class="total-money" style="display: flex; align-items: center; justify-content: right; padding-top: 8px; padding-bottom: 8px;">
                                     <span style="font-size: 14px; font-weight: 400; color: white;">Total money:</span>
-                                    <span style="font-size: 20px; font-weight: 700; color: #ffc107; padding: 0 8px 0 6px;">$ ' . ($total_money + 5.99). '</span>
+                                    <span style="font-size: 20px; font-weight: 700; color: #ffc107; padding: 0 8px 0 6px;">$ ' . $total_money. '</span>
                                 </div>';
                             //echo '<form action="" method="POST">';
                             echo '<div class="place-order-btn" style="display: flex; justify-content: right;">

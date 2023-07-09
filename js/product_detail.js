@@ -8,6 +8,7 @@ function changeMainImage(imageSrc) {
 const configItems = document.querySelectorAll('.config');
 configItems.forEach(config => {
     config.addEventListener('click', () => {
+        event.preventDefault(); // Ngăn chặn sự kiện mặc định
         // Xóa class 'selected-config' khỏi tất cả các config
         configItems.forEach(item => {
             item.classList.remove('selected-config');

@@ -223,6 +223,7 @@
             $query = "SELECT p.product_id, p.pname, min(config_price) as config_price, p.qty_in_store, c.category_name
                     FROM categories c JOIN products p ON p.category_id = c.category_id
                     JOIN configurations cfg ON cfg.product_id = p.product_id
+                    WHERE config_price < 250
                     GROUP BY p.product_id
                     ORDER BY qty_in_store DESC
                     LIMIT 8";
@@ -256,7 +257,7 @@
                     echo '<div class="product__name">';
                     echo '<span class="text-limit">' . $product_name . '</span>'; // Tên sản phẩm từ cơ sở dữ liệu
                     echo '</div>';
-                    echo '<h2 class="product__price">$ ' . $product_price . '</h2>'; // Giá từ cơ sở dữ liệu
+                    echo '<h2 class="product__price">$ ' . number_format($product_price, 2) . '</h2>'; // Giá từ cơ sở dữ liệu
                     
                     echo '<div class="product__rate">
                         <div class="star__rate">
