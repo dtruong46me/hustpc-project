@@ -24,24 +24,24 @@ CREATE TABLE IF NOT EXISTS Configurations (
     config_price FLOAT
 );
 
-CREATE TABLE IF NOT EXISTS Users (
-    user_id CHAR(20) PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Customers (
+    customer_id VARCHAR(20) PRIMARY KEY,
     first_name CHAR(20),
     last_name CHAR(50),
     gender CHAR(20),
     email CHAR(100),
-    phone CHAR(20),
+    phone_number CHAR(20),
     address CHAR(255)
-);
-
-CREATE TABLE IF NOT EXISTS Customers (
-    customer_id CHAR(20),
-    FOREIGN KEY (customer_id) REFERENCES Users(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS Managers (
     manager_id CHAR(20),
-    FOREIGN KEY (manager_id) REFERENCES Users(user_id),
+    first_name CHAR(20),
+    last_name CHAR(50),
+    gender CHAR(20),
+    email CHAR(100),
+    phone_number CHAR(20),
+    address CHAR(255),
     username CHAR(50),
     password CHAR(50)
 );

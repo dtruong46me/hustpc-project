@@ -11,6 +11,113 @@
     <link rel="icon" type="image/png" href="../assets/imgs/hust-pc.png">
 </head>
 <body>
+    <?php
+        session_start();
+        include "config.php";
+
+        // Kiểm tra xem có giỏ hàng trong session hay không
+        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+            // Tính tổng tiền
+            $total_money = 0;
+            foreach ($_SESSION['cart'] as $product) {
+                $subtotal = $product['config_price'] * $product['quantity'];;
+                $total_money += $subtotal;
+            }
+            $total_money = $total_money + 5.99;
+        }
+
+        if (isset($_POST['place_order'])) {
+            // Lấy thông tin từ form
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $gender = $_POST['gender'];
+            $phone_number = $_POST['phone_number'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+
+        // Tạo customer_id mới
+        // Hàm sinh customer_id mới
+        function generateCustomerID($conn) {
+            // Lấy số thứ tự hiện tại từ CSDL hoặc từ một biến lưu trữ
+            $sql = "SELECT COUNT(customer_id) AS max_order_number FROM Customers";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $current_customer_number = $row['max_order_number'] + 1;
+            
+            // Format số thứ tự thành chuỗi 6 ký tự với số 0 đứng trước nếu cần
+            $formatted_customer_number = sprintf("%04d", $current_customer_number);
+            
+            // Tạo customer_id mới
+            $customer_id = 'CUS_' . $formatted_customer_number;
+            
+            return $customer_id;
+        }
+        $customer_id = generateCustomerID($conn);
+
+        // Insert thông tin khách hàng vào bảng Customers
+        $sql = "INSERT INTO Customers (customer_id, first_name, last_name, gender, email, phone_number, address) 
+                VALUES ('$customer_id', '$first_name', '$last_name', '$gender', '$email', '$phone_number', '$address')";
+        if ($conn->query($sql) === FALSE) {
+            echo "Lỗi khi insert dữ liệu vào bảng Customers: " . $conn->error;
+            $conn->close();
+            exit();
+        }
+
+        // Hàm sinh order_id mới
+        function generateOrderID($conn) {
+            // Lấy số thứ tự hiện tại từ CSDL hoặc từ một biến lưu trữ
+            $sql = "SELECT COUNT(order_id) AS max_order_number FROM Orders";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $current_order_number = $row['max_order_number'] + 1;
+
+            // Format số thứ tự thành chuỗi 6 ký tự với số 0 đứng trước nếu cần
+            $formatted_order_number = sprintf("%04d", $current_order_number);
+            
+            // Tạo order_id mới
+            $order_id = 'ODR_' . $formatted_order_number;
+            
+            return $order_id;
+        }
+        // Tạo order_id mới
+        $order_id = generateOrderID($conn);
+
+        // Lấy ngày hiện tại
+        $order_date = date("Y-m-d");
+
+        // Insert thông tin đơn hàng vào bảng Orders
+        $sql = "INSERT INTO Orders (order_id, customer_id, order_date, status, total_money) 
+                VALUES ('$order_id', '$customer_id', '$order_date', 'Pending', $total_money)";
+        if ($conn->query($sql) === FALSE) {
+            echo "Lỗi khi insert dữ liệu vào bảng Orders: " . $conn->error;
+            $conn->close();
+            exit();
+        }
+
+        // Insert thông tin sản phẩm trong giỏ hàng vào bảng OrderItems
+        foreach ($_SESSION['cart'] as $product) {
+            $product_id = $product['product_id'];
+            $price = $product['config_price'];
+            $quantity = $product['quantity'];
+
+            $sql = "INSERT INTO OrderItems (order_id, product_id, price, quantity) 
+                    VALUES ('$order_id', '$product_id', $price, $quantity)";
+            if ($conn->query($sql) === FALSE) {
+                echo "Lỗi khi insert dữ liệu vào bảng OrderItems: " . $conn->error;
+                $conn->close();
+                exit();
+            }
+        }
+
+        // Xóa giỏ hàng sau khi đã đặt hàng thành công
+        unset($_SESSION['cart']);
+
+        // Chuyển hướng người dùng đến trang thành công (hoặc trang xác nhận đơn hàng)
+        header("Location: notification.php");
+        exit();
+        }
+    ?>
+
     <div id="main">
         <!-- BEGIN: Body -->
         <div id="body" style="background-color: #2c3e50;">
@@ -22,7 +129,14 @@
 
             <div class="checkout__header">
                 <p style="font-size: 56px; font-weight: 100px; text-align: center; color: #ffc107; text-transform: uppercase; padding: 4px;">Check out</p>
-                <p style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">Home / Your cart / Check out</p>
+                <!-- <p style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">Home / Your cart / Check out</p> -->
+                <div style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">
+                    <a href="index.php" style="display:inline-block; text-decoration: none; color: #ffc107">Home</a>
+                    <span> / </span>
+                    <a href="cart.php" style="display:inline-block; text-decoration: none; color: #ffc107">Your Cart</a>
+                    <span> / </span>
+                    <a href="checkout.php" style="display:inline-block; text-decoration: none; color: #ffc107">Checkout</a>
+                </div>
             </div>
 
             <div class="navigation" style="display: flex;">
@@ -52,107 +166,103 @@
             
             <div class="main_form" style="display: flex; justify-content: center;">
                 <div class="form__level1" style="display: flex;">
-                    <!-- billing detail -->
-                    <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px;">
-                        <div class="wrapper wrapper1" style="margin: auto; width: 736px;">
-                            <p>Billing Details</p>
-                            <div class="level">
-                                <div>
-                                    <p>First name *</p>
-                                    <input type="text" placeholder="e.g. Truong" style="width: 343px;">
+                    <form action="" method="POST" style="display: flex;">
+                        <!-- billing detail -->
+                        <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px; height: 546px;">
+                            <div class="wrapper wrapper1" style="margin: auto; width: 736px;">
+                                <p>Billing Details</p>
+                                <div class="level">
+                                    <div>
+                                        <p>First name *</p>
+                                        <input type="text" name="first_name" placeholder="e.g. Truong" style="width: 343px;">
+                                    </div>
+                                    <div>
+                                        <p>Last name *</p>
+                                        <input type="text" name="last_name" placeholder="e.g. Phan Dinh" style="width: 368px;">
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Last name *</p>
-                                    <input type="text" placeholder="e.g. Phan Dinh" style="width: 368px;">
+                                <div class="level">
+                                    <div>
+                                        <p>Gender *</p>
+                                        <select name="gender" id="" style="width: 203px;">
+                                            <option value="0" style="line-height: 40px;">Select gender</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            <option value="">Other</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <p>Phone number *</p>
+                                        <input type="text" name="phone_number" placeholder="e.g. 0979870156" style="width: 508px;">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="level">
-                                <div>
-                                    <p>Gender *</p>
-                                    <select name="" id="" style="width: 203px;">
-                                        <option value="0" style="line-height: 40px;">Select gender</option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
-                                        <option value="">Other</option>
-                                    </select>
+                                <div class="level">
+                                    <div>
+                                        <p>Email Address *</p>
+                                        <input type="text" name="email" placeholder="e.g. youremail@gmail.com" style="width: 736px;">
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Phone number *</p>
-                                    <input type="text" placeholder="e.g. 0979870156" style="width: 508px;">
-                                </div>
-                            </div>
-                            <div class="level">
-                                <div>
-                                    <p>Email Address *</p>
-                                    <input type="text" placeholder="e.g. youremail@gmail.com" style="width: 736px;">
-                                </div>
-                            </div>
-                            <div class="level" style="padding-bottom: 40px;">
-                                <div>
-                                    <p>Address *</p>
-                                    <input type="text" placeholder="e.g. No.1 Dai Co Viet, Hai Ba Trung, Ha Noi, Viet Nam" style="width: 736px;">
+                                <div class="level" style="padding-bottom: 40px;">
+                                    <div>
+                                        <p>Address *</p>
+                                        <input type="text" name="address" placeholder="e.g. No.1 Dai Co Viet, Hai Ba Trung, Ha Noi, Viet Nam" style="width: 736px;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                
+                        <!-- BEGIN: Place Order -->
+                        <?php
+                            echo '<div>';
+                            echo '<div class="place__order" style="width: 430px; border: 2px solid #fff; border-radius: 7px; margin-left: 14px;">';
+                            echo '<div class="wrapper wrapper2" style="margin: auto; width: 370px;">';
+                            echo '<p>Your Order</p>';
+                            echo '<div class="header__order" style="display: flex;">
+                                    <div class="product__name">Product</div>
+                                    <div class="product__qty">Qty</div>
+                                    <div class="product__subtotal">Subtotal</div>
+                                </div>';
 
+                            foreach ($_SESSION['cart'] as $product) {
+                                $product_name = $product['product_name'];
+                                $quantity = $product['quantity'];
+                                $config_name = $product['config_name'];
+                                $subtotal = $product['config_price'] * $quantity;
+                                $total_money += $subtotal;
 
-                    <!-- your order -->
-                    <div class="place__order" style="width: 430px; height: 460px; border: 2px solid #fff; border-radius: 7px; margin-left: 14px;">
-                        <div class="wrapper wrapper2" style="margin: auto; width: 370px;">
-                            <p>Your Order</p>
-                            <!-- product-header -->
-                            <div class="header__order" style="display: flex;">
-                                <div class="product__name">Product</div>
-                                <div class="product__qty">Qty</div>
-                                <div class="product__subtotal">Subtotal</div>
-                            </div>
-                            <!-- short-product-description -->
-                            <div class="product">
-                                <div class="product__name">Headphone Sony WH-1000XM4</div>
-                                <div class="product__qty">2</div>
-                                <div class="product__subtotal">$ 700.50</div>
-                            </div>
-                            <div class="product">
-                                <div class="product__name">SSD Samsung 1TB</div>
-                                <div class="product__qty">1</div>
-                                <div class="product__subtotal">$ 150.15</div>
-                            </div>
-                            <div class="product">
-                                <div class="product__name">CPU Cooler Master Hyper 212RGB</div>
-                                <div class="product__qty">3</div>
-                                <div class="product__subtotal">$ 240.42</div>
-                            </div>
-                            <div class="product">
-                                <div class="product__name">NVIDIA GeForce RTX 3080</div>
-                                <div class="product__qty">1</div>
-                                <div class="product__subtotal">$ 900.00</div>
-                            </div>
-                            <div class="product">
-                                <div class="product__name">Corsair K95 RGB Platinum Keyboard Lorem ipsum</div>
-                                <div class="product__qty">2</div>
-                                <div class="product__subtotal">$ 700.50</div>
-                            </div>
+                                $product_name = strlen($product_name) > 90 ? substr($product_name, 0, 90) . "..." : $product_name;
+                        
+                                // echo $config_name;
+                                echo '<div class="product">';
+                                echo '<div class="product__name">' . $product_name . '</div>';
+                                echo '<div class="product__qty">' . $quantity . '</div>';
+                                echo '<div class="product__subtotal">$ ' . $subtotal . '</div>';
+                                echo '</div>';
+                            }
 
-                            <!-- breakline  -->
-                            <div class="breakline" style="display: flex; justify-content: right; margin-top: 12px; margin-bottom: 8px;">
-                                <div style="width: 195px; height: 1.5px; background-color: #fff;"></div>
-                            </div>
+                            echo '<div class="breakline" style="display: flex; justify-content: right; margin-top: 12px; margin-bottom: 8px;">
+                                    <div style="width: 195px; height: 1.5px; background-color: #fff;"></div>
+                                </div>';
+                            echo '<div class="total-money" style="display: flex; align-items: center; justify-content: right; padding-top: 8px; padding-bottom: 8px;">
+                                    <span style="font-size: 14px; font-weight: 400; color: white;">Total money:</span>
+                                    <span style="font-size: 20px; font-weight: 700; color: #ffc107; padding: 0 8px 0 6px;">$ ' . ($total_money + 5.99). '</span>
+                                </div>';
+                            //echo '<form action="" method="POST">';
+                            echo '<div class="place-order-btn" style="display: flex; justify-content: right;">
+                                    <button type="submit" name="place_order">Place Order</button>
+                                </div>';
+                            //echo '</form>';
 
-                            <!-- total-money -->
-                            <div class="total-money" style="display: flex; align-items: center; justify-content: right; padding-top: 8px; padding-bottom: 8px;">
-                                <span style="font-size: 14px; font-weight: 400; color: white;">Total money:</span>
-                                <span style="font-size: 20px; font-weight: 700; color: #ffc107; padding: 0 8px 0 6px;">$ 2398.03</span>
-                            </div>
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                        ?>
+                        <!-- END: Place Order -->
+                    </form>
+                    
 
-                            <!-- place-order-btn -->
-                            <div class="place-order-btn" style="display: flex; justify-content: right;">
-                                <button>Place Order</button>
-                            </div>
-                        </div>
-                    </div>
+                    
+
                 </div>
             </div>
 

@@ -68,19 +68,23 @@
 
                     <!-- header-cart -->
                     <?php
-                    session_start();
+                        session_start();
 
-                    // Tính tổng số lượng sản phẩm trong giỏ hàng
-                    $total_quantity = 0;
-                    foreach ($_SESSION['cart'] as $product) {
-                        $total_quantity += $product['quantity'];
-                    }
+                        // Tính tổng số lượng sản phẩm trong giỏ hàng
+                        $total_quantity = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_quantity += $product['quantity'];
+                            }
+                        }
 
-                    // Tính tổng tiền trong giỏ hàng
-                    $total_money = 0;
-                    foreach ($_SESSION['cart'] as $product) {
-                        $total_money += ($product['config_price'] * $product['quantity']);
-                    }
+                        // Tính tổng tiền trong giỏ hàng
+                        $total_money = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_money += ($product['config_price'] * $product['quantity']);
+                            }
+                        }
                     ?>
 
                     <!-- header-cart -->

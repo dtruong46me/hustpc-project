@@ -22,7 +22,12 @@
             
             <div class="checkout__header">
                 <p style="font-size: 56px; font-weight: 100px; text-align: center; color: #ffc107; text-transform: uppercase; padding: 4px;">Your cart</p>
-                <p style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">Home / Your cart</p>
+                <!-- <p style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">Home / Your cart</p> -->
+                <div style="font-size: 17px; font-weight: 300; text-transform: uppercase; text-align: center; color: #ffc107;padding: 4px;">
+                    <a href="index.php" style="display:inline-block; text-decoration: none; color: #ffc107">Home</a>
+                    <span> / </span>
+                    <a href="cart.php" style="display:inline-block; text-decoration: none; color: #ffc107">Your Cart</a>
+                </div>
             </div>
 
             <div style="display: flex;">
@@ -55,7 +60,20 @@
 
         <!-- BEGIN: Body -->
         <?php
+        //session_start();
         session_start();
+        include "config.php";
+
+        // Kiểm tra xem giỏ hàng có tồn tại hay không
+        if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
+            echo '<h3 style="font-size: 28px; color: #2c3e50;">Your Cart is Empty!</h3>';
+        } else {
+            // Redirect đến trang checkout.php khi nhấp vào nút "Proceed to checkout"
+            if (isset($_POST['proceed_to_checkout'])) {
+                header("Location: checkout.php");
+                exit();
+            }
+        }
         
         echo '<div id="body" style="background-color: white;">';
         echo '<div class="wrapper" style="padding-top: 70px; padding-bottom: 100px; display: flex; width: 1456px; justify-content: space-between; margin: auto;">';
@@ -79,14 +97,14 @@
                     <div class="checkout__header" style="width: 360px; height: 65px; background-color: #2c3e50; display: flex; align-items: center; justify-content: center; color: white;">Subtotal</div>
                     <div class="checkout-body" style="width: 360px; background-color: #e4ebec; display: flex; justify-content: center;">
                         <div class="cart-total-wrapper" style="width: 332px; margin-top: 21px; margin-bottom: 23px;">
-                            <div class="subtotal">
+                            <div class="item-checkout subtotal">
                                 <div>
                                     <p>Subtotal</p>
                                     <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ 0.00</h3>
                                 </div>
                             </div>
                 
-                            <div class="total-money">
+                            <div class="item-checkout total-money">
                                 <div>
                                     <p style="display: flex; align-items: center; padding-bottom: 8px;">Total money</p>
                                     <div>
@@ -142,7 +160,7 @@
             echo '<p>' . $product_name . '</p>';
             echo '</div>';
             echo '</div>';
-            echo '<div class="classification cls-item">' . $config_name . '</div>';
+            echo '<div class="classification cls-item" style="text-align: center;">' . $config_name . '</div>';
             echo '<div class="price price-item">$ ' . $config_price . '</div>';
             echo '<div class="quantity qty-item">';
             echo '<button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>';
@@ -162,14 +180,14 @@
                 <div class="checkout__header" style="width: 360px; height: 65px; background-color: #2c3e50; display: flex; align-items: center; justify-content: center; color: white;">Subtotal</div>
                 <div class="checkout-body" style="width: 360px; background-color: #e4ebec; display: flex; justify-content: center;">
                     <div class="cart-total-wrapper" style="width: 332px; margin-top: 21px; margin-bottom: 23px;">
-                        <div class="subtotal">
+                        <div class="item-checkout subtotal">
                             <div>
                                 <p>Subtotal</p>
                                 <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ ' . $total_money . '</h3>
                             </div>
                         </div>
             
-                        <div class="total-money">
+                        <div class="item-checkout total-money">
                             <div>
                                 <p style="display: flex; align-items: center; padding-bottom: 8px;">Total money</p>
                                 <div>
@@ -180,7 +198,11 @@
                         </div>
             
                         <!-- <button>Proceed to checkout</button> -->
-                        <div class="place-order-btn" style="display: flex; justify-content: right;"><button onclick="location.href=\'checkout.php\';">Proceed to checkout</button></div>
+                        <!-- <div class="place-order-btn" style="display: flex; justify-content: right;"><button onclick="location.href=\'checkout.php\';">Proceed to checkout</button></div> -->';
+                        echo '<div class="place-order-btn" style="display: flex; justify-content: right;">';
+                        echo '<form action="" method="POST">';
+                        echo '<button type="submit" name="proceed_to_checkout">Proceed to checkout</button>';
+                        echo '</form>
                     </div>
                 </div>
             </div>';
