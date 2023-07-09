@@ -66,13 +66,29 @@
 
         // Kiểm tra xem giỏ hàng có tồn tại hay không
         if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-            echo '<h3 style="font-size: 28px; color: #2c3e50;">Your Cart is Empty!</h3>';
+            echo '<h3 style="font-size: 28px; color: #2c3e50;"></h3>';
         } else {
             // Redirect đến trang checkout.php khi nhấp vào nút "Proceed to checkout"
             if (isset($_POST['proceed_to_checkout'])) {
                 header("Location: checkout.php");
                 exit();
             }
+        }
+
+        if (isset($_GET['delete_item'])) {
+            $product_id = $_GET['delete_item'];
+            $key = array_search($product_id, array_column($_SESSION['cart'], 'product_id'));
+        
+            if ($key !== false) {
+                // Xóa sản phẩm khỏi giỏ hàng
+                unset($_SESSION['cart'][$key]);
+                // Cập nhật lại giỏ hàng
+                $_SESSION['cart'] = array_values($_SESSION['cart']);
+            }
+        
+            // Chuyển hướng người dùng về trang cart.php để cập nhật giao diện
+            header("Location: cart.php");
+            exit();
         }
         
         echo '<div id="body" style="background-color: white;">';
@@ -121,22 +137,6 @@
             exit();
         }
 
-        if (isset($_GET['delete_item'])) {
-            $product_id = $_GET['delete_item'];
-            $key = array_search($product_id, array_column($_SESSION['cart'], 'product_id'));
-        
-            if ($key !== false) {
-                // Xóa sản phẩm khỏi giỏ hàng
-                unset($_SESSION['cart'][$key]);
-                // Cập nhật lại giỏ hàng
-                $_SESSION['cart'] = array_values($_SESSION['cart']);
-            }
-        
-            // Chuyển hướng người dùng về trang cart.php để cập nhật giao diện
-            header("Location: cart.php");
-            exit();
-        }
-
         $total_money = 0;
         // Lặp qua từng sản phẩm trong giỏ hàng
         foreach ($_SESSION['cart'] as $product) {
@@ -152,22 +152,25 @@
             echo '<div class="checkboxx checkbox-item">';
             echo '<input type="checkbox" class="checkbox">';
             echo '</div>';
+            
             echo '<div class="products products-item" style="justify-content: space-between;">';
             echo '<div class="image-product">';
             echo '<img src="../assets/imgs/product-imgs/' . $product_id . '/1.jpg" alt="">';
             echo '</div>';
             echo '<div class="prod-content" style="width: 212px;">';
+            echo '<a href="product_detail.php?product_id=' . $product_id . '" style="text-decoration: none; color: #2c2c2c">';
             echo '<p>' . $product_name . '</p>';
+            echo '</a>';
             echo '</div>';
             echo '</div>';
-            echo '<div class="classification cls-item" style="text-align: center;">' . $config_name . '</div>';
-            echo '<div class="price price-item">$ ' . $config_price . '</div>';
+            echo '<div class="classification cls-item" style="text-align: center;">' . $config_name,2 . '</div>';
+            echo '<div class="price price-item">$ ' . number_format($config_price,2) . '</div>';
             echo '<div class="quantity qty-item">';
             echo '<button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>';
             echo '<input type="text" value="' . $quantity . '">';
             echo '<button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>';
             echo '</div>';
-            echo '<div class="money money-item">$ ' . ($config_price * $quantity) . '</div>';
+            echo '<div class="money money-item">$ ' . number_format(($config_price * $quantity),2) . '</div>';
             echo '<div class="delete delete-item">';
             echo '<a href="cart.php?delete_item=' . $product_id . '"><i class="fa-solid fa-trash"></i></a>';
             echo '</div>';
@@ -183,7 +186,7 @@
                         <div class="item-checkout subtotal">
                             <div>
                                 <p>Subtotal</p>
-                                <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ ' . $total_money . '</h3>
+                                <h3 style="font-size: 17px; font-weight: 600; color: #2c2c2c;">$ ' . number_format($total_money,2) . '</h3>
                             </div>
                         </div>
             
@@ -191,7 +194,7 @@
                             <div>
                                 <p style="display: flex; align-items: center; padding-bottom: 8px;">Total money</p>
                                 <div>
-                                    <h3 style="text-align: right; font-size: 24px; font-weight: 800; color: #2c2c2c; padding-top: 8px;">$ ' . ($total_money + 5.99) . '</h3>
+                                    <h3 style="text-align: right; font-size: 24px; font-weight: 800; color: #2c2c2c; padding-top: 8px;">$ ' . number_format(($total_money + 5.99),2) . '</h3>
                                     <p style="font-size: 12px; font-weight: 300; color: #2c2c2c;">(All taxes are included)</p>
                                 </div>
                             </div>

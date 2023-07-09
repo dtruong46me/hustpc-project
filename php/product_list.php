@@ -195,7 +195,7 @@
                         echo '<a href="product_detail.php?product_id=' . $product_id . '" style="text-decoration: none;">';
                         echo '<p class="product_name">' . $product_name . '</p>';
                         echo '</a>';
-                        echo '<div class="product_price">$ ' . $row['config_price'] . '</div>';
+                        echo '<div class="product_price">$ ' . number_format($row['config_price'],2) . '</div>';
                         echo '</div>';
                         echo '</div>';
 

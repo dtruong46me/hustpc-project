@@ -19,8 +19,9 @@ CREATE TABLE IF NOT EXISTS Products (
 
 CREATE TABLE IF NOT EXISTS Configurations (
     product_id CHAR(20),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id),
     config_name CHAR(200),
+    PRIMARY KEY (product_id, config_name),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id),
     config_price FLOAT
 );
 
@@ -58,8 +59,9 @@ CREATE TABLE IF NOT EXISTS Orders (
 CREATE TABLE IF NOT EXISTS OrderItems (
     order_id CHAR(20),
     product_id CHAR(20),
+    config_name CHAR(200),
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id),
+    FOREIGN KEY (product_id, config_name) REFERENCES Configurations(product_id, config_name),
     price FLOAT,
     quantity INT
 );
