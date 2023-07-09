@@ -14,9 +14,11 @@
     <div id="main">
         <!-- BEGIN: Body -->
         <div id="body" style="background-color: #2c3e50;">
-            <div class="logo" style="width: 1512px; display: flex; align-items: center; margin: auto; padding-top: 30px;">
-                <img src="../assets/imgs/logo-horizon.png" alt="" style="height: 120px; padding-left: 70px;">
-            </div>
+            <a href="index.php">
+                <div class="logo" style="width: 1512px; display: flex; align-items: center; margin: auto; padding-top: 30px;">
+                    <img src="../assets/imgs/logo-horizon.png" alt="" style="height: 120px; padding-left: 70px;">
+                </div>
+            </a>
 
             <div class="checkout__header">
                 <p style="font-size: 56px; font-weight: 100px; text-align: center; color: #ffc107; text-transform: uppercase; padding: 4px;">Check out</p>
@@ -48,7 +50,6 @@
                 </div>
             </div>
             
-
             <div class="main_form" style="display: flex; justify-content: center;">
                 <div class="form__level1" style="display: flex;">
                     <!-- billing detail -->
@@ -94,6 +95,10 @@
                             </div>
                         </div>
                     </div>
+
+                
+
+
                     <!-- your order -->
                     <div class="place__order" style="width: 430px; height: 460px; border: 2px solid #fff; border-radius: 7px; margin-left: 14px;">
                         <div class="wrapper wrapper2" style="margin: auto; width: 370px;">

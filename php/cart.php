@@ -179,7 +179,8 @@
                             </div>
                         </div>
             
-                        <button>Proceed to checkout</button>
+                        <!-- <button>Proceed to checkout</button> -->
+                        <div class="place-order-btn" style="display: flex; justify-content: right;"><button onclick="location.href=\'checkout.php\';">Proceed to checkout</button></div>
                     </div>
                 </div>
             </div>';
@@ -188,6 +189,7 @@
         ?>
 
         <!-- END: Body -->
+        
         <!-- BEGIN: Footer -->
         <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; position: relative;">
             <div class="footer-wrapper" style="width: 1380px; margin: auto; padding-top: 35px; display: flex; justify-content: space-between;">
@@ -206,7 +208,7 @@
 
                 <div class="column2" style="padding-top: 35px;">
                     <h1>Information</h1>
-                    <div class="infor__breakline""></div>
+                    <div class="infor__breakline"></div>
                     <ul>
                         <li><div class="list__type"></div><a href="">About Us</a></li>
                         <li><div class="list__type"></div><a href="">More Search</a></li>
@@ -217,7 +219,7 @@
 
                 <div class="column3" style="padding-top: 35px;">
                     <h1>Helpful Links</h1>
-                    <div class="infor__breakline""></div>
+                    <div class="infor__breakline"></div>
                     <ul>
                         <li><div class="list__type"></div><a href="">Services</a></li>
                         <li><div class="list__type"></div><a href="">Supports</a></li>
