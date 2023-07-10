@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS Customers (
 );
 
 CREATE TABLE IF NOT EXISTS Managers (
-    manager_id CHAR(20),
+    manager_id CHAR(20) ,
     first_name CHAR(20),
     last_name CHAR(50),
     gender CHAR(20),
@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_date DATE,
     status CHAR(50),
     total_money FLOAT
+    store_name VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS OrderItems (
