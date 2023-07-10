@@ -182,113 +182,7 @@ html {
     justify-content: space-between;
 }
 
-
-/* body */
-
-.Header_page {
-    padding-top: 60px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: #2c2c2c;
-}
-
-.Header_page a {
-    text-decoration: none;
-}
-
-.Header_page a:visited {
-    color: #2c2c2c;
-}
-
-.item {
-    background-color: #E4E8EC;
-    min-height: 160px;
-}
-
-.container {
-    padding: 72px 80px 72px 80px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 5fr 1fr;
-}
-
-.Header {
-    background-color: #2C3E50;
-    color: white;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.Header:first-child,
-.Header:nth-child(3) {
-    justify-content: center;
-}
-
-.Header:nth-child(2) {
-    padding-left: 16%;
-}
-
-.component,
-.remove {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 20px;
-    color: #059FFF;
-}
-
-.component img {
-    width: 80px;
-    height: 80px;
-}
-
-.remove img {
-    width: 48px;
-    height: 48px;
-}
-
-.select {
-    display: flex;
-    align-items: center;
-    border-style: solid #2C3E50;
-    border-width: 0px 1px 1px 1px;
-}
-
-.select-button {
-    background-color: white;
-    width: 220px;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px
-}
-
-.select-button:hover {
-    background-color: #2C3E50;
-    color: white;
-    cursor: pointer;
-}
-
-.select-button:active {
-    background-color: white;
-    color: black;
-}
-
-
 /* style footer */
-
 #footer div h1 {
     font-size: 21px;
     line-height: 25px;
@@ -354,4 +248,53 @@ html {
     height: 26px;
     border-radius: 13px;
     border: 2px solid white;
+}
+
+/* body */
+.navi_product p {
+    text-align: center; text-transform: uppercase;
+}
+
+.select_wrapper {
+    background-color: #f2f2f2; margin-bottom: 12px; display: flex; justify-content: space-between;
+}
+
+.select_field img {
+    width: 80px; margin: auto; border: 4px solid #2c3e50; padding: 12px;
+}
+
+.select_field p {
+    text-align: center; margin-top: 4px; font-size: 18px; font-weight: 600; color: #2c3e50;
+}
+
+.select_field>div {
+    display: flex;
+}
+
+.header-item {
+    display: flex; align-items: center; justify-content: center; color: white; line-height: 48px;
+}
+
+.select_field {
+    width: 200px; padding-top: 24px; padding-bottom: 24px;
+}
+
+.select_item {
+    width: 600px; display: flex; align-items: center; font-size: 14px; font-weight: 500; padding: 20px 12px 20px 12px;
+}
+
+.config_name {
+    width: 300px; display: flex; align-items: center; font-size: 16px; font-weight: 500; color: #2c3e50; justify-content: center;
+}
+
+.quantity {
+    width: 100px; display: flex; align-items: center; color: #2c3e50; justify-content: center;
+}
+
+.sub_total {
+    width: 120px; display: flex; align-items: center; font-size: 24px; font-weight: 700; color: #2c3e50; justify-content: center;
+}
+
+.remove {
+    width: 100px; display: flex; align-items: center; font-size: 20px; color: #2c3e50; justify-content: center; padding-right: 20px;
 }

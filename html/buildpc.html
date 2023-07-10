@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUSTPC | Computers and IT Equipment</title>
-    <link rel="stylesheet" href="/hustpc-website/css/style_buildpc.css">
+    <link rel="stylesheet" href="../css/build_pc.css">
     <script src="https://kit.fontawesome.com/5d7bdd2819.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="../assets/imgs/hust-pc.png">
 </head>
 
 <body>
+    <!-- BEGIN: Header -->
     <div id="header" style="width: 100%; height: 211px; position: relative; background-color: #2c3e50;">
         <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
             <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
@@ -77,162 +78,269 @@
             <li><a href="">Contact us</a></li>
         </ul>
     </div>
-    <!-- body -->
-    <div class="Header_page">
-        <h1>PC Buider</h1>
-        <h2><a href="https://www.google.com">Home</a> / <a href="https://www.youtube.com">Pc buider</a></h2>
+    <!-- END: Header -->
+
+    <!-- BEGIN: Header -->
+    <div id="body">
+        <div class="navi_product">
+            <p style="color: #2c2c2c; font-size: 44px; font-weight: 500; letter-spacing: 0.12em; margin-top: 96px; margin-bottom: 22px;">BUILD PC</p>
+            <p style="color: #2c2c2c; font-size: 16px; font-weight: 300; letter-spacing: 0.2em; margin-bottom: 80px;">HOME / BUILD PC</p>
+        </div>
+
+        <div class="container" style="width: 1500px; margin: auto;">
+            <div class="header_component" style="display: flex; justify-content: space-between; background-color: #2c3e50;">
+                <div class="header-item" style="width: 200px;">Component</div>
+                <div class="header-item" style="width: 600px; justify-content: left; padding-left: 40px;">Selected Product</div>
+                <div class="header-item" style="width: 300px;">Classification</div>
+                <div class="header-item" style="width: 100px;">Quantity</div>
+                <div class="header-item" style="width: 120px;">Subtotal</div>
+                <div class="header-item" style="width: 100px; padding-right: 20px;">Remove</div>
+            </div>
+            
+            <form action="">
+                <!-- cpu -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/cpu-tower.png" alt="">
+                        </div>
+                        <p>CPU</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- ram -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/ram.png" alt="">
+                        </div>
+                        <p>RAM</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- cooler -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/cooling-fan.png" alt="">  
+                        </div>
+                        <p>CPU Cooler</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                
+                <!-- motherboard -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/motherboard.png" alt="">
+                        </div>
+                        <p>Motherboard</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- gpu -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/gpu.png" alt="">
+                        </div>
+                        <p>Video Card</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- case -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/computer-case.png" alt="">
+                        </div>
+                        <p>Case</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- power-supply -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/power-supply (1).png" alt="">
+                        </div>
+                        <p>Power Supply</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- storages -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/ssd.png" alt="">
+                        </div>
+                        <p>Storage</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- operating system -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/windows-logo-silhouette.png" alt="">
+                        </div>
+                        <p>Operating System</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- assessories -->
+                <div class="select_wrapper">
+                    <div class="select_field">
+                        <div style="margin: auto;">
+                            <img src="../assets/imgs/build_pc/typing.png" alt="">
+                        </div>
+                        <p>Accessories</p>
+                    </div>
+
+                    <div class="select_item">
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                    </div>
+
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+
+                    <div class="quantity">2</div>
+
+                    <div class="sub_total">$ 346.65</div>
+
+                    <div class="remove">
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="container">
-        <div class="Header item">
-            <p>Component</p>
-        </div>
-        <div class="Header item">
-            <p>Selected product</p>
-        </div>
-        <div class="Header item">
-            <p>Remove all</p>
-        </div>
-        <!-- cpu -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/processor.png">
-            <p>CPU</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- motherboard -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/motherboard.png">
-            <P>Motherboard</P>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- video_card -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/graphics-card.png">
-            <p>Video cards</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- case -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/cpu.png">
-            <p>Case</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- power_supply -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/power-supply.png">
-            <p>Power supllies</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- storage -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/harddisk.png">
-            <p>Storage</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- cpu_cooler -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/cooler.png">
-            <p>CPU cooler</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- os -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/ram.png">
-            <p>Operating system</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- memory -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/ram.png">
-            <p>Memory</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-        <!-- accessoris -->
-        <div class="component item">
-            <img src="/hustpc-website//assets/imgs/computer.png">
-            <p>Accessoris</p>
-        </div>
-        <div class="select item">
-            <button class="select-button">
-                <i class="fa-solid fa-plus" style="width:16px"></i>
-                Select
-            </button>
-        </div>
-        <div class="remove item">
-            <img src="/hustpc-website//assets/imgs/remove.png">
-        </div>
-    </div>
+    
     <!-- footer -->
     <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; position: relative;">
         <div class="footer-wrapper" style="width: 1380px; margin: auto; padding-top: 35px; display: flex; justify-content: space-between;">
