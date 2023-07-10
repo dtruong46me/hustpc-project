@@ -223,7 +223,7 @@
                         <div class="row_info">
                             <div class="field">Total Money</div>
                             <div class="split">:</div>
-                            <div class="main_info">$ ' . number_format($total_money) . '</div>
+                            <div class="main_info">$ ' . number_format($total_money,2) . '</div>
                         </div>
 
                         <div class="row_info" style="padding-bottom: 20px;">
