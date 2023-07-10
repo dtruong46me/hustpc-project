@@ -90,6 +90,14 @@
             header("Location: cart.php");
             exit();
         }
+
+        // Tính tổng số lượng sản phẩm trong giỏ hàng
+        $total_quantity = 0;
+        if (isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $product) {
+                $total_quantity += $product['quantity'];
+            }
+        }
         
         echo '<div id="body" style="background-color: white;">';
         echo '<div class="wrapper" style="padding-top: 70px; padding-bottom: 100px; display: flex; width: 1456px; justify-content: space-between; margin: auto;">';
@@ -97,7 +105,7 @@
         
         echo '<div class="items__header" style="height: 65px; background-color: #2c3e50; display: flex;">
                 <div class="checkboxx"><input type="checkbox" class="checkbox"></div>
-                <div class="products" style="color: white;">Product (5 items)</div>
+                <div class="products" style="color: white;">Product (' . $total_quantity . ' items)</div>
                 <div class="classification" style="color: white;">Classification</div>
                 <div class="price" style="color: white;">Price</div>
                 <div class="quantity" style="color: white;">Quantity</div>
