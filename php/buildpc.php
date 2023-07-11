@@ -95,7 +95,7 @@
                 <div class="header-item" style="width: 600px; justify-content: left; padding-left: 40px;">Selected Product</div>
                 <div class="header-item" style="width: 300px;">Classification</div>
                 <div class="header-item" style="width: 100px;">Quantity</div>
-                <div class="header-item" style="width: 132px;">Subtotal</div>
+                <div class="header-item" style="width: 120px;">Subtotal</div>
                 <div class="header-item" style="width: 100px; padding-right: 20px;">Remove</div>
             </div>
             
@@ -113,8 +113,8 @@
                         <div class="comp_img">
                             <img src="../assets/imgs/product-imgs/CPU-006/1.jpg" alt="">
                         </div>
-                        <a href="#" class="comp_name">
-                            (Ship by Fedex)AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor
+                        <a href="#">
+                            Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
                         </a>
                     </div>
 
@@ -139,19 +139,17 @@
                     </div>
 
                     <div class="select_item">
-                        <div class="select_btn">
-                            <a href="#">Select</a>
-                        </div>
+                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
                     </div>
 
-                    <div class="config_name"></div>
+                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity"></div>
+                    <div class="quantity">2</div>
 
-                    <div class="sub_total"></div>
+                    <div class="sub_total">$ 346.65</div>
 
                     <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"></a>
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
 
