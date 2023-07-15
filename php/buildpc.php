@@ -95,7 +95,7 @@
                 <div class="header-item" style="width: 600px; justify-content: left; padding-left: 40px;">Selected Product</div>
                 <div class="header-item" style="width: 300px;">Classification</div>
                 <div class="header-item" style="width: 100px;">Quantity</div>
-                <div class="header-item" style="width: 120px;">Subtotal</div>
+                <div class="header-item" style="width: 132px;">Subtotal</div>
                 <div class="header-item" style="width: 100px; padding-right: 20px;">Remove</div>
             </div>
             
@@ -120,7 +120,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
