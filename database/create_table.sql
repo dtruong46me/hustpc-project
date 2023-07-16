@@ -53,8 +53,9 @@ CREATE TABLE IF NOT EXISTS Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     order_date DATE,
     status CHAR(50),
-    total_money FLOAT
-    store_name VARCHAR(255)
+    total_money FLOAT,
+    store_name VARCHAR(255),
+    need_assemble BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS OrderItems (

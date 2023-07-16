@@ -140,314 +140,161 @@
                 <div class="header-item" style="width: 100px; padding-right: 20px;">Remove</div>
             </div>
             
+            <!-- BEGIN: Form Build PC -->
             <form action="">
-                <!-- cpu -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/cpu-tower.png" alt="">
-                        </div>
-                        <p>CPU</p>
-                    </div>
+                <?php
+                    $pcbuilder = [
+                        [
+                            'category' => 'CPU',
+                            'img' => '../assets/imgs/build_pc/cpu-tower.png',
+                            'name' => '(Ship by Fedex)AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor',
+                            'config' => '64GB Standard Lorem ipsum dolor',
+                            'quantity' => 1,
+                            'price' => 346.25
+                        ],
+                        [
+                            'category' => 'RAM',
+                            'img' => '../assets/imgs/build_pc/ram.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'CPU Cooler',
+                            'img' => '../assets/imgs/build_pc/cooling-fan.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Motherboard',
+                            'img' => '../assets/imgs/build_pc/motherboard.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Video Card',
+                            'img' => '../assets/imgs/build_pc/gpu.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Case',
+                            'img' => '../assets/imgs/build_pc/computer-case.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Power Supply',
+                            'img' => '../assets/imgs/build_pc/power-supply (1).png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Storages',
+                            'img' => '../assets/imgs/build_pc/ssd.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Operating System',
+                            'img' => '../assets/imgs/build_pc/windows-logo-silhouette.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                        [
+                            'category' => 'Assessories',
+                            'img' => '../assets/imgs/build_pc/typing.png',
+                            'name' => '',
+                            'config' => '',
+                            'quantity' => 0,
+                            'price' => 0
+                        ],
+                    ];
 
-                    <div class="select_item">
-                        <div class="comp_img">
-                            <img src="../assets/imgs/product-imgs/CPU-006/1.jpg" alt="">
-                        </div>
-                        <a href="#" class="comp_name">
-                            (Ship by Fedex)AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor
-                        </a>
-                    </div>
+                    foreach ($pcbuilder as $component) {
+                        $category = $component['category'];
+                        $imgSrc = $component['img'];
+                        $name = $component['name'];
+                        $config = $component['config'];
+                        $price = $component['price'];
 
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+                        echo '<div class="select_wrapper">';
+                        echo '<div class="select_field">';
+                        echo '<div style="margin: auto;">
+                                <img src="' . $imgSrc . '" alt="">
+                            </div>';
+                        echo '<p>' . $category . '</p>';
+                        echo '</div>';
+                        
+                        if (!empty($name)) {
+                            echo '<div class="select_item">';
+                            echo '<div class="comp_img">
+                                    <img src="../assets/imgs/product-imgs/CPU-006/1.jpg" alt="">
+                                </div>';
+                            echo '<a href="#" class="comp_name">' . $name . '</a>';
+                            echo '</div>';
+                            echo '<div class="config_name">' . $config . '</div>';
+                            echo '<div class="quantity">
+                                    <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                                    <input type="text" value="1">
+                                    <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                                </div>';
+                            echo '<div class="sub_total">$ ' . $price . '</div>';
+                            echo '<div class="remove">
+                                    <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                                </div>';
+                        } else {
+                            echo '<div class="select_item">
+                                    <button class="select_button" data-category="' . $category . '">Select</button>
+                                </div>';
+                            echo '<div class="config_name"></div>';
+                            echo '<div class="quantity"></div>';
+                            echo '<div class="sub_total"></div>';
+                            echo '<div class="remove"></div>';
+                        }
+                        echo '</div>';
+                    }
+                ?>
 
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- ram -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/ram.png" alt="">
-                        </div>
-                        <p>RAM</p>
-                    </div>
-
-                    <div class="select_item">
-                        <button>Select</button>
-                    </div>
-
-                    <div class="config_name"></div>
-
-                    <div class="quantity">
-                        <!-- <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button> -->
-                    </div>
-
-                    <div class="sub_total"></div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"></a>
-                    </div>
-                </div>
-
-                <!-- cooler -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/cooling-fan.png" alt="">  
-                        </div>
-                        <p>CPU Cooler</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-                
-                <!-- motherboard -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/motherboard.png" alt="">
-                        </div>
-                        <p>Motherboard</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- gpu -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/gpu.png" alt="">
-                        </div>
-                        <p>Video Card</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- case -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/computer-case.png" alt="">
-                        </div>
-                        <p>Case</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- power-supply -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/power-supply (1).png" alt="">
-                        </div>
-                        <p>Power Supply</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- storages -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/ssd.png" alt="">
-                        </div>
-                        <p>Storage</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- operating system -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/windows-logo-silhouette.png" alt="">
-                        </div>
-                        <p>Operating System</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <!-- assessories -->
-                <div class="select_wrapper">
-                    <div class="select_field">
-                        <div style="margin: auto;">
-                            <img src="../assets/imgs/build_pc/typing.png" alt="">
-                        </div>
-                        <p>Accessories</p>
-                    </div>
-
-                    <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
-                    </div>
-
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
-
-                    <div class="quantity">
-                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
-                        <input type="text" value="1">
-                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sub_total">$ 346.65</div>
-
-                    <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <div class="setup_to_cart" style="display: flex; background-color: #2c3e50; justify-content: space-between; margin-bottom: 60px; margin-top: 40px; padding: 8px 40px; padding-top: 24px;">
-                    <div class="note_buildpc" style="width: 624px; height: 180px; display: flex; align-items: center; color: #fff; font-size: 17px; font-weight: 300; line-height: 28px;">
+                <div class="setup_to_cart">
+                    <div class="note_buildpc">
                         NOTE: Before purchasing, we recommend that you check all specifications such as physical dimensions and item details to ensure 100% compatibility. If they are not compatible with each other, we will contact you as soon as possible to change some components accordingly.
                     </div>
                     <div class="add_to_cart" style="width: 742px; height: 200px; padding-top: 24px;">
                         <div class="total_money" style="font-size: 30px; font-weight: 600; color: #fff; padding-left: 316px;">
                             <span style="margin-right: 24px; font-weight: 400;">Total Money: </span>
-                            <span>$ 3421.49</span>
+                            <span>$ 345.12</span>
                         </div>
-                        <div class="button_action" style="display: flex; justify-content: space-around; margin-top: 32px; padding-left: 92px;">
-                            <button type="submit" style="width: 280px; height: 64px; background-color: #fff; color: #2c3e50; font-size: 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; border: none;">Reset All</button>
-                            <button type="submit" style="width: 280px; height: 64px; background-color: #ffc107; color: #2c3e50; font-size: 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; border: none;">Add to Cart</button>
+                        <div class="button_action">
+                            <button type="submit" style="background-color: #fff; color: #2c3e50;">Reset All</button>
+                            <button type="submit" style="background-color: #ffc107; color: #2c3e50;">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </form>
+            <!-- END: Form Build PC -->
         </div>
 
-        <div class="popup-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; justify-content: center; align-items: center;">
-            <div class="popup-content" style="width: 1288px; height: 762px; background-color: #fff; box-shadow: 0px 0px 16px 4px rgba(255, 255, 255, 0.2);">
-                <div class="popup__header" style="height: 120px; background-color: #2c3e50; display: flex; align-items: center; justify-content: space-between; padding: 0 24px;">
-                    <div class="popup__logo" style="display: flex; align-items: center; margin-left: 40px;">
+        <!-- BEGIN: Popup -->
+        <div class="popup-overlay">
+            <div class="popup-content">
+                <div class="popup__header">
+                    <div class="popup__logo">
                         <i class="fa-solid fa-computer" style="font-size: 80px; color: #fff;"></i>
                         <div class="logo_text" style="color: #fff; text-transform: uppercase; margin-left: 16px;">
                             <p style="font-size: 26px; font-weight: 700;">Build PC</p>
@@ -455,15 +302,15 @@
                         </div>
                     </div>
 
-                    <div class="popup__search" style="display: flex; background-color: #fff; width: 462px; height: 52px; border-radius: 24px; padding: 2px 0; margin-right: 100px;">
-                        <input type="text" placeholder="Enter your search ..." style="border: none; font-size: 20px; margin-left: 44px; width: 349px;">
-                        <button type="submit" style="border: none; color: #2c3e50; font-size: 30px; cursor: pointer; background-color: #fff; padding: 0 9px;">
+                    <div class="popup__search">
+                        <input type="text" placeholder="Enter your search ...">
+                        <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
 
                     <div class="popup__close">
-                        <button style="font-size: 36px; color: #fff; background-color: #2c3e50; border: none; cursor: pointer; padding: 8px 12px; margin-bottom: 44px;"><i class="fa-solid fa-xmark"></i></button>
+                        <button><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
 
@@ -583,6 +430,7 @@
                 </div>
             </div>
         </div>
+        <!-- END: Popup -->
     </div>
     <!-- END: Body -->
     
