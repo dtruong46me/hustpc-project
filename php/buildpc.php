@@ -15,74 +15,115 @@
 <body>
     <!-- BEGIN: Header -->
     <div id="header" style="width: 100%; height: 211px; position: relative; background-color: #2c3e50;">
-        <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
-            <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
+            <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
+                <a href="index.php" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
 
-            <div class="header-function">
-                <!-- header-search -->
-                <div class="header-search">
-                    <form class="search-form" style="display: flex; height: 54px; align-items: center;">
-                        <div class="select-wrapper">
-                            <select name="scat_id">
-                                    <option value="">Select Categories</option>
-                                    <option value="">Build PC</option>
-                                    <option value="395">CPU</option>                            
-                                    <option value="394">RAM</option>
-                                    <option value="394">Lorem ipsum</option>
+                <!-- header function -->
+                <div class="header-function">
+                    <!-- header-search -->
+                    <div class="header-search">
+                        <form class="search-form" action="product_list.php" method="GET" style="display: flex; height: 54px; align-items: center;">
+                            <div class="select-wrapper">
+                                <select name="scat_id">
+                                    <option value="">Select Categories</option> 
+                                    <?php
+                                    // Kết nối đến CSDL
+                                    include "config.php";
+
+                                    // Truy vấn danh sách danh mục
+                                    $sql = "SELECT * FROM categories";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option>" . $row['category_name'] . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=''>No categories found</option>";
+                                    }
+
+                                    $conn->close();
+                                    ?>
+
                                 </select>
-                        </div>
-                        <div class="search-form-container">
-                            <input class="text_search" placeholder="Enter your search...">
-                            <button type="submit" class="search-btn" style="display: flex; align-items: center;">
+                            </div>
+                            <div class="search-form-container">
+                                <input class="text_search" name="search" placeholder="Enter your search...">
+                                <button type="submit" class="search-btn" style="display: flex; align-items: center;">
                                     <!-- <i class="ti-search"></i>  -->
                                     Search
                                 </button>
-                        </div>
-                    </form>
-                </div>
+                            </div>
+                        </form>
+                    </div>
 
-                <!-- header-support -->
-                <div class="header-support">
-                    <a href="">
-                        <i class="fa-solid fa-headset" style="font-size: 36px;"></i>
-                        <div class="support-detail">
-                            <h2>Support</h2>
-                            <h3>(+84) 1900 0586</h3>
-                        </div>
-                    </a>
-                </div>
+                    <!-- header-support -->
+                    <div class="header-support">
+                        <a href="">
+                            <i class="fa-solid fa-headset" style="font-size: 36px;"></i>
+                            <div class="support-detail">
+                                <h2>Support</h2>
+                                <h3>(+84) 1900 0586</h3>
+                            </div>
+                        </a>
+                    </div>
 
-                <!-- header-cart -->
-                <div class="header-cart">
-                    <a href="">
-                        <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
-                            <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
-                            <div class="notifi-nums">12</div>
-                        </div>
-                        <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">$ 120.53</h2>
-                    </a>
+                    <!-- header-cart -->
+                    <?php
+                        session_start();
+
+                        // Tính tổng số lượng sản phẩm trong giỏ hàng
+                        $total_quantity = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_quantity += $product['quantity'];
+                            }
+                        }
+
+                        // Tính tổng tiền trong giỏ hàng
+                        $total_money = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $product) {
+                                $total_money += ($product['config_price'] * $product['quantity']);
+                            }
+                        }
+                    ?>
+
+                    <!-- header-cart -->
+                    <div class="header-cart">
+                        <a href="cart.php">
+                            <div class="cart-notification" style="display: flex; align-items: center; position: relative; width: 42px; height: 36px;">
+                                <i class="fa-solid fa-cart-shopping" style="font-size: 30px; position: absolute; left: 0; bottom: 0;"></i>
+                                <?php if ($total_quantity > 0): ?>
+                                    <div class="notifi-nums"><?php echo $total_quantity; ?></div>
+                                <?php endif; ?>
+                            </div>
+                            <h2 style="margin-left: 15px; font-size: 21px; font-weight: 800; letter-spacing: -0.03em;">
+                                $ <?php echo number_format($total_money, 2); ?>
+                            </h2>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-            <li>
-                <a href="" class="all-categories">
+            <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
+            <li><a href="index.php" class="all-categories" style="display: flex; justify-content: center; align-items: center;">
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
-                    <h3>All Categories</h3>
-                </a>
-            </li>
-            <li><a href="">Build PC</a></li>
-            <li><a href="">Products</a></li>
-            <li><a href="">Best Seller</a></li>
-            <li><a href="">Blogs</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Contact us</a></li>
-        </ul>
-    </div>
-    <!-- END: Header -->
+                    All Categories
+                </a></li>
+                <li style="background-color: #ffc107; border-radius: 14px 14px 0 0;"><a href="#" style="font-size: 16px; font-weight: 700; color: black;">Build PC</a></li>
+                <li><a href="../php/product_list.php">Products</a></li>
+                <li><a href="#">Best Seller</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="contact_us.php">Contact us</a></li>
+            </ul>
+        </div>
+        <!-- END: Header -->
 
     <!-- BEGIN: Header -->
+
+    <!-- BEGIN: Body -->
     <div id="body">
         <div class="navi_product">
             <p style="color: #2c2c2c; font-size: 44px; font-weight: 500; letter-spacing: 0.12em; margin-top: 96px; margin-bottom: 22px;">BUILD PC</p>
@@ -113,8 +154,8 @@
                         <div class="comp_img">
                             <img src="../assets/imgs/product-imgs/CPU-006/1.jpg" alt="">
                         </div>
-                        <a href="#">
-                            Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                        <a href="#" class="comp_name">
+                            (Ship by Fedex)AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor
                         </a>
                     </div>
 
@@ -143,17 +184,21 @@
                     </div>
 
                     <div class="select_item">
-                        Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem Lorem ipsum dolor ipem
+                        <button>Select</button>
                     </div>
 
-                    <div class="config_name">64GB Standard Lorem ipsum dolor</div>
+                    <div class="config_name"></div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <!-- <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button> -->
+                    </div>
 
-                    <div class="sub_total">$ 346.65</div>
+                    <div class="sub_total"></div>
 
                     <div class="remove">
-                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"></a>
                     </div>
                 </div>
 
@@ -172,7 +217,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -196,7 +245,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -220,7 +273,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -244,7 +301,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -268,7 +329,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -292,7 +357,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -316,7 +385,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -340,7 +413,11 @@
 
                     <div class="config_name">64GB Standard Lorem ipsum dolor</div>
 
-                    <div class="quantity">2</div>
+                    <div class="quantity">
+                        <button style="border-radius: 7px 0 0 7px;"><i class="fa-solid fa-minus"></i></button>
+                        <input type="text" value="1">
+                        <button style="border-radius: 0 7px 7px 0;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
 
                     <div class="sub_total">$ 346.65</div>
 
@@ -348,11 +425,168 @@
                         <a href="#" style="text-decoration: none; color: #2c2c2c; padding: 20px;"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
+
+                <div class="setup_to_cart" style="display: flex; background-color: #2c3e50; justify-content: space-between; margin-bottom: 60px; margin-top: 40px; padding: 8px 40px; padding-top: 24px;">
+                    <div class="note_buildpc" style="width: 624px; height: 180px; display: flex; align-items: center; color: #fff; font-size: 17px; font-weight: 300; line-height: 28px;">
+                        NOTE: Before purchasing, we recommend that you check all specifications such as physical dimensions and item details to ensure 100% compatibility. If they are not compatible with each other, we will contact you as soon as possible to change some components accordingly.
+                    </div>
+                    <div class="add_to_cart" style="width: 742px; height: 200px; padding-top: 24px;">
+                        <div class="total_money" style="font-size: 30px; font-weight: 600; color: #fff; padding-left: 316px;">
+                            <span style="margin-right: 24px; font-weight: 400;">Total Money: </span>
+                            <span>$ 3421.49</span>
+                        </div>
+                        <div class="button_action" style="display: flex; justify-content: space-around; margin-top: 32px; padding-left: 92px;">
+                            <button type="submit" style="width: 280px; height: 64px; background-color: #fff; color: #2c3e50; font-size: 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; border: none;">Reset All</button>
+                            <button type="submit" style="width: 280px; height: 64px; background-color: #ffc107; color: #2c3e50; font-size: 24px; font-weight: 600; text-transform: uppercase; border-radius: 8px; border: none;">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
+
+        <div class="popup-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; justify-content: center; align-items: center;">
+            <div class="popup-content" style="width: 1288px; height: 762px; background-color: #fff; box-shadow: 0px 0px 16px 4px rgba(255, 255, 255, 0.2);">
+                <div class="popup__header" style="height: 120px; background-color: #2c3e50; display: flex; align-items: center; justify-content: space-between; padding: 0 24px;">
+                    <div class="popup__logo" style="display: flex; align-items: center; margin-left: 40px;">
+                        <i class="fa-solid fa-computer" style="font-size: 80px; color: #fff;"></i>
+                        <div class="logo_text" style="color: #fff; text-transform: uppercase; margin-left: 16px;">
+                            <p style="font-size: 26px; font-weight: 700;">Build PC</p>
+                            <p style="font-size: 16px; font-weight: 500;">Select Component</p>
+                        </div>
+                    </div>
+
+                    <div class="popup__search" style="display: flex; background-color: #fff; width: 462px; height: 52px; border-radius: 24px; padding: 2px 0; margin-right: 100px;">
+                        <input type="text" placeholder="Enter your search ..." style="border: none; font-size: 20px; margin-left: 44px; width: 349px;">
+                        <button type="submit" style="border: none; color: #2c3e50; font-size: 30px; cursor: pointer; background-color: #fff; padding: 0 9px;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+                    <div class="popup__close">
+                        <button style="font-size: 36px; color: #fff; background-color: #2c3e50; border: none; cursor: pointer; padding: 8px 12px; margin-bottom: 44px;"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <div class="sort_by" style="display: flex; margin: 20px 0 20px 54px;">
+                    <div class="sortby__label">Sort by:</div>
+                    <div class="sortby__dropdown">
+                        <select id="sortby-select">
+                            <option value="nameaz">All Products</option>
+                            <option value="nameaz">Name A → Z</option>
+                            <option value="nameza">Name Z → A</option>
+                            <option value="priceasc">Price ASC</option>
+                            <option value="pricedesc">Price DESC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main__content" style="overflow-y: auto; max-height: 540px;">
+                    <div class="wrapper" style="width: 1184px; margin: auto;">
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+
+                        <div class="product">
+                            <div class="prod__img">
+                                <img src="../assets/imgs/product-imgs/CASE-011/1.jpg" alt="">
+                            </div>
+                            <a href="">
+                                <div class="prod__name">
+                                    Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum Lore ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum demo dolor Lorem ipsum
+                                </div>
+                            </a>
+                            <div class="prod__config">Demo type Lorem ipsum type Lorem ipsum</div>
+                            <div class="prod__price">$ 153.61</div>
+                            <button type="submit">Add to my PC</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- END: Body -->
     
-    <!-- footer -->
+    <!-- BEGIN: Footer -->
     <div id="footer" style="width: 100%; height: 366px; background-color: #2c3e50; ">
         <div class="footer-wrapper" style="width: 1380px; margin: auto; padding-top: 35px; display: flex; justify-content: space-between;">
             <div class="column1" style="width: 260px;">
@@ -441,6 +675,8 @@
             </div>
         </div>
     </div>
-</body>
+    <!-- END: Footer -->
 
+    <script src="../js/buildpc.js"></script>
+</body>
 </html>

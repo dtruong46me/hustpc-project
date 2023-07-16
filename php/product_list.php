@@ -111,7 +111,7 @@
                     All Categories
                 </a></li>
                 <!-- <li><a href="">Home</a></li> -->
-                <li><a href="">Build PC</a></li>
+                <li><a href="../php/buildpc.php">Build PC</a></li>
                 <li style="background-color: #ffc107; border-radius: 14px 14px 0 0;"><a href="" style="font-size: 16px; font-weight: 700; color: black;">Products</a></li>
                 <li><a href="">Best Seller</a></li>
                 <li><a href="">Blogs</a></li>

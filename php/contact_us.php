@@ -15,7 +15,7 @@
         <!-- BEGIN: Header -->
         <div id="header" style="width: 100%; height: 211px; position: relative; background-color: #2c3e50;">
             <div class="head-header" style="display: flex; width: 1440px; justify-content: space-between; margin: auto; padding-top: 20px;">
-                <a href="" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
+                <a href="../php/index.php" class="logo-img"><img src="../assets/imgs/hust-pc-logo.png" alt="" style="width: 142px; height: auto;"></a>
 
                 <div class="header-function">
                     <!-- header-search -->
@@ -65,7 +65,7 @@
             </div>
 
             <ul class="nav" style="display: flex; list-style-type: none; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-                <li><a href="" class="all-categories" style="display: flex; justify-content: center; align-items: center;">
+                <li><a href="../php/index.php" class="all-categories" style="display: flex; justify-content: center; align-items: center;">
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     All Categories
                 </a></li>
