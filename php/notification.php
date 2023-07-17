@@ -134,6 +134,8 @@
                 $total_money = $row['total_money'];
                 $customer_id = $row['customer_id'];
                 $status = $row['status'];
+                $store_name = $row['store_name'];
+                $need_assemble = $row['need_assemble'];
                 
                 // Lấy thông tin khách hàng từ bảng Customers
                 $sql_customer = "SELECT * FROM Customers WHERE customer_id = '$customer_id'";
@@ -143,6 +145,8 @@
                 $email = $row_customer['email'];
                 $phone_number = $row_customer['phone_number'];
                 $address = $row_customer['address'];
+                $gender = $row_customer['gender'];
+                
             } else {
                 // Không có đơn hàng mới
                 echo "Order not found!";
@@ -178,6 +182,12 @@
                             <div class="field">Full name</div>
                             <div class="split">:</div>
                             <div class="main_info" style="text-transform: uppercase;">' . $full_name . '</div>
+                        </div>
+
+                        <div class="row_info">
+                            <div class="field">Gender</div>
+                            <div class="split">:</div>
+                            <div class="main_info">' . $gender . '</div>
                         </div>
 
                         <div class="row_info">
@@ -226,10 +236,22 @@
                             <div class="main_info">$ ' . number_format($total_money,2) . '</div>
                         </div>
 
-                        <div class="row_info" style="padding-bottom: 20px;">
+                        <div class="row_info">
                             <div class="field">Payment Method</div>
                             <div class="split">:</div>
                             <div class="main_info">Cash Payment</div>
+                        </div>
+
+                        <div class="row_info">
+                            <div class="field">Store Selected</div>
+                            <div class="split">:</div>
+                            <div class="main_info">' . $store_name . '</div>
+                        </div>
+
+                        <div class="row_info" style="padding-bottom: 20px;">
+                            <div class="field">Need Assemble?</div>
+                            <div class="split">:</div>
+                            <div class="main_info" style="text-transform: uppercase;">' . $need_assemble . '</div>
                         </div>
                     </div>
                 </div>';
@@ -268,7 +290,7 @@
                     echo '<div class="product_info">';
                     echo '<div class="product_name" style="width: 390px;">' . $product_name . '</div>';
                     echo '<div class="product_config" style="width: 160px; text-align: center;">' . $classification . '</div>';
-                    echo '<div class="product_categ" style="width: 110px;">' . $category . '</div>';
+                    echo '<div class="product_categ" style="width: 110px; text-align: center;">' . $category . '</div>';
                     echo '<div class="product_qty" style="width: 92px;">' . $quantity . '</div>';
                     echo '<div class="product_subtotal" style="width: 100px;">$ ' . number_format($subtotal, 2) . '</div>';
                     echo '</div>';
