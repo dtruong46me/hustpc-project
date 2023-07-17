@@ -34,6 +34,8 @@
             $phone_number = $_POST['phone_number'];
             $email = $_POST['email'];
             $address = $_POST['address'];
+            $store_name = $_POST['store_name'];
+            $need_assemble = $_POST['need_assemble'];
 
         // Tạo customer_id mới
         // Hàm sinh customer_id mới
@@ -86,8 +88,8 @@
         $order_date = date("Y-m-d");
 
         // Insert thông tin đơn hàng vào bảng Orders
-        $sql = "INSERT INTO Orders (order_id, customer_id, order_date, status, total_money) 
-                VALUES ('$order_id', '$customer_id', '$order_date', 'Pending', $total_money)";
+        $sql = "INSERT INTO Orders (order_id, customer_id, order_date, status, total_money, store_name, need_assemble) 
+                VALUES ('$order_id', '$customer_id', '$order_date', 'Pending', $total_money, '$store_name', '$need_assemble')";
         if ($conn->query($sql) === FALSE) {
             echo "Lỗi khi insert dữ liệu vào bảng Orders: " . $conn->error;
             $conn->close();
@@ -169,7 +171,7 @@
                 <div class="form__level1" style="display: flex;">
                     <form action="" method="POST" style="display: flex;">
                         <!-- billing detail -->
-                        <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px; height: 546px;">
+                        <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px; height: 648px;">
                             <div class="wrapper wrapper1" style="margin: auto; width: 736px;">
                                 <p>Billing Details</p>
                                 <div class="level">
@@ -187,9 +189,9 @@
                                         <p>Gender *</p>
                                         <select name="gender" id="" style="width: 203px;">
                                             <option value="0" style="line-height: 40px;">Select gender</option>
-                                            <option value="">Male</option>
-                                            <option value="">Female</option>
-                                            <option value="">Other</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                     <div>
@@ -203,10 +205,25 @@
                                         <input type="text" name="email" placeholder="e.g. youremail@gmail.com" style="width: 736px;">
                                     </div>
                                 </div>
-                                <div class="level" style="padding-bottom: 40px;">
+                                <div class="level">
                                     <div>
                                         <p>Address *</p>
                                         <input type="text" name="address" placeholder="e.g. No.1 Dai Co Viet, Hai Ba Trung, Ha Noi, Viet Nam" style="width: 736px;">
+                                    </div>
+                                </div>
+                                <div class="level" style="padding-bottom: 40px;">
+                                    <div>
+                                        <p>Choose Store *</p>
+                                        <select name="store_name" id="" style="width: 480px;">
+                                            <option value="0" style="line-height: 40px;">Select Store to Pickup</option>
+                                            <option value="No. 1 Dai Co Viet, Hai Ba Trung, Ha Noi">No. 1 Dai Co Viet, Hai Ba Trung, Ha Noi</option>
+                                            <option value="No. 298 Minh Khai, Bac Tu Liem, Ha Noi">No. 298 Minh Khai, Bac Tu Liem, Ha Noi</option>
+                                            <option value="No. 160 Phuc La, Ha Dong, Ha Noi">No. 160 Phuc La, Ha Dong, Ha Noi</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <p>Need Assemble? *</p>
+                                        <input type="text" name="need_assemble" placeholder="e.g. Y/N?" style="width: 200px;">
                                     </div>
                                 </div>
                             </div>
@@ -261,9 +278,6 @@
                         <!-- END: Place Order -->
                     </form>
                     
-
-                    
-
                 </div>
             </div>
 

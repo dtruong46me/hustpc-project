@@ -53,8 +53,9 @@ CREATE TABLE IF NOT EXISTS Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     order_date DATE,
     status CHAR(50),
-    total_money FLOAT
-    store_name VARCHAR(255)
+    total_money FLOAT,
+    store_name VARCHAR(255),
+    need_assemble CHAR(5)
 );
 
 CREATE TABLE IF NOT EXISTS OrderItems (
@@ -65,21 +66,4 @@ CREATE TABLE IF NOT EXISTS OrderItems (
     FOREIGN KEY (product_id, config_name) REFERENCES Configurations(product_id, config_name),
     price FLOAT,
     quantity INT
-);
-
-CREATE TABLE IF NOT EXISTS Cart (
-    cart_id CHAR(20) PRIMARY KEY,
-    total_money FLOAT
-);
-
-CREATE TABLE IF NOT EXISTS CartItems (
-    cart_id CHAR(20),
-    product_id CHAR(20),
-    pname CHAR(255),
-    config_price FLOAT,
-    quantity INT,
-    config_name CHAR(200),
-    PRIMARY KEY (cart_id, product_id),
-    FOREIGN KEY (cart_id) REFERENCES Cart(cart_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );

@@ -110,7 +110,7 @@
                     <i class="fa-solid fa-bars" style="margin-right: 12px; font-size: 18px;"></i>
                     <h3>All Categories</h3>
                 </a></li>
-                <li><a href="#">Build PC</a></li>
+                <li><a href="../php/buildpc.php">Build PC</a></li>
                 <li><a href="../php/product_list.php">Products</a></li>
                 <li><a href="#">Best Seller</a></li>
                 <li><a href="#">Blogs</a></li>

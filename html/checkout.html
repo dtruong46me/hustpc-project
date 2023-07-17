@@ -52,23 +52,23 @@
             <div class="main_form" style="display: flex; justify-content: center;">
                 <div class="form__level1" style="display: flex;">
                     <!-- billing detail -->
-                    <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px;">
+                    <div class="form1" style="width: 815px; border: 2px solid #fff; border-radius: 7px; margin-right: 14px; height: 648px;">
                         <div class="wrapper wrapper1" style="margin: auto; width: 736px;">
                             <p>Billing Details</p>
                             <div class="level">
                                 <div>
                                     <p>First name *</p>
-                                    <input type="text" placeholder="e.g. Truong" style="width: 343px;">
+                                    <input type="text" name="first_name" placeholder="e.g. Truong" style="width: 343px;">
                                 </div>
                                 <div>
                                     <p>Last name *</p>
-                                    <input type="text" placeholder="e.g. Phan Dinh" style="width: 368px;">
+                                    <input type="text" name="last_name" placeholder="e.g. Phan Dinh" style="width: 368px;">
                                 </div>
                             </div>
                             <div class="level">
                                 <div>
                                     <p>Gender *</p>
-                                    <select name="" id="" style="width: 203px;">
+                                    <select name="gender" id="" style="width: 203px;">
                                         <option value="0" style="line-height: 40px;">Select gender</option>
                                         <option value="">Male</option>
                                         <option value="">Female</option>
@@ -77,25 +77,40 @@
                                 </div>
                                 <div>
                                     <p>Phone number *</p>
-                                    <input type="text" placeholder="e.g. 0979870156" style="width: 508px;">
+                                    <input type="text" name="phone_number" placeholder="e.g. 0979870156" style="width: 508px;">
                                 </div>
                             </div>
                             <div class="level">
                                 <div>
                                     <p>Email Address *</p>
-                                    <input type="text" placeholder="e.g. youremail@gmail.com" style="width: 736px;">
+                                    <input type="text" name="email" placeholder="e.g. youremail@gmail.com" style="width: 736px;">
+                                </div>
+                            </div>
+                            <div class="level">
+                                <div>
+                                    <p>Address *</p>
+                                    <input type="text" name="address" placeholder="e.g. No.1 Dai Co Viet, Hai Ba Trung, Ha Noi, Viet Nam" style="width: 736px;">
                                 </div>
                             </div>
                             <div class="level" style="padding-bottom: 40px;">
                                 <div>
-                                    <p>Address *</p>
-                                    <input type="text" placeholder="e.g. No.1 Dai Co Viet, Hai Ba Trung, Ha Noi, Viet Nam" style="width: 736px;">
+                                    <p>Choose Store *</p>
+                                    <select name="store" id="" style="width: 480px;">
+                                        <option value="0" style="line-height: 40px;">Select Store to Pickup</option>
+                                        <option value="">No. 1 Dai Co Viet, Hai Ba Trung, Ha Noi</option>
+                                        <option value="">No. 298 Minh Khai, Bac Tu Liem, Ha Noi</option>
+                                        <option value="">No. 160 Phuc La, Ha Dong, Ha Noi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <p>Need Assemble? *</p>
+                                    <input type="text" name="need_assemble" placeholder="e.g. Y/N?" style="width: 200px;">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- your order -->
-                    <div class="place__order" style="width: 430px; height: 460px; border: 2px solid #fff; border-radius: 7px; margin-left: 14px;">
+                    <div class="place__order" style="width: 430px; border: 2px solid #fff; border-radius: 7px; margin-left: 14px;">
                         <div class="wrapper wrapper2" style="margin: auto; width: 370px;">
                             <p>Your Order</p>
                             <!-- product-header -->
@@ -119,6 +134,36 @@
                                 <div class="product__name">CPU Cooler Master Hyper 212RGB</div>
                                 <div class="product__qty">3</div>
                                 <div class="product__subtotal">$ 240.42</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">NVIDIA GeForce RTX 3080</div>
+                                <div class="product__qty">1</div>
+                                <div class="product__subtotal">$ 900.00</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">Corsair K95 RGB Platinum Keyboard Lorem ipsum</div>
+                                <div class="product__qty">2</div>
+                                <div class="product__subtotal">$ 700.50</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">NVIDIA GeForce RTX 3080</div>
+                                <div class="product__qty">1</div>
+                                <div class="product__subtotal">$ 900.00</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">Corsair K95 RGB Platinum Keyboard Lorem ipsum</div>
+                                <div class="product__qty">2</div>
+                                <div class="product__subtotal">$ 700.50</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">NVIDIA GeForce RTX 3080</div>
+                                <div class="product__qty">1</div>
+                                <div class="product__subtotal">$ 900.00</div>
+                            </div>
+                            <div class="product">
+                                <div class="product__name">Corsair K95 RGB Platinum Keyboard Lorem ipsum</div>
+                                <div class="product__qty">2</div>
+                                <div class="product__subtotal">$ 700.50</div>
                             </div>
                             <div class="product">
                                 <div class="product__name">NVIDIA GeForce RTX 3080</div>
